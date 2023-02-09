@@ -12,8 +12,8 @@ DIR=$2
 
 mkdir -p ${DIR}
 
-IODEPTH=(1 2 4 8 16 32 64 128)
-ZONES=(1 2 3 4 5 6 7 8)
+IODEPTH=(1 2 4 8 16 32 64 128 256 512 1024)
+ZONES=(1 2 3 4 5 6 7 8 9 10 11 12 13 14)
 
 echo mq-deadline | sudo tee /sys/block/${DEV}/queue/scheduler > /dev/null
 
