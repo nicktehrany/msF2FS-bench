@@ -21,6 +21,8 @@ zns_new_iodepth = dict()
 zns_new_jobs = dict()
 femu_def_conf_iodepth = dict()
 femu_def_conf_jobs = dict()
+femu_conf1_iodepth = dict()
+femu_conf1_jobs = dict()
 
 def parse_fio_data(data_path, data):
     if not os.path.exists(f'{data_path}') or \
@@ -54,6 +56,8 @@ def plot_iodepth():
     zns_new_iops_stddev = [None] * len(queue_depths)
     femu_def_conf_iops = [None] * len(queue_depths)
     femu_def_conf_iops_stddev = [None] * len(queue_depths)
+    femu_conf1_iops = [None] * len(queue_depths)
+    femu_conf1_iops_stddev = [None] * len(queue_depths)
 
     for key, item in zns_old_iodepth.items():
         zns_old_iops[int(math.log2(int(item['jobs'][0]['job options']['iodepth'])))] = item['jobs'][0]['write']['iops']/1000
@@ -67,12 +71,16 @@ def plot_iodepth():
         femu_def_conf_iops[int(math.log2(int(item['jobs'][0]['job options']['iodepth'])))] = item['jobs'][0]['write']['iops']/1000
         femu_def_conf_iops_stddev[int(math.log2(int(item['jobs'][0]['job options']['iodepth'])))] = item['jobs'][0]['write']['iops_stddev']/1000
 
+    for key, item in femu_conf1_iodepth.items():
+        femu_conf1_iops[int(math.log2(int(item['jobs'][0]['job options']['iodepth'])))] = item['jobs'][0]['write']['iops']/1000
+        femu_conf1_iops_stddev[int(math.log2(int(item['jobs'][0]['job options']['iodepth'])))] = item['jobs'][0]['write']['iops_stddev']/1000
+
     fig, ax = plt.subplots()
 
     ax.errorbar(queue_depths, zns_old_iops, yerr=zns_old_iops_stddev, markersize=4, capsize=3, marker='x', label='ZNS 1')
     ax.errorbar(queue_depths, zns_new_iops, yerr=zns_new_iops_stddev, markersize=4, capsize=3, marker='o', label='ZNS 2')
     ax.errorbar(queue_depths, femu_def_conf_iops, yerr=femu_def_conf_iops_stddev, markersize=4, capsize=3, marker=',', label='FEMU-Default')
-    # ax.errorbar(queue_depths, zns_fourzd, yerr=zns_fourzd_stdev, markersize=4, capsize=3, marker='.', label='ZNS 4 Zone')
+    ax.errorbar(queue_depths, femu_conf1_iops, yerr=femu_conf1_iops_stddev, markersize=4, capsize=3, marker='.', label='FEMU conf1')
     # ax.errorbar(queue_depths, zns_fivezd, yerr=zns_fivezd_stdev, markersize=4, capsize=3, marker='v', label='ZNS 5 Zones')
     # ax.errorbar(queue_depths, zns_sixzd, yerr=zns_sixzd_stdev, markersize=4, capsize=3, marker='<', label='ZNS 6 Zones')
     # ax.errorbar(queue_depths, zns_sevenzd, yerr=zns_sevenzd_stdev, markersize=4, capsize=3, marker='>', label='ZNS 7 Zone')
@@ -91,7 +99,7 @@ def plot_iodepth():
     ax.xaxis.set_ticks(queue_depths)
     ax.xaxis.set_ticklabels(xticks)
     ax.set_ylim(bottom=0, top=550)
-    ax.set_ylabel('KIOPS')
+    ax.set_ylabel('Throughput (KIOPS)')
     ax.set_xlabel('Queue Depth')
     plt.savefig(f'figs/zns_iodepth.pdf', bbox_inches='tight')
     plt.savefig(f'figs/zns_iodepth.png', bbox_inches='tight')
@@ -105,6 +113,8 @@ def plot_jobs():
     zns_new_iops_stddev = [None] * len(jobs)
     femu_def_conf_iops = [None] * len(jobs)
     femu_def_conf_iops_stddev = [None] * len(jobs)
+    femu_conf1_iops = [None] * len(jobs)
+    femu_conf1_iops_stddev = [None] * len(jobs)
 
     for key, item in zns_old_jobs.items():
         zns_old_iops[int(item['jobs'][0]['job options']['numjobs']) - 1] = item['jobs'][0]['write']['iops']/1000
@@ -118,12 +128,16 @@ def plot_jobs():
         femu_def_conf_iops[int(item['jobs'][0]['job options']['numjobs']) - 1] = item['jobs'][0]['write']['iops']/1000
         femu_def_conf_iops_stddev[int(item['jobs'][0]['job options']['numjobs']) - 1] = item['jobs'][0]['write']['iops_stddev']/1000
 
+    for key, item in femu_conf1_jobs.items():
+        femu_conf1_iops[int(item['jobs'][0]['job options']['numjobs']) - 1] = item['jobs'][0]['write']['iops']/1000
+        femu_conf1_iops_stddev[int(item['jobs'][0]['job options']['numjobs']) - 1] = item['jobs'][0]['write']['iops_stddev']/1000
+
     fig, ax = plt.subplots()
 
     ax.errorbar(jobs, zns_old_iops, yerr=zns_old_iops_stddev, markersize=4, capsize=3, marker='x', label='ZNS 1')
     ax.errorbar(jobs, zns_new_iops, yerr=zns_new_iops_stddev, markersize=4, capsize=3, marker='o', label='ZNS 2')
     ax.errorbar(jobs, femu_def_conf_iops, yerr=femu_def_conf_iops_stddev, markersize=4, capsize=3, marker=',', label='FEMU-Default')
-    # ax.errorbar(queue_depths, zns_fourzd, yerr=zns_fourzd_stdev, markersize=4, capsize=3, marker='.', label='ZNS 4 Zone')
+    ax.errorbar(jobs, femu_conf1_iops, yerr=femu_conf1_iops_stddev, markersize=4, capsize=3, marker='.', label='FEMU conf1')
     # ax.errorbar(queue_depths, zns_fivezd, yerr=zns_fivezd_stdev, markersize=4, capsize=3, marker='v', label='ZNS 5 Zones')
     # ax.errorbar(queue_depths, zns_sixzd, yerr=zns_sixzd_stdev, markersize=4, capsize=3, marker='<', label='ZNS 6 Zones')
     # ax.errorbar(queue_depths, zns_sevenzd, yerr=zns_sevenzd_stdev, markersize=4, capsize=3, marker='>', label='ZNS 7 Zone')
@@ -142,7 +156,7 @@ def plot_jobs():
     ax.xaxis.set_ticks(jobs)
     ax.xaxis.set_ticklabels(jobs)
     ax.set_ylim(bottom=0, top=550)
-    ax.set_ylabel('KIOPS')
+    ax.set_ylabel('Throughput (KIOPS)')
     ax.set_xlabel('Concurrent Jobs')
     plt.savefig(f'figs/zns_jobs.pdf', bbox_inches='tight')
     plt.savefig(f'figs/zns_jobs.png', bbox_inches='tight')
@@ -154,6 +168,7 @@ if __name__ == '__main__':
     zns_old_path = "zns-old"
     zns_new_path = "zns-new"
     femu_def_conf_path = "femu-def-conf"
+    femu_conf1_path = "femu-config-1"
 
     parse_fio_data(f'{file_path}/{zns_old_path}/iodepth/', zns_old_iodepth)
     parse_fio_data(f'{file_path}/{zns_old_path}/jobs/', zns_old_jobs)
@@ -161,6 +176,8 @@ if __name__ == '__main__':
     parse_fio_data(f'{file_path}/{zns_new_path}/jobs/', zns_new_jobs)
     parse_fio_data(f'{file_path}/{femu_def_conf_path}/iodepth/', femu_def_conf_iodepth)
     parse_fio_data(f'{file_path}/{femu_def_conf_path}/jobs/', femu_def_conf_jobs)
+    parse_fio_data(f'{file_path}/{femu_conf1_path}/iodepth/', femu_conf1_iodepth)
+    parse_fio_data(f'{file_path}/{femu_conf1_path}/jobs/', femu_conf1_jobs)
 
     plot_iodepth()
     plot_jobs()
