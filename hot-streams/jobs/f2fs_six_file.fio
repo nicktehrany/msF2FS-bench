@@ -1,11 +1,7 @@
 [global]
 name=zns-fio-three-file
 directory=/mnt/f2fs
-ioengine=io_uring
-fixedbufs=1
-registerfiles=1
-sqthread_poll=1
-iodepth=32
+ioengine=psync
 rw=write
 bs=4K
 runtime=30s

@@ -1,7 +1,11 @@
 [global]
-name=zns-fio-two-file
+name=zns-fio-three-file
 directory=/mnt/f2fs
-ioengine=psync
+ioengine=io_uring
+fixedbufs=1
+registerfiles=1
+sqthread_poll=1
+iodepth=32
 rw=write
 bs=4K
 runtime=30s
@@ -17,5 +21,10 @@ size=10G
 
 [file-2]
 filename=file_2
+write_hint=short
+size=10G
+
+[file-3]
+filename=file_3
 write_hint=short
 size=10G

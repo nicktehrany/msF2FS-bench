@@ -15,7 +15,3 @@ export DIR
 export ZNS
 
 ./f2fs_stream_bench
-
-mkdir -p figs
-
-python3 plot.py
