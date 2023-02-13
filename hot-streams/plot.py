@@ -105,8 +105,8 @@ if __name__ == '__main__':
     Requires the paths for the data containing the logs for all policies.
     
     Arguments:
-        -n: relative path to SPF data
-        -z: relative path to SRR data
+        -p: relative path to SPF data
+        -r: relative path to SRR data
     """
 
     file_path = '/'.join(os.path.abspath(__file__).split('/')[:-1])
@@ -115,18 +115,18 @@ if __name__ == '__main__':
     srr_path = None
 
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 'n:z:', ['n=', 'z='])
+        opts, args = getopt.getopt(sys.argv[1:], 'n:z:', ['p=', 'r='])
     except getopt.GetoptError:
         sys.exit(2)
 
     for opt, arg in opts:
-        if opt == '-n':
+        if opt == '-p':
             spf_path = arg
-        if opt == '-z':
+        if opt == '-r':
             srr_path = arg
 
     if spf_path == None or srr_path == None:
-        print(f"Error, missing arguments. < -n spf_data path > < -z srr_data path >")
+        print(f"Error, missing arguments. < -p spf_data path > < -r srr_data path >")
 
     file_path = '/'.join(os.path.abspath(__file__).split('/')[:-1])
 
