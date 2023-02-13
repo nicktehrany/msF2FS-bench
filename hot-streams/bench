@@ -8,10 +8,17 @@ if [ $# != 1 ]; then
 fi
 
 ZNS=$1
-DIR=data-${ZNS}-$(date +"%Y_%m_%d_%I_%M_%p")
-
-mkdir -p ${DIR}
-export DIR
 export ZNS
 
-./f2fs_stream_bench
+POLICIES=("spf" "srr")
+
+for policy in ${POLICIES[@]}; do
+
+    DIR=data-${ZNS}-${policy}-$(date +"%Y_%m_%d_%I_%M_%p")
+
+    mkdir -p ${DIR}
+    export DIR
+    export policy
+
+    ./f2fs_stream_bench
+done
