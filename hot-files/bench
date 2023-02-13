@@ -1,0 +1,17 @@
+#! /bin/bash
+
+set -e
+
+if [ $# != 1 ]; then
+    echo "Usage: $0 <ZNS device (e.g., nvme0n2)>"
+    exit 1
+fi
+
+ZNS=$1
+DIR=data-${ZNS}-$(date +"%Y_%m_%d_%I_%M_%p")
+
+mkdir -p ${DIR}
+export DIR
+export ZNS
+
+./f2fs_stream_bench
