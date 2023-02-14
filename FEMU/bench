@@ -32,5 +32,5 @@ for concur_level in ${ZONES[@]}; do
     echo "Running benchmark with concurrent zones: ${concur_level}"
     sudo nvme zns reset-zone -a /dev/${DEV}
 
-    sudo ${FIO_HOME}/fio --name=jobs-${concur_level} --filename=/dev/${DEV} --size=7% --offset_increment=7% --ioengine=io_uring --fixedbufs=1 --registerfiles=1 --hipri=1 --sqthread_poll=1 --iodepth=32 --rw=write --bs=4K --direct=1 --zonemode=zbd --runtime=30s --numjobs=${concur_level} --max_open_zones=14 --group_reporting --ramp_time=10s --ioscheduler=mq-deadline --time_based --output-format=json --output=${DIR}/jobs/${concur_level}.json
+    sudo ${FIO_HOME}/fio --name=jobs-${concur_level} --filename=/dev/${DEV} --size=7% --offset_increment=7% --ioengine=io_uring --fixedbufs=1 --registerfiles=1 --hipri=1 --sqthread_poll=1 --iodepth=32 --rw=write --bs=4K --direct=1 --zonemode=zbd --runtime=30s --numjobs=${concur_level} --thread=1 --max_open_zones=14 --group_reporting --ramp_time=10s --ioscheduler=mq-deadline --time_based --output-format=json --output=${DIR}/jobs/${concur_level}.json
 done
