@@ -40,46 +40,79 @@ def parse_fio_data(data_path, data):
 
     return 1
 
-def plot_throughput(nr_streams, spf_data, f2fs_data):
+def plot_throughput(nr_streams, spf_data, srr_data):
     x = np.arange(0, nr_streams)
 
-    iops = [None] * nr_streams
-    iops_stddev = [None] * nr_streams
+    spf_iops = [None] * nr_streams
+    spf_iops_stddev = [None] * nr_streams
+    srr_iops = [None] * nr_streams
+    srr_iops_stddev = [None] * nr_streams
 
     for key, item in spf_data.items():
         if 'single_file' in key:
-            iops[0] = item['jobs'][0]['write']['iops']/1000
-            iops_stddev[0] = item['jobs'][0]['write']['iops_stddev']/1000
+            spf_iops[0] = item['jobs'][0]['write']['iops']/1000
+            spf_iops_stddev[0] = item['jobs'][0]['write']['iops_stddev']/1000
         if 'two_file' in key:
-            iops[1] = item['jobs'][0]['write']['iops']/1000
-            iops_stddev[1] = item['jobs'][0]['write']['iops_stddev']/1000
+            spf_iops[1] = item['jobs'][0]['write']['iops']/1000
+            spf_iops_stddev[1] = item['jobs'][0]['write']['iops_stddev']/1000
         if 'three_file' in key:
-            iops[2] = item['jobs'][0]['write']['iops']/1000
-            iops_stddev[2] = item['jobs'][0]['write']['iops_stddev']/1000
+            spf_iops[2] = item['jobs'][0]['write']['iops']/1000
+            spf_iops_stddev[2] = item['jobs'][0]['write']['iops_stddev']/1000
         if 'four_file' in key:
-            iops[3] = item['jobs'][0]['write']['iops']/1000
-            iops_stddev[3] = item['jobs'][0]['write']['iops_stddev']/1000
+            spf_iops[3] = item['jobs'][0]['write']['iops']/1000
+            spf_iops_stddev[3] = item['jobs'][0]['write']['iops_stddev']/1000
         if 'five_file' in key:
-            iops[4] = item['jobs'][0]['write']['iops']/1000
-            iops_stddev[4] = item['jobs'][0]['write']['iops_stddev']/1000
+            spf_iops[4] = item['jobs'][0]['write']['iops']/1000
+            spf_iops_stddev[4] = item['jobs'][0]['write']['iops_stddev']/1000
         if 'six_file' in key:
-            iops[5] = item['jobs'][0]['write']['iops']/1000
-            iops_stddev[5] = item['jobs'][0]['write']['iops_stddev']/1000
+            spf_iops[5] = item['jobs'][0]['write']['iops']/1000
+            spf_iops_stddev[5] = item['jobs'][0]['write']['iops_stddev']/1000
         if 'seven_file' in key:
-            iops[6] = item['jobs'][0]['write']['iops']/1000
-            iops_stddev[6] = item['jobs'][0]['write']['iops_stddev']/1000
+            spf_iops[6] = item['jobs'][0]['write']['iops']/1000
+            spf_iops_stddev[6] = item['jobs'][0]['write']['iops_stddev']/1000
         if 'eight_file' in key:
-            iops[7] = item['jobs'][0]['write']['iops']/1000
-            iops_stddev[7] = item['jobs'][0]['write']['iops_stddev']/1000
+            spf_iops[7] = item['jobs'][0]['write']['iops']/1000
+            spf_iops_stddev[7] = item['jobs'][0]['write']['iops_stddev']/1000
         if 'nine_file' in key:
-            iops[8] = item['jobs'][0]['write']['iops']/1000
-            iops_stddev[8] = item['jobs'][0]['write']['iops_stddev']/1000
+            spf_iops[8] = item['jobs'][0]['write']['iops']/1000
+            spf_iops_stddev[8] = item['jobs'][0]['write']['iops_stddev']/1000
+
+    for key, item in srr_data.items():
+        if 'single_file' in key:
+            srr_iops[0] = item['jobs'][0]['write']['iops']/1000
+            srr_iops_stddev[0] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'two_file' in key:
+            srr_iops[1] = item['jobs'][0]['write']['iops']/1000
+            srr_iops_stddev[1] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'three_file' in key:
+            srr_iops[2] = item['jobs'][0]['write']['iops']/1000
+            srr_iops_stddev[2] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'four_file' in key:
+            srr_iops[3] = item['jobs'][0]['write']['iops']/1000
+            srr_iops_stddev[3] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'five_file' in key:
+            srr_iops[4] = item['jobs'][0]['write']['iops']/1000
+            srr_iops_stddev[4] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'six_file' in key:
+            srr_iops[5] = item['jobs'][0]['write']['iops']/1000
+            srr_iops_stddev[5] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'seven_file' in key:
+            srr_iops[6] = item['jobs'][0]['write']['iops']/1000
+            srr_iops_stddev[6] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'eight_file' in key:
+            srr_iops[7] = item['jobs'][0]['write']['iops']/1000
+            srr_iops_stddev[7] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'nine_file' in key:
+            srr_iops[8] = item['jobs'][0]['write']['iops']/1000
+            srr_iops_stddev[8] = item['jobs'][0]['write']['iops_stddev']/1000
 
     fig, ax = plt.subplots()
 
-    rects1 = ax.bar(x, iops, yerr=iops_stddev, capsize=3, label="SPF")
+    rects1 = ax.bar(x - 0.2, spf_iops, yerr=spf_iops_stddev, width=0.3, capsize=3, label="SPF")
+    rects2 = ax.bar(x + 0.2, srr_iops, yerr=srr_iops_stddev, width=0.3, capsize=3, label="SRR")
 
-    ax.bar_label(rects1, padding=3, fmt="%.1f")
+    # ax.bar_label(rects1, padding=3, fmt="%.1f")
+    # ax.bar_label(rects2, padding=3, fmt="%.1f")
 
     # Plotting horizontal lines for max throughput on ZNS
     # plt.axhline(y = 257364.462305/1000, color = 'r', linestyle = ':', label = "ZNS 1 Zone")
@@ -87,9 +120,9 @@ def plot_throughput(nr_streams, spf_data, f2fs_data):
     # plt.axhline(y = 378353.052926/1000, color = 'green', linestyle = 'dashdot', label = "ZNS 3 Zones")
 
     fig.tight_layout()
-    # ax.grid(which='major', linestyle='dashed', linewidth='1')
+    ax.grid(which='major', linestyle='dashed', linewidth='1')
     ax.set_axisbelow(True)
-    ax.legend(loc='upper right')
+    ax.legend(loc='upper left')
     ax.xaxis.set_ticks(x)
     ax.xaxis.set_ticklabels(np.arange(1,nr_streams + 1))
     ax.set_ylim(bottom=0)
@@ -115,7 +148,7 @@ if __name__ == '__main__':
     srr_path = None
 
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 'n:z:', ['p=', 'r='])
+        opts, args = getopt.getopt(sys.argv[1:], 'p:r:', ['p=', 'r='])
     except getopt.GetoptError:
         sys.exit(2)
 
@@ -127,6 +160,7 @@ if __name__ == '__main__':
 
     if spf_path == None or srr_path == None:
         print(f"Error, missing arguments. < -p spf_data path > < -r srr_data path >")
+        sys.exit(2)
 
     file_path = '/'.join(os.path.abspath(__file__).split('/')[:-1])
 
@@ -136,6 +170,4 @@ if __name__ == '__main__':
     parse_fio_data(f'{file_path}/{spf_path}/', spf_data)
     parse_fio_data(f'{file_path}/{srr_path}/', srr_data)
 
-    # plot_throughput(3)
-    # plot_throughput(6)
     plot_throughput(9, spf_data, srr_data)
