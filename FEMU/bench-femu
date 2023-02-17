@@ -22,6 +22,6 @@ for iodepth in ${IODEPTH[@]}; do
         echo "Running benchmark with ${jobs} jobs - ${iodepth}qd"
         sudo nvme zns reset-zone -a /dev/${DEV}
 
-        sudo ${FIO_HOME}/fio --name=iodepth-${iodepth}-zones-${jobs} --filename=/dev/${DEV} --size=7% --ioengine=io_uring --fixedbufs=1 --registerfiles=1 --hipri=1 --sqthread_poll=1 --iodepth=${iodepth} --rw=write --bs=4K --direct=1 --zonemode=zbd --runtime=30s --numjobs=${jobs} --max_open_zones=14 --group_reporting --ramp_time=10s --ioscheduler=mq-deadline --time_based --output-format=json --output=${DIR}/iodepth-${iodepth}-zones-${jobs}.json
+        sudo ${FIO_HOME}/fio --name=iodepth-${iodepth}-zones-${jobs} --filename=/dev/${DEV} --size=7% --offset_increment=7% --ioengine=io_uring --fixedbufs=1 --registerfiles=1 --hipri=1 --sqthread_poll=1 --iodepth=${iodepth} --rw=write --bs=4K --direct=1 --zonemode=zbd --runtime=30s --numjobs=${jobs} --max_open_zones=14 --group_reporting --ramp_time=10s --ioscheduler=mq-deadline --time_based --output-format=json --output=${DIR}/iodepth-${iodepth}-zones-${jobs}.json
     done
 done
