@@ -1,0 +1,98 @@
+#! /bin/bash
+
+set -e
+
+if [ $# != 1 ]; then
+    echo "Usage: $0 <ZNS device (e.g., nvme0n2)>"
+    exit 1
+fi
+
+setup_msf2fs() {
+    ZNS=$1
+    MOUNT="/mnt/f2fs"
+
+    DEV=$(sudo ../nullblk_create 4096 4096)
+    export DEV
+    export ZNS
+
+    sudo nvme zns reset-zone /dev/${ZNS} -a
+    echo mq-deadline | sudo tee /sys/block/${ZNS}/queue/scheduler > /dev/null
+    sudo env "PATH=${PATH}" mkfs.f2fs -f -m -c /dev/${ZNS} /dev/${DEV}
+    sudo mkdir -p /mnt/f2fs
+    sudo mount -t f2fs -o hot_data_streams=$2 -o warm_data_streams=$3 -o cold_data_streams=$4 -o stream_policy=$5 /dev/${DEV} ${MOUNT}
+    sudo chown -R ${USER} /mnt/f2fs
+}
+
+cleanup() {
+    sudo sync # avoid errors on busy unmount
+    sudo umount /dev/${DEV}
+    DEV_ID=$(echo "${DEV: -1}")
+    sudo ../nullblk_delete $DEV_ID
+}
+
+ZNS=$1
+export ZNS
+
+POLICIES=("spf" "srr")
+
+for policy in ${POLICIES[@]}; do
+
+    DIR=data-${policy}
+
+    mkdir -p ${DIR}
+
+    echo "Running benchmark with 1 stream and 1 hot file"
+    setup_msf2fs ${ZNS} 1 1 1 ${policy}
+    sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/single_file.json jobs/f2fs_single_file.fio
+    cleanup
+
+    echo "Running benchmark with 2 streams and 2 hot files"
+    setup_msf2fs ${ZNS} 2 1 1 ${policy}
+    sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/two_file.json jobs/f2fs_two_file.fio
+    cleanup
+
+    echo "Running benchmark with 3 streams and 3 hot files"
+    setup_msf2fs ${ZNS} 3 1 1 ${policy}
+    sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/three_file.json jobs/f2fs_three_file.fio
+    cleanup
+
+    echo "Running benchmark with 4 streams and 4 hot files"
+    setup_msf2fs ${ZNS} 4 1 1 ${policy}
+    sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/four_file.json jobs/f2fs_four_file.fio
+    cleanup
+
+    echo "Running benchmark with 5 streams and 5 hot files"
+    setup_msf2fs ${ZNS} 5 1 1 ${policy}
+    sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/five_file.json jobs/f2fs_five_file.fio
+    cleanup
+
+    echo "Running benchmark with 6 streams and 6 hot files"
+    setup_msf2fs ${ZNS} 6 1 1 ${policy}
+    sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/six_file.json jobs/f2fs_six_file.fio
+    cleanup
+
+    echo "Running benchmark with 7 streams and 7 hot files"
+    setup_msf2fs ${ZNS} 7 1 1 ${policy}
+    sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/seven_file.json jobs/f2fs_seven_file.fio
+    cleanup
+
+    echo "Running benchmark with 8 streams and 8 hot files"
+    setup_msf2fs ${ZNS} 8 1 1 ${policy}
+    sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/eight_file.json jobs/f2fs_eight_file.fio
+    cleanup
+
+    echo "Running benchmark with 9 streams and 9 hot files"
+    setup_msf2fs ${ZNS} 9 1 1 ${policy}
+    sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/nine_file.json jobs/f2fs_nine_file.fio
+    cleanup
+
+    echo "Running benchmark with 10 streams and 10 hot files"
+    setup_msf2fs ${ZNS} 10 1 1 ${policy}
+    sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/ten_file.json jobs/f2fs_ten_file.fio
+    cleanup
+
+    echo "Running benchmark with 11 streams and 11 hot files"
+    setup_msf2fs ${ZNS} 11 1 1 ${policy}
+    sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/eleven_file.json jobs/f2fs_eleven_file.fio
+    cleanup
+done
