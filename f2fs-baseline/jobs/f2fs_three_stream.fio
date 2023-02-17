@@ -17,13 +17,13 @@ group_reporting
 fsync=1
 
 [hot-file]
-size=20G
 write_hint=short
+size=10G
 
 [warm-file]
-size=20G
 write_hint=medium
+size=10G
 
 [cold-file]
-size=20G
 write_hint=extreme
+size=10G

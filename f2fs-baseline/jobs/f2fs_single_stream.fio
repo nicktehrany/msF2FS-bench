@@ -18,4 +18,4 @@ fsync=1
 
 [hot-file]
 write_hint=short
-size=20G
+size=10G

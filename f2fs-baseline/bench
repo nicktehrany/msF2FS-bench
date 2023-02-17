@@ -37,7 +37,7 @@ DATA="data"
 
 mkdir -p ${DATA}
 
-JOBS=(1 2 3)
+JOBS=(1 2 3 4 5)
 
 for jobs in ${JOBS[@]}; do
     echo "Running benchmark with hot file - jobs ${jobs}"
