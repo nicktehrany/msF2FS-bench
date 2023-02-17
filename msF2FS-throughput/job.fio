@@ -13,8 +13,9 @@ numjobs=${JOBS}
 ramp_time=10s 
 ioscheduler=mq-deadline
 group_reporting
+thread=1
+fsync=32
 
-[file-1]
-filename=file_1
+[hot-file]
 write_hint=short
 size=10G
