@@ -37,50 +37,50 @@ DIR=data-f2fs
 
 mkdir -p ${DIR}
 
-# echo "Running benchmark with 1 hot file"
-# setup_f2fs ${ZNS}
-# sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/single_file.json jobs/f2fs_single_file.fio
-# cleanup
+echo "Running benchmark with 1 hot file"
+setup_f2fs ${ZNS}
+sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/single_file.json jobs/f2fs_single_file.fio
+cleanup
 
-# echo "Running benchmark with 2 hot files"
-# setup_f2fs ${ZNS}
-# sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/two_file.json jobs/f2fs_two_file.fio
-# cleanup
+echo "Running benchmark with 2 hot files"
+setup_f2fs ${ZNS}
+sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/two_file.json jobs/f2fs_two_file.fio
+cleanup
 
-# echo "Running benchmark with 3 hot files"
-# setup_f2fs ${ZNS}
-# sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/three_file.json jobs/f2fs_three_file.fio
-# cleanup
+echo "Running benchmark with 3 hot files"
+setup_f2fs ${ZNS}
+sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/three_file.json jobs/f2fs_three_file.fio
+cleanup
 
-# echo "Running benchmark with 4 hot files"
-# setup_f2fs ${ZNS}
-# sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/four_file.json jobs/f2fs_four_file.fio
-# cleanup
+echo "Running benchmark with 4 hot files"
+setup_f2fs ${ZNS}
+sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/four_file.json jobs/f2fs_four_file.fio
+cleanup
 
-# echo "Running benchmark with 5 hot files"
-# setup_f2fs ${ZNS}
-# sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/five_file.json jobs/f2fs_five_file.fio
-# cleanup
+echo "Running benchmark with 5 hot files"
+setup_f2fs ${ZNS}
+sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/five_file.json jobs/f2fs_five_file.fio
+cleanup
 
-# echo "Running benchmark with 6 hot files"
-# setup_f2fs ${ZNS}
-# sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/six_file.json jobs/f2fs_six_file.fio
-# cleanup
+echo "Running benchmark with 6 hot files"
+setup_f2fs ${ZNS}
+sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/six_file.json jobs/f2fs_six_file.fio
+cleanup
 
-# echo "Running benchmark with 7 hot files"
-# setup_f2fs ${ZNS}
-# sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/seven_file.json jobs/f2fs_seven_file.fio
-# cleanup
+echo "Running benchmark with 7 hot files"
+setup_f2fs ${ZNS}
+sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/seven_file.json jobs/f2fs_seven_file.fio
+cleanup
 
-# echo "Running benchmark with 8 hot files"
-# setup_f2fs ${ZNS}
-# sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/eight_file.json jobs/f2fs_eight_file.fio
-# cleanup
+echo "Running benchmark with 8 hot files"
+setup_f2fs ${ZNS}
+sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/eight_file.json jobs/f2fs_eight_file.fio
+cleanup
 
-# echo "Running benchmark with 9 hot files"
-# setup_f2fs ${ZNS}
-# sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/nine_file.json jobs/f2fs_nine_file.fio
-# cleanup
+echo "Running benchmark with 9 hot files"
+setup_f2fs ${ZNS}
+sudo ${FIO_HOME}/fio --output-format=json --output=${DIR}/nine_file.json jobs/f2fs_nine_file.fio
+cleanup
 
 echo "Running benchmark with 10 hot files"
 setup_f2fs ${ZNS}
