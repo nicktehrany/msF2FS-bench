@@ -17,6 +17,10 @@ plt.rc('xtick', labelsize=12)    # fontsize of the tick labels
 plt.rc('ytick', labelsize=12)    # fontsize of the tick labels
 plt.rc('legend', fontsize=12)    # legend fontsize
 
+msf2fs_spf_data = dict()
+msf2fs_srr_data = dict()
+f2fs_data = dict()
+
 def parse_fio_data(data_path, data):
     if not os.path.exists(f'{data_path}') or \
             os.listdir(f'{data_path}') == []: 
@@ -40,134 +44,64 @@ def parse_fio_data(data_path, data):
 
     return 1
 
-def plot_throughput(nr_streams, spf_data, srr_data):
-    x = np.arange(0, nr_streams)
+def plot_throughput():
+    x = np.arange(0, 11)
+    width = 0.25
 
-    spf_iops = [None] * nr_streams
-    spf_iops_stddev = [None] * nr_streams
-    srr_iops = [None] * nr_streams
-    srr_iops_stddev = [None] * nr_streams
+    msf2fs_spf_iops = [None] * 11
+    msf2fs_spf_stddev = [None] * 11
+    msf2fs_srr_iops = [None] * 11
+    msf2fs_srr_stddev = [None] * 11
+    f2fs_iops = [None] * 11
+    f2fs_stddev = [None] * 11
 
-    for key, item in spf_data.items():
-        if 'single_file' in key:
-            spf_iops[0] = item['jobs'][0]['write']['iops']/1000
-            spf_iops_stddev[0] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'two_file' in key:
-            spf_iops[1] = item['jobs'][0]['write']['iops']/1000
-            spf_iops_stddev[1] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'three_file' in key:
-            spf_iops[2] = item['jobs'][0]['write']['iops']/1000
-            spf_iops_stddev[2] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'four_file' in key:
-            spf_iops[3] = item['jobs'][0]['write']['iops']/1000
-            spf_iops_stddev[3] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'five_file' in key:
-            spf_iops[4] = item['jobs'][0]['write']['iops']/1000
-            spf_iops_stddev[4] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'six_file' in key:
-            spf_iops[5] = item['jobs'][0]['write']['iops']/1000
-            spf_iops_stddev[5] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'seven_file' in key:
-            spf_iops[6] = item['jobs'][0]['write']['iops']/1000
-            spf_iops_stddev[6] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'eight_file' in key:
-            spf_iops[7] = item['jobs'][0]['write']['iops']/1000
-            spf_iops_stddev[7] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'nine_file' in key:
-            spf_iops[8] = item['jobs'][0]['write']['iops']/1000
-            spf_iops_stddev[8] = item['jobs'][0]['write']['iops_stddev']/1000
+    for key, item in msf2fs_spf_data.items():
+        msf2fs_spf_iops[int(item['global options']['numjobs']) - 1] = item['jobs'][0]['write']['iops']/1000
+        msf2fs_spf_stddev[int(item['global options']['numjobs']) - 1] = item['jobs'][0]['write']['iops_stddev']/1000
 
-    for key, item in srr_data.items():
-        if 'single_file' in key:
-            srr_iops[0] = item['jobs'][0]['write']['iops']/1000
-            srr_iops_stddev[0] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'two_file' in key:
-            srr_iops[1] = item['jobs'][0]['write']['iops']/1000
-            srr_iops_stddev[1] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'three_file' in key:
-            srr_iops[2] = item['jobs'][0]['write']['iops']/1000
-            srr_iops_stddev[2] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'four_file' in key:
-            srr_iops[3] = item['jobs'][0]['write']['iops']/1000
-            srr_iops_stddev[3] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'five_file' in key:
-            srr_iops[4] = item['jobs'][0]['write']['iops']/1000
-            srr_iops_stddev[4] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'six_file' in key:
-            srr_iops[5] = item['jobs'][0]['write']['iops']/1000
-            srr_iops_stddev[5] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'seven_file' in key:
-            srr_iops[6] = item['jobs'][0]['write']['iops']/1000
-            srr_iops_stddev[6] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'eight_file' in key:
-            srr_iops[7] = item['jobs'][0]['write']['iops']/1000
-            srr_iops_stddev[7] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'nine_file' in key:
-            srr_iops[8] = item['jobs'][0]['write']['iops']/1000
-            srr_iops_stddev[8] = item['jobs'][0]['write']['iops_stddev']/1000
+    for key, item in msf2fs_srr_data.items():
+        msf2fs_srr_iops[int(item['global options']['numjobs']) - 1] = item['jobs'][0]['write']['iops']/1000
+        msf2fs_srr_stddev[int(item['global options']['numjobs']) - 1] = item['jobs'][0]['write']['iops_stddev']/1000
+
+    for key, item in f2fs_data.items():
+        f2fs_iops[int(item['global options']['numjobs']) - 1] = item['jobs'][0]['write']['iops']/1000
+        f2fs_stddev[int(item['global options']['numjobs']) - 1] = item['jobs'][0]['write']['iops_stddev']/1000
 
     fig, ax = plt.subplots()
 
-    rects1 = ax.bar(x - 0.2, spf_iops, yerr=spf_iops_stddev, width=0.3, capsize=3, label="SPF")
-    rects2 = ax.bar(x + 0.2, srr_iops, yerr=srr_iops_stddev, width=0.3, capsize=3, label="SRR")
+    rects1 = ax.bar(x - width, msf2fs_spf_iops, yerr=msf2fs_spf_stddev, capsize=3, width=width, hatch='x', label="msF2FS (SPF)")
+    rects2 = ax.bar(x, msf2fs_srr_iops, yerr=msf2fs_srr_stddev, capsize=3, width=width, hatch='', label="msF2FS (SRR)")
+    rects3 = ax.bar(x + width, f2fs_iops, yerr=f2fs_stddev, capsize=3, width=width, hatch='/', label="F2FS")
 
-    # ax.bar_label(rects1, padding=3, fmt="%.1f")
-    # ax.bar_label(rects2, padding=3, fmt="%.1f")
-
-    # Plotting horizontal lines for max throughput on ZNS
-    # plt.axhline(y = 257364.462305/1000, color = 'r', linestyle = ':', label = "ZNS 1 Zone")
-    # plt.axhline(y = 459717.450472/1000, color = 'gray', linestyle = 'dashed', label = "ZNS 2 Zones")
-    # plt.axhline(y = 378353.052926/1000, color = 'green', linestyle = 'dashdot', label = "ZNS 3 Zones")
+    # For whatever reason we have to force the hatch patterns
+    for i in range(len(msf2fs_spf_iops)):
+        rects1[i].set_edgecolor("black")
+        rects1[i].set_hatch("xx")
+    for i in range(len(msf2fs_srr_iops)):
+        rects2[i].set_edgecolor("black")
+        rects2[i].set_hatch("o")
+    for i in range(len(f2fs_iops)):
+        rects3[i].set_edgecolor("black")
+        rects3[i].set_hatch("/")
 
     fig.tight_layout()
     ax.grid(which='major', linestyle='dashed', linewidth='1')
     ax.set_axisbelow(True)
-    ax.legend(loc='upper left')
+    ax.legend(loc='best',ncol=2)
     ax.xaxis.set_ticks(x)
-    ax.xaxis.set_ticklabels(np.arange(1,nr_streams + 1))
-    ax.set_ylim(bottom=0)
+    ax.xaxis.set_ticklabels(np.arange(1,12))
+    ax.set_ylim(bottom=0,top=350)
     ax.set_ylabel('KIOPS')
-    ax.set_xlabel('Streams')
-    plt.savefig(f'figs/msf2fs-hot-streams.pdf', bbox_inches='tight')
-    plt.savefig(f'figs/msf2fs-hot-streams.png', bbox_inches='tight')
+    ax.set_xlabel('Concurrent Files')
+    plt.savefig(f'figs/msf2fs-throughput.pdf', bbox_inches='tight')
+    plt.savefig(f'figs/msf2fs-throughput.png', bbox_inches='tight')
     plt.clf()
 
 if __name__ == '__main__':
-    """
-    Plots the throughput of msF2FS with varying policies and active streams.
-    Requires the paths for the data containing the logs for all policies.
-    
-    Arguments:
-        -p: relative path to SPF data
-        -r: relative path to SRR data
-    """
-
-    file_path = '/'.join(os.path.abspath(__file__).split('/')[:-1])
-    
-    spf_path = None
-    srr_path = None
-
-    try:
-        opts, args = getopt.getopt(sys.argv[1:], 'p:r:', ['p=', 'r='])
-    except getopt.GetoptError:
-        sys.exit(2)
-
-    for opt, arg in opts:
-        if opt == '-p':
-            spf_path = arg
-        if opt == '-r':
-            srr_path = arg
-
-    if spf_path == None or srr_path == None:
-        print(f"Error, missing arguments. < -p spf_data path > < -r srr_data path >")
-        sys.exit(2)
-
     file_path = '/'.join(os.path.abspath(__file__).split('/')[:-1])
 
-    spf_data = dict()
-    srr_data = dict()
+    parse_fio_data(f'{file_path}/data-spf/', msf2fs_spf_data)
+    parse_fio_data(f'{file_path}/data-srr/', msf2fs_srr_data)
+    parse_fio_data(f'{file_path}/data-f2fs/', f2fs_data)
 
-    parse_fio_data(f'{file_path}/{spf_path}/', spf_data)
-    parse_fio_data(f'{file_path}/{srr_path}/', srr_data)
-
-    plot_throughput(9, spf_data, srr_data)
+    plot_throughput()
