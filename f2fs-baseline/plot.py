@@ -104,10 +104,10 @@ def plot_throughput():
     rects2 = ax.bar(x, two_stream_iops, yerr=two_stream_stddev, capsize=3, width=width, hatch='', label="2 Concurrent Logs")
     rects3 = ax.bar(x + width, three_stream_iops, yerr=three_stream_stddev, capsize=3, width=width, hatch='/', label="3 Concurrent Logs")
 
-    # Somehow we have to force the hatch patterns
+    # For whatever reason we have to force the hatch patterns
     for i in range(len(single_stream_iops)):
         rects1[i].set_edgecolor("black")
-        rects1[i].set_hatch("x")
+        rects1[i].set_hatch("xx")
     for i in range(len(two_stream_iops)):
         rects2[i].set_edgecolor("black")
         rects2[i].set_hatch("o")

@@ -171,7 +171,7 @@ def plot_femu_bench():
     ax.legend(loc='lower right', ncol=2)
     ax.xaxis.set_ticks(jobs)
     ax.xaxis.set_ticklabels(jobs)
-    ax.set_ylim(bottom=0, top=600)
+    ax.set_ylim(bottom=0, top=650)
     ax.set_ylabel('Throughput (KIOPS)')
     ax.set_xlabel('Concurrent Jobs')
     plt.savefig(f'figs/femu-bench-jobs.pdf', bbox_inches='tight')
