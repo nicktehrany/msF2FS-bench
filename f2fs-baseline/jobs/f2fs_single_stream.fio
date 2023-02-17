@@ -14,7 +14,7 @@ thread=1
 ramp_time=10s 
 ioscheduler=mq-deadline
 group_reporting
-fsync=1
+fsync=32
 
 [hot-file]
 write_hint=short
