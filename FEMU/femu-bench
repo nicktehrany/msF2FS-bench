@@ -1,0 +1,27 @@
+#! /bin/bash
+
+set -e
+
+if [ $# != 2 ]; then
+    echo "Usage: $0 <device (e.g., nvme0n2)> <output data_dir>"
+    exit 1
+fi
+
+DEV=$1
+DIR=$2
+
+mkdir -p ${DIR}
+
+IODEPTH=(2 4 8 32 128)
+ZONES=(1 2 3 4 5 6 7 8 9 10 11 12 13 14)
+
+echo mq-deadline | sudo tee /sys/block/${DEV}/queue/scheduler > /dev/null
+
+for iodepth in ${IODEPTH[@]}; do
+    for jobs in ${ZONES[@]}; do
+        echo "Running benchmark with ${jobs} jobs - ${iodepth}qd"
+        sudo nvme zns reset-zone -a /dev/${DEV}
+
+        sudo ${FIO_HOME}/fio --name=iodepth-${iodepth}-zones-${jobs} --filename=/dev/${DEV} --size=7% --ioengine=io_uring --fixedbufs=1 --registerfiles=1 --hipri=1 --sqthread_poll=1 --iodepth=${iodepth} --rw=write --bs=4K --direct=1 --zonemode=zbd --runtime=30s --numjobs=${jobs} --max_open_zones=14 --group_reporting --ramp_time=10s --ioscheduler=mq-deadline --time_based --output-format=json --output=${DIR}/iodepth-${iodepth}-zones-${jobs}.json
+    done
+done
