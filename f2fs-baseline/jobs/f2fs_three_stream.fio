@@ -9,11 +9,12 @@ iodepth=32
 rw=write
 bs=4K
 runtime=30s
-numjobs=1
+numjobs=${JOBS}
 thread=1
 ramp_time=10s 
 ioscheduler=mq-deadline
 group_reporting
+fsync=1
 
 [hot-file]
 size=20G

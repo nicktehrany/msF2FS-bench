@@ -37,17 +37,21 @@ DATA="data"
 
 mkdir -p ${DATA}
 
-echo "Running benchmark with hot file"
-setup_f2fs
-sudo env ${FIO_HOME}/fio --output-format=json --output=${DATA}/single_stream.json jobs/f2fs_single_stream.fio
-cleanup
+JOBS=(1 2 3)
 
-echo "Running benchmark with hot and cold files"
-setup_f2fs
-sudo env ${FIO_HOME}/fio --output-format=json --output=${DATA}/two_stream.json jobs/f2fs_two_stream.fio
-cleanup
+for jobs in ${JOBS[@]}; do
+    echo "Running benchmark with hot file - jobs ${jobs}"
+    setup_f2fs
+    sudo env "JOBS=${jobs}" ${FIO_HOME}/fio --output-format=json --output=${DATA}/single_stream-${jobs}.json jobs/f2fs_single_stream.fio
+    cleanup
 
-echo "Running benchmark with hot warm and cold files"
-setup_f2fs
-sudo env ${FIO_HOME}/fio --output-format=json --output=${DATA}/three_stream.json jobs/f2fs_three_stream.fio
-cleanup
+    echo "Running benchmark with hot and cold files - jobs ${jobs}"
+    setup_f2fs
+    sudo env "JOBS=${jobs}" ${FIO_HOME}/fio --output-format=json --output=${DATA}/two_stream-${jobs}.json jobs/f2fs_two_stream.fio
+    cleanup
+
+    echo "Running benchmark with hot warm and cold files - jobs ${jobs}"
+    setup_f2fs
+    sudo env "JOBS=${jobs}" ${FIO_HOME}/fio --output-format=json --output=${DATA}/three_stream-${jobs}.json jobs/f2fs_three_stream.fio
+    cleanup
+done
