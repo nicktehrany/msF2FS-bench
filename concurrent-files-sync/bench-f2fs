@@ -61,7 +61,6 @@ echo "Running benchmark with 5 hot files"
 setup_f2fs ${ZNS}
 sudo env "NR_FILES=5" ${FIO_HOME}/fio --output-format=json --output=${DIR}/five_file.json job.fio
 cleanup
-exit
 
 echo "Running benchmark with 6 hot files"
 setup_f2fs ${ZNS}
