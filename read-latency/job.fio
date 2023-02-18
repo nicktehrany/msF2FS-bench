@@ -38,4 +38,3 @@ time_based
 rw=randread
 filename_format=read-lat.1.0
 percentile_list=50:75:90:95:99:99.9:99.99:99.999:100
-
