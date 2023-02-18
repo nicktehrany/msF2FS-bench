@@ -5,8 +5,8 @@ size=80G
 ioengine=psync
 rw=write
 bs=4K
-runtime=30s
-ramp_time=10s 
+runtime=1m
+ramp_time=30s 
 ioscheduler=mq-deadline
 group_reporting
 time_based
