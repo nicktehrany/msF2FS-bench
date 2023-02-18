@@ -3,6 +3,7 @@ name=zns-fio
 directory=/mnt/f2fs
 size=80G
 ioengine=psync
+iodepth=1
 rw=write
 bs=4K
 runtime=1m
@@ -11,8 +12,8 @@ ioscheduler=mq-deadline
 group_reporting
 time_based
 thread=1
-file_service_type=random:32
 
 [hot-file]
-nrfiles=${NR_FILES}
+numjobs=${NR_FILES}
+fsync=128
 write_hint=short

@@ -11,7 +11,7 @@ setup_msf2fs() {
     ZNS=$1
     MOUNT="/mnt/f2fs"
 
-    DEV=$(sudo ../nullblk_create 4096 19456)
+    DEV=$(sudo ../nullblk_create 512 19456)
     export DEV
     export ZNS
 
