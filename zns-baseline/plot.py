@@ -100,7 +100,7 @@ def plot_throughput():
     ax.legend(loc='lower right', ncol=2)
     ax.xaxis.set_ticks(queue_depths)
     ax.xaxis.set_ticklabels(xticks)
-    ax.set_ylim(bottom=0)
+    ax.set_ylim(bottom=0,top=550)
     ax.set_ylabel('KIOPS')
     ax.set_xlabel('Outstanding I/Os')
     plt.savefig(f'figs/zns_zone_iops.pdf', bbox_inches='tight')
