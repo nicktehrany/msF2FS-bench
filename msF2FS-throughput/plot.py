@@ -144,12 +144,9 @@ def plot_throughput():
 
     fig, ax = plt.subplots()
 
-    # rects1 = ax.bar(x - width, msf2fs_spf_iops, yerr=msf2fs_spf_stddev, capsize=3, width=width, hatch='x', label="msF2FS (SPF)")
-    # rects2 = ax.bar(x, msf2fs_srr_iops, yerr=msf2fs_srr_stddev, capsize=3, width=width, hatch='', label="msF2FS (SRR)")
-    # rects3 = ax.bar(x + width, f2fs_iops, yerr=f2fs_stddev, capsize=3, width=width, hatch='/', label="F2FS")
-    rects1 = ax.bar(x - width, msf2fs_spf_iops, capsize=3, width=width, hatch='x', label="msF2FS (SPF)")
-    rects2 = ax.bar(x, msf2fs_srr_iops, capsize=3, width=width, hatch='', label="msF2FS (SRR)")
-    rects3 = ax.bar(x + width, f2fs_iops, capsize=3, width=width, hatch='/', label="F2FS")
+    rects3 = ax.bar(x - width, f2fs_iops, yerr=f2fs_stddev, capsize=3, width=width, hatch='/', label="F2FS")
+    rects2 = ax.bar(x, msf2fs_srr_iops, yerr=msf2fs_srr_stddev, capsize=3, width=width, hatch='', label="msF2FS (SRR)")
+    rects1 = ax.bar(x + width, msf2fs_spf_iops, yerr=msf2fs_spf_stddev,capsize=3, width=width, hatch='x', label="msF2FS (SPF)")
 
     # For whatever reason we have to force the hatch patterns
     for i in range(len(msf2fs_spf_iops)):
@@ -168,7 +165,7 @@ def plot_throughput():
     ax.legend(loc='best',ncol=2)
     ax.xaxis.set_ticks(x)
     ax.xaxis.set_ticklabels(np.arange(1,10))
-    ax.set_ylim(bottom=0,top=300)
+    ax.set_ylim(bottom=0,top=350)
     ax.set_ylabel('KIOPS')
     ax.set_xlabel('Concurrent Files')
     plt.savefig(f'figs/msf2fs-throughput.pdf', bbox_inches='tight')
