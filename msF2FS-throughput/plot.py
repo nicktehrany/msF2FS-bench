@@ -45,15 +45,15 @@ def parse_fio_data(data_path, data):
     return 1
 
 def plot_throughput():
-    x = np.arange(0, 11)
+    x = np.arange(0, 9)
     width = 0.25
 
-    msf2fs_spf_iops = [None] * 11
-    msf2fs_spf_stddev = [None] * 11
-    msf2fs_srr_iops = [None] * 11
-    msf2fs_srr_stddev = [None] * 11
-    f2fs_iops = [None] * 11
-    f2fs_stddev = [None] * 11
+    msf2fs_spf_iops = [None] * 9
+    msf2fs_spf_stddev = [None] * 9
+    msf2fs_srr_iops = [None] * 9
+    msf2fs_srr_stddev = [None] * 9
+    f2fs_iops = [None] * 9
+    f2fs_stddev = [None] * 9
 
     for key, item in msf2fs_spf_data.items():
         if 'single_file' in key:
@@ -83,12 +83,6 @@ def plot_throughput():
         if 'nine_file' in key:
             msf2fs_spf_iops[8] = item['jobs'][0]['write']['iops']/1000
             msf2fs_spf_stddev[8] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'ten_file' in key:
-            msf2fs_spf_iops[9] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_spf_stddev[9] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'eleven_file' in key:
-            msf2fs_spf_iops[10] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_spf_stddev[10] = item['jobs'][0]['write']['iops_stddev']/1000
 
     for key, item in msf2fs_srr_data.items():
         if 'single_file' in key:
@@ -118,12 +112,6 @@ def plot_throughput():
         if 'nine_file' in key:
             msf2fs_srr_iops[8] = item['jobs'][0]['write']['iops']/1000
             msf2fs_srr_stddev[8] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'ten_file' in key:
-            msf2fs_srr_iops[9] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_srr_stddev[9] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'eleven_file' in key:
-            msf2fs_srr_iops[10] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_srr_stddev[10] = item['jobs'][0]['write']['iops_stddev']/1000
 
     for key, item in f2fs_data.items():
         if 'single_file' in key:
@@ -153,18 +141,15 @@ def plot_throughput():
         if 'nine_file' in key:
             f2fs_iops[8] = item['jobs'][0]['write']['iops']/1000
             f2fs_stddev[8] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'ten_file' in key:
-            f2fs_iops[9] = item['jobs'][0]['write']['iops']/1000
-            f2fs_stddev[9] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'eleven_file' in key:
-            f2fs_iops[10] = item['jobs'][0]['write']['iops']/1000
-            f2fs_stddev[10] = item['jobs'][0]['write']['iops_stddev']/1000
 
     fig, ax = plt.subplots()
 
-    rects1 = ax.bar(x - width, msf2fs_spf_iops, yerr=msf2fs_spf_stddev, capsize=3, width=width, hatch='x', label="msF2FS (SPF)")
-    rects2 = ax.bar(x, msf2fs_srr_iops, yerr=msf2fs_srr_stddev, capsize=3, width=width, hatch='', label="msF2FS (SRR)")
-    rects3 = ax.bar(x + width, f2fs_iops, yerr=f2fs_stddev, capsize=3, width=width, hatch='/', label="F2FS")
+    # rects1 = ax.bar(x - width, msf2fs_spf_iops, yerr=msf2fs_spf_stddev, capsize=3, width=width, hatch='x', label="msF2FS (SPF)")
+    # rects2 = ax.bar(x, msf2fs_srr_iops, yerr=msf2fs_srr_stddev, capsize=3, width=width, hatch='', label="msF2FS (SRR)")
+    # rects3 = ax.bar(x + width, f2fs_iops, yerr=f2fs_stddev, capsize=3, width=width, hatch='/', label="F2FS")
+    rects1 = ax.bar(x - width, msf2fs_spf_iops, capsize=3, width=width, hatch='x', label="msF2FS (SPF)")
+    rects2 = ax.bar(x, msf2fs_srr_iops, capsize=3, width=width, hatch='', label="msF2FS (SRR)")
+    rects3 = ax.bar(x + width, f2fs_iops, capsize=3, width=width, hatch='/', label="F2FS")
 
     # For whatever reason we have to force the hatch patterns
     for i in range(len(msf2fs_spf_iops)):
@@ -182,8 +167,8 @@ def plot_throughput():
     ax.set_axisbelow(True)
     ax.legend(loc='best',ncol=2)
     ax.xaxis.set_ticks(x)
-    ax.xaxis.set_ticklabels(np.arange(1,12))
-    ax.set_ylim(bottom=0,top=400)
+    ax.xaxis.set_ticklabels(np.arange(1,10))
+    ax.set_ylim(bottom=0,top=300)
     ax.set_ylabel('KIOPS')
     ax.set_xlabel('Concurrent Files')
     plt.savefig(f'figs/msf2fs-throughput.pdf', bbox_inches='tight')

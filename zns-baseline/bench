@@ -8,9 +8,9 @@ if [ $# != 1 ]; then
 fi
 
 DEV=$1
-IODEPTH=(1 2 4 8 16 32 64 128)
+IODEPTH=(1 2 4 8 16 32 64 128 256 512 1028)
 ZONES=(1 2 3 4 5 6)
-NAMES=("zns-single_zone" "zns-two_zone" "zns-three_zone" "zns-four_zone" "zns-five_zone" "zns-six_zone")
+NAMES=("zns-single_zone" "zns-two_zone" "zns-three_zone" "zns-four_zone" "zns-five_zone" "zns-six_zone") 
 
 echo mq-deadline | sudo tee /sys/block/${DEV}/queue/scheduler > /dev/null
 
@@ -23,6 +23,6 @@ for zones in ${ZONES[@]}; do
         echo "Running benchmark with ${zones} zones iodepth: ${iodepth}"
         sudo nvme zns reset-zone -a /dev/${DEV}
 
-        sudo ${FIO_HOME}/fio --name=${NAMES[zones - 1]} --filename=/dev/${DEV} --size=100z --ioengine=io_uring --fixedbufs=1 --registerfiles=1 --hipri=1 --sqthread_poll=1 --iodepth=${iodepth} --rw=write --bs=4K --direct=1 --zonemode=zbd --runtime=30s --numjobs=${zones} --offset_increment=100z --max_open_zones=14 --group_reporting --thread=${zones} --ramp_time=10s --output=${DATA_DIR}/${NAMES[zones - 1]}_iodepth-${iodepth}.json --output-format=json --ioscheduler=mq-deadline --time_based
+        sudo ${FIO_HOME}/fio --name=${NAMES[zones - 1]} --filename=/dev/${DEV} --size=100z --ioengine=io_uring --fixedbufs=1 --registerfiles=1 --hipri=1 --sqthread_poll=1 --iodepth=${iodepth} --rw=write --bs=4K --direct=1 --zonemode=zbd --runtime=30s --numjobs=${zones} --offset_increment=100z --max_open_zones=14 --group_reporting --thread=${zones} --ramp_time=10s --output=${DATA_DIR}/${NAMES[zones - 1]}_iodepth-${iodepth}.json --output-format=json --ioscheduler=mq-deadline
     done
 done
