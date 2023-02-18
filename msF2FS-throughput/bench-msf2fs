@@ -85,14 +85,4 @@ for policy in ${POLICIES[@]}; do
     setup_msf2fs ${ZNS} 9 1 1 ${policy}
     sudo env "NR_FILES=9" ${FIO_HOME}/fio --output-format=json --output=${DIR}/nine_file.json job.fio
     cleanup
-
-    echo "Running benchmark with 10 streams (${policy}) and 10 hot files"
-    setup_msf2fs ${ZNS} 10 1 1 ${policy}
-    sudo env "NR_FILES=10" ${FIO_HOME}/fio --output-format=json --output=${DIR}/ten_file.json job.fio
-    cleanup
-
-    echo "Running benchmark with 11 streams (${policy}) and 11 hot files"
-    setup_msf2fs ${ZNS} 11 1 1 ${policy}
-    sudo env "NR_FILES=11" ${FIO_HOME}/fio --output-format=json --output=${DIR}/eleven_file.json job.fio
-    cleanup
 done
