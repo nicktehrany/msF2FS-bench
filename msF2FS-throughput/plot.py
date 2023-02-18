@@ -56,16 +56,109 @@ def plot_throughput():
     f2fs_stddev = [None] * 11
 
     for key, item in msf2fs_spf_data.items():
-        msf2fs_spf_iops[int(item['global options']['numjobs']) - 1] = item['jobs'][0]['write']['iops']/1000
-        msf2fs_spf_stddev[int(item['global options']['numjobs']) - 1] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'single_file' in key:
+            msf2fs_spf_iops[0] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_spf_stddev[0] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'two_file' in key:
+            msf2fs_spf_iops[1] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_spf_stddev[1] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'three_file' in key:
+            msf2fs_spf_iops[2] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_spf_stddev[2] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'four_file' in key:
+            msf2fs_spf_iops[3] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_spf_stddev[3] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'five_file' in key:
+            msf2fs_spf_iops[4] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_spf_stddev[4] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'six_file' in key:
+            msf2fs_spf_iops[5] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_spf_stddev[5] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'seven_file' in key:
+            msf2fs_spf_iops[6] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_spf_stddev[6] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'eight_file' in key:
+            msf2fs_spf_iops[7] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_spf_stddev[7] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'nine_file' in key:
+            msf2fs_spf_iops[8] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_spf_stddev[8] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'ten_file' in key:
+            msf2fs_spf_iops[9] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_spf_stddev[9] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'eleven_file' in key:
+            msf2fs_spf_iops[10] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_spf_stddev[10] = item['jobs'][0]['write']['iops_stddev']/1000
 
     for key, item in msf2fs_srr_data.items():
-        msf2fs_srr_iops[int(item['global options']['numjobs']) - 1] = item['jobs'][0]['write']['iops']/1000
-        msf2fs_srr_stddev[int(item['global options']['numjobs']) - 1] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'single_file' in key:
+            msf2fs_srr_iops[0] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_srr_stddev[0] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'two_file' in key:
+            msf2fs_srr_iops[1] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_srr_stddev[1] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'three_file' in key:
+            msf2fs_srr_iops[2] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_srr_stddev[2] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'four_file' in key:
+            msf2fs_srr_iops[3] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_srr_stddev[3] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'five_file' in key:
+            msf2fs_srr_iops[4] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_srr_stddev[4] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'six_file' in key:
+            msf2fs_srr_iops[5] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_srr_stddev[5] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'seven_file' in key:
+            msf2fs_srr_iops[6] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_srr_stddev[6] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'eight_file' in key:
+            msf2fs_srr_iops[7] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_srr_stddev[7] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'nine_file' in key:
+            msf2fs_srr_iops[8] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_srr_stddev[8] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'ten_file' in key:
+            msf2fs_srr_iops[9] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_srr_stddev[9] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'eleven_file' in key:
+            msf2fs_srr_iops[10] = item['jobs'][0]['write']['iops']/1000
+            msf2fs_srr_stddev[10] = item['jobs'][0]['write']['iops_stddev']/1000
 
     for key, item in f2fs_data.items():
-        f2fs_iops[int(item['global options']['numjobs']) - 1] = item['jobs'][0]['write']['iops']/1000
-        f2fs_stddev[int(item['global options']['numjobs']) - 1] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'single_file' in key:
+            f2fs_iops[0] = item['jobs'][0]['write']['iops']/1000
+            f2fs_stddev[0] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'two_file' in key:
+            f2fs_iops[1] = item['jobs'][0]['write']['iops']/1000
+            f2fs_stddev[1] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'three_file' in key:
+            f2fs_iops[2] = item['jobs'][0]['write']['iops']/1000
+            f2fs_stddev[2] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'four_file' in key:
+            f2fs_iops[3] = item['jobs'][0]['write']['iops']/1000
+            f2fs_stddev[3] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'five_file' in key:
+            f2fs_iops[4] = item['jobs'][0]['write']['iops']/1000
+            f2fs_stddev[4] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'six_file' in key:
+            f2fs_iops[5] = item['jobs'][0]['write']['iops']/1000
+            f2fs_stddev[5] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'seven_file' in key:
+            f2fs_iops[6] = item['jobs'][0]['write']['iops']/1000
+            f2fs_stddev[6] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'eight_file' in key:
+            f2fs_iops[7] = item['jobs'][0]['write']['iops']/1000
+            f2fs_stddev[7] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'nine_file' in key:
+            f2fs_iops[8] = item['jobs'][0]['write']['iops']/1000
+            f2fs_stddev[8] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'ten_file' in key:
+            f2fs_iops[9] = item['jobs'][0]['write']['iops']/1000
+            f2fs_stddev[9] = item['jobs'][0]['write']['iops_stddev']/1000
+        if 'eleven_file' in key:
+            f2fs_iops[10] = item['jobs'][0]['write']['iops']/1000
+            f2fs_stddev[10] = item['jobs'][0]['write']['iops_stddev']/1000
 
     fig, ax = plt.subplots()
 
@@ -90,7 +183,7 @@ def plot_throughput():
     ax.legend(loc='best',ncol=2)
     ax.xaxis.set_ticks(x)
     ax.xaxis.set_ticklabels(np.arange(1,12))
-    ax.set_ylim(bottom=0,top=350)
+    ax.set_ylim(bottom=0,top=400)
     ax.set_ylabel('KIOPS')
     ax.set_xlabel('Concurrent Files')
     plt.savefig(f'figs/msf2fs-throughput.pdf', bbox_inches='tight')

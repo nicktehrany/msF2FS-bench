@@ -11,7 +11,7 @@ setup_msf2fs() {
     ZNS=$1
     MOUNT="/mnt/f2fs"
 
-    DEV=$(sudo ../nullblk_create 4096 4096)
+    DEV=$(sudo ../nullblk_create 4096 19456)
     export DEV
     export ZNS
 
@@ -41,58 +41,58 @@ for policy in ${POLICIES[@]}; do
 
     mkdir -p ${DIR}
 
-    echo "Running benchmark with 1 stream and 1 hot file and policy ${policy}"
+    echo "Running benchmark with 1 stream (${policy}) and 1 hot file"
     setup_msf2fs ${ZNS} 1 1 1 ${policy}
-    sudo env "JOBS=1" ${FIO_HOME}/fio --output-format=json --output=${DIR}/files-1.json job.fio
+    sudo env "NR_FILES=1" ${FIO_HOME}/fio --output-format=json --output=${DIR}/single_file.json job.fio
     cleanup
 
-    echo "Running benchmark with 2 streams and 2 hot files and ${policy}"
+    echo "Running benchmark with 2 streams (${policy}) and 2 hot files"
     setup_msf2fs ${ZNS} 2 1 1 ${policy}
-    sudo env "JOBS=2" ${FIO_HOME}/fio --output-format=json --output=${DIR}/files-2.json job.fio
+    sudo env "NR_FILES=2" ${FIO_HOME}/fio --output-format=json --output=${DIR}/two_file.json job.fio
     cleanup
 
-    echo "Running benchmark with 3 streams and 3 hot files and ${policy}"
+    echo "Running benchmark with 3 streams (${policy}) and 3 hot files"
     setup_msf2fs ${ZNS} 3 1 1 ${policy}
-    sudo env "JOBS=3" ${FIO_HOME}/fio --output-format=json --output=${DIR}/files-3.json job.fio
+    sudo env "NR_FILES=3" ${FIO_HOME}/fio --output-format=json --output=${DIR}/three_file.json job.fio
     cleanup
 
-    echo "Running benchmark with 4 streams and 4 hot files and ${policy}"
+    echo "Running benchmark with 4 streams (${policy}) and 4 hot files"
     setup_msf2fs ${ZNS} 4 1 1 ${policy}
-    sudo env "JOBS=4" ${FIO_HOME}/fio --output-format=json --output=${DIR}/files-4.json job.fio
+    sudo env "NR_FILES=4" ${FIO_HOME}/fio --output-format=json --output=${DIR}/four_file.json job.fio
     cleanup
 
-    echo "Running benchmark with 5 streams and 5 hot files and ${policy}"
+    echo "Running benchmark with 5 streams (${policy}) and 5 hot files"
     setup_msf2fs ${ZNS} 5 1 1 ${policy}
-    sudo env "JOBS=5" ${FIO_HOME}/fio --output-format=json --output=${DIR}/files-5.json job.fio
+    sudo env "NR_FILES=5" ${FIO_HOME}/fio --output-format=json --output=${DIR}/five_file.json job.fio
     cleanup
 
-    echo "Running benchmark with 6 streams and 6 hot files and ${policy}"
+    echo "Running benchmark with 6 streams (${policy}) and 6 hot files"
     setup_msf2fs ${ZNS} 6 1 1 ${policy}
-    sudo env "JOBS=6" ${FIO_HOME}/fio --output-format=json --output=${DIR}/files-6.json job.fio
+    sudo env "NR_FILES=6" ${FIO_HOME}/fio --output-format=json --output=${DIR}/six_file.json job.fio
     cleanup
 
-    echo "Running benchmark with 7 streams and 7 hot files and ${policy}"
+    echo "Running benchmark with 7 streams (${policy}) and 7 hot files"
     setup_msf2fs ${ZNS} 7 1 1 ${policy}
-    sudo env "JOBS=7" ${FIO_HOME}/fio --output-format=json --output=${DIR}/files-7.json job.fio
+    sudo env "NR_FILES=7" ${FIO_HOME}/fio --output-format=json --output=${DIR}/seven_file.json job.fio
     cleanup
 
-    echo "Running benchmark with 8 streams and 8 hot files and ${policy}"
+    echo "Running benchmark with 8 streams (${policy}) and 8 hot files"
     setup_msf2fs ${ZNS} 8 1 1 ${policy}
-    sudo env "JOBS=8" ${FIO_HOME}/fio --output-format=json --output=${DIR}/files-8.json job.fio
+    sudo env "NR_FILES=8" ${FIO_HOME}/fio --output-format=json --output=${DIR}/eight_file.json job.fio
     cleanup
 
-    echo "Running benchmark with 9 streams and 9 hot files and ${policy}"
+    echo "Running benchmark with 9 streams (${policy}) and 9 hot files"
     setup_msf2fs ${ZNS} 9 1 1 ${policy}
-    sudo env "JOBS=9" ${FIO_HOME}/fio --output-format=json --output=${DIR}/files-9.json job.fio
+    sudo env "NR_FILES=9" ${FIO_HOME}/fio --output-format=json --output=${DIR}/nine_file.json job.fio
     cleanup
 
-    echo "Running benchmark with 10 streams and 10 hot files and ${policy}"
+    echo "Running benchmark with 10 streams (${policy}) and 10 hot files"
     setup_msf2fs ${ZNS} 10 1 1 ${policy}
-    sudo env "JOBS=10" ${FIO_HOME}/fio --output-format=json --output=${DIR}/files-10.json job.fio
+    sudo env "NR_FILES=10" ${FIO_HOME}/fio --output-format=json --output=${DIR}/ten_file.json job.fio
     cleanup
 
-    echo "Running benchmark with 11 streams and 11 hot files and ${policy}"
+    echo "Running benchmark with 11 streams (${policy}) and 11 hot files"
     setup_msf2fs ${ZNS} 11 1 1 ${policy}
-    sudo env "JOBS=11" ${FIO_HOME}/fio --output-format=json --output=${DIR}/files-11.json job.fio
+    sudo env "NR_FILES=11" ${FIO_HOME}/fio --output-format=json --output=${DIR}/eleven_file.json job.fio
     cleanup
 done

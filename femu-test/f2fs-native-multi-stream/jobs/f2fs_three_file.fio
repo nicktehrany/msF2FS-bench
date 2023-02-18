@@ -12,6 +12,7 @@ numjobs=1
 ramp_time=10s 
 ioscheduler=mq-deadline
 group_reporting
+fsync=32
 
 [file-1]
 filename=file_1
