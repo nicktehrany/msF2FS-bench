@@ -17,8 +17,7 @@ plt.rc('xtick', labelsize=12)    # fontsize of the tick labels
 plt.rc('ytick', labelsize=12)    # fontsize of the tick labels
 plt.rc('legend', fontsize=12)    # legend fontsize
 
-msf2fs_spf_data = dict()
-msf2fs_srr_data = dict()
+msf2fs_data = dict()
 f2fs_data = dict()
 
 def parse_fio_data(data_path, data):
@@ -45,141 +44,124 @@ def parse_fio_data(data_path, data):
     return 1
 
 def plot_throughput():
-    x = np.arange(0, 9)
-    width = 0.25
+    x = np.arange(0, 4)
+    width = 0.1
 
-    msf2fs_spf_iops = [None] * 9
-    msf2fs_spf_stddev = [None] * 9
-    msf2fs_srr_iops = [None] * 9
-    msf2fs_srr_stddev = [None] * 9
-    f2fs_iops = [None] * 9
-    f2fs_stddev = [None] * 9
+    msf2fs_seq_iops = [None] * 4
+    msf2fs_seq_stddev = [None] * 4
+    msf2fs_rand_iops = [None] * 4
+    msf2fs_rand_stddev = [None] * 4
+    f2fs_seq_iops = [None] * 4
+    f2fs_seq_stddev = [None] * 4
+    f2fs_rand_iops = [None] * 4
+    f2fs_rand_stddev = [None] * 4
 
-    for key, item in msf2fs_spf_data.items():
-        if 'single_file' in key:
-            msf2fs_spf_iops[0] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_spf_stddev[0] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'two_file' in key:
-            msf2fs_spf_iops[1] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_spf_stddev[1] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'three_file' in key:
-            msf2fs_spf_iops[2] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_spf_stddev[2] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'four_file' in key:
-            msf2fs_spf_iops[3] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_spf_stddev[3] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'five_file' in key:
-            msf2fs_spf_iops[4] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_spf_stddev[4] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'six_file' in key:
-            msf2fs_spf_iops[5] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_spf_stddev[5] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'seven_file' in key:
-            msf2fs_spf_iops[6] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_spf_stddev[6] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'eight_file' in key:
-            msf2fs_spf_iops[7] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_spf_stddev[7] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'nine_file' in key:
-            msf2fs_spf_iops[8] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_spf_stddev[8] = item['jobs'][0]['write']['iops_stddev']/1000
-
-    for key, item in msf2fs_srr_data.items():
-        if 'single_file' in key:
-            msf2fs_srr_iops[0] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_srr_stddev[0] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'two_file' in key:
-            msf2fs_srr_iops[1] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_srr_stddev[1] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'three_file' in key:
-            msf2fs_srr_iops[2] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_srr_stddev[2] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'four_file' in key:
-            msf2fs_srr_iops[3] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_srr_stddev[3] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'five_file' in key:
-            msf2fs_srr_iops[4] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_srr_stddev[4] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'six_file' in key:
-            msf2fs_srr_iops[5] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_srr_stddev[5] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'seven_file' in key:
-            msf2fs_srr_iops[6] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_srr_stddev[6] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'eight_file' in key:
-            msf2fs_srr_iops[7] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_srr_stddev[7] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'nine_file' in key:
-            msf2fs_srr_iops[8] = item['jobs'][0]['write']['iops']/1000
-            msf2fs_srr_stddev[8] = item['jobs'][0]['write']['iops_stddev']/1000
+    for key, item in msf2fs_data.items():
+        if '-1' in key:
+            for job in item['jobs']:
+                if 'seq' in job['jobname']:
+                    msf2fs_seq_iops[0] = job['read']['iops']/1000
+                    msf2fs_seq_stddev[0] = job['read']['iops_stddev']/1000
+                if 'rand' in job['jobname']:
+                    msf2fs_rand_iops[0] = job['read']['iops']/1000
+                    msf2fs_rand_stddev[0] = job['read']['iops_stddev']/1000
+        if '-10' in key:
+            for job in item['jobs']:
+                if 'seq' in job['jobname']:
+                    msf2fs_seq_iops[1] = job['read']['iops']/1000
+                    msf2fs_seq_stddev[1] = job['read']['iops_stddev']/1000
+                if 'rand' in job['jobname']:
+                    msf2fs_rand_iops[1] = job['read']['iops']/1000
+                    msf2fs_rand_stddev[1] = job['read']['iops_stddev']/1000
+        if '-50' in key:
+            for job in item['jobs']:
+                if 'seq' in job['jobname']:
+                    msf2fs_seq_iops[2] = job['read']['iops']/1000
+                    msf2fs_seq_stddev[2] = job['read']['iops_stddev']/1000
+                if 'rand' in job['jobname']:
+                    msf2fs_rand_iops[2] = job['read']['iops']/1000
+                    msf2fs_rand_stddev[2] = job['read']['iops_stddev']/1000
+        if '-100' in key:
+            for job in item['jobs']:
+                if 'seq' in job['jobname']:
+                    msf2fs_seq_iops[3] = job['read']['iops']/1000
+                    msf2fs_seq_stddev[3] = job['read']['iops_stddev']/1000
+                if 'rand' in job['jobname']:
+                    msf2fs_rand_iops[3] = job['read']['iops']/1000
+                    msf2fs_rand_stddev[3] = job['read']['iops_stddev']/1000
 
     for key, item in f2fs_data.items():
-        if 'single_file' in key:
-            f2fs_iops[0] = item['jobs'][0]['write']['iops']/1000
-            f2fs_stddev[0] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'two_file' in key:
-            f2fs_iops[1] = item['jobs'][0]['write']['iops']/1000
-            f2fs_stddev[1] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'three_file' in key:
-            f2fs_iops[2] = item['jobs'][0]['write']['iops']/1000
-            f2fs_stddev[2] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'four_file' in key:
-            f2fs_iops[3] = item['jobs'][0]['write']['iops']/1000
-            f2fs_stddev[3] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'five_file' in key:
-            f2fs_iops[4] = item['jobs'][0]['write']['iops']/1000
-            f2fs_stddev[4] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'six_file' in key:
-            f2fs_iops[5] = item['jobs'][0]['write']['iops']/1000
-            f2fs_stddev[5] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'seven_file' in key:
-            f2fs_iops[6] = item['jobs'][0]['write']['iops']/1000
-            f2fs_stddev[6] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'eight_file' in key:
-            f2fs_iops[7] = item['jobs'][0]['write']['iops']/1000
-            f2fs_stddev[7] = item['jobs'][0]['write']['iops_stddev']/1000
-        if 'nine_file' in key:
-            f2fs_iops[8] = item['jobs'][0]['write']['iops']/1000
-            f2fs_stddev[8] = item['jobs'][0]['write']['iops_stddev']/1000
-
+        if '-1' in key:
+            for job in item['jobs']:
+                if 'seq' in job['jobname']:
+                    f2fs_seq_iops[0] = job['read']['iops']/1000
+                    f2fs_seq_stddev[0] = job['read']['iops_stddev']/1000
+                if 'rand' in job['jobname']:
+                    f2fs_rand_iops[0] = job['read']['iops']/1000
+                    f2fs_rand_stddev[0] = job['read']['iops_stddev']/1000
+        if '-10' in key:
+            for job in item['jobs']:
+                if 'seq' in job['jobname']:
+                    f2fs_seq_iops[1] = job['read']['iops']/1000
+                    f2fs_seq_stddev[1] = job['read']['iops_stddev']/1000
+                if 'rand' in job['jobname']:
+                    f2fs_rand_iops[1] = job['read']['iops']/1000
+                    f2fs_rand_stddev[1] = job['read']['iops_stddev']/1000
+        if '-50' in key:
+            for job in item['jobs']:
+                if 'seq' in job['jobname']:
+                    f2fs_seq_iops[2] = job['read']['iops']/1000
+                    f2fs_seq_stddev[2] = job['read']['iops_stddev']/1000
+                if 'rand' in job['jobname']:
+                    f2fs_rand_iops[2] = job['read']['iops']/1000
+                    f2fs_rand_stddev[2] = job['read']['iops_stddev']/1000
+        if '-100' in key:
+            for job in item['jobs']:
+                if 'seq' in job['jobname']:
+                    f2fs_seq_iops[3] = job['read']['iops']/1000
+                    f2fs_seq_stddev[3] = job['read']['iops_stddev']/1000
+                if 'rand' in job['jobname']:
+                    f2fs_rand_iops[3] = job['read']['iops']/1000
+                    f2fs_rand_stddev[3] = job['read']['iops_stddev']/1000
     fig, ax = plt.subplots()
 
-    # rects1 = ax.bar(x - width, msf2fs_spf_iops, yerr=msf2fs_spf_stddev, capsize=3, width=width, hatch='x', label="msF2FS (SPF)")
-    # rects2 = ax.bar(x, msf2fs_srr_iops, yerr=msf2fs_srr_stddev, capsize=3, width=width, hatch='', label="msF2FS (SRR)")
-    # rects3 = ax.bar(x + width, f2fs_iops, yerr=f2fs_stddev, capsize=3, width=width, hatch='/', label="F2FS")
-    rects1 = ax.bar(x - width, msf2fs_spf_iops, capsize=3, width=width, hatch='x', label="msF2FS (SPF)")
-    rects2 = ax.bar(x, msf2fs_srr_iops, capsize=3, width=width, hatch='', label="msF2FS (SRR)")
-    rects3 = ax.bar(x + width, f2fs_iops, capsize=3, width=width, hatch='/', label="F2FS")
+    rects1 = ax.bar(x - (2 * width), f2fs_seq_iops, yerr=f2fs_seq_stddev, capsize=3, width=width, hatch='x', label="F2FS seqread")
+    rects2 = ax.bar(x - width, f2fs_rand_iops, yerr=f2fs_rand_stddev, capsize=3, width=width, hatch='/', label="F2FS randread")
+    rects3 = ax.bar(x + width, msf2fs_seq_iops, yerr=msf2fs_seq_stddev, capsize=3, width=width, hatch='x', label="msF2FS seqread")
+    rects4 = ax.bar(x + (2 * width), msf2fs_rand_iops, yerr=msf2fs_rand_iops, capsize=3, width=width, hatch='/', label="msF2FS randread")
 
     # For whatever reason we have to force the hatch patterns
-    for i in range(len(msf2fs_spf_iops)):
+    for i in range(len(f2fs_seq_iops)):
         rects1[i].set_edgecolor("black")
         rects1[i].set_hatch("xx")
-    for i in range(len(msf2fs_srr_iops)):
+    for i in range(len(f2fs_rand_iops)):
         rects2[i].set_edgecolor("black")
-        rects2[i].set_hatch("o")
-    for i in range(len(f2fs_iops)):
+        rects2[i].set_hatch("/")
+    for i in range(len(msf2fs_seq_iops)):
         rects3[i].set_edgecolor("black")
-        rects3[i].set_hatch("/")
+        rects3[i].set_hatch("o")
+    for i in range(len(msf2fs_rand_iops)):
+        rects4[i].set_edgecolor("black")
+        rects4[i].set_hatch("\\")
 
     fig.tight_layout()
     ax.grid(which='major', linestyle='dashed', linewidth='1')
     ax.set_axisbelow(True)
     ax.legend(loc='best',ncol=2)
     ax.xaxis.set_ticks(x)
-    ax.xaxis.set_ticklabels(np.arange(1,10))
-    ax.set_ylim(bottom=0,top=300)
+    ax.xaxis.set_ticklabels([1,10,50,100])
+    ax.set_ylim(bottom=0,top=600)
     ax.set_ylabel('KIOPS')
     ax.set_xlabel('Concurrent Files')
-    plt.savefig(f'figs/msf2fs-throughput.pdf', bbox_inches='tight')
-    plt.savefig(f'figs/msf2fs-throughput.png', bbox_inches='tight')
+    plt.savefig(f'figs/msf2fs-read-throughput.pdf', bbox_inches='tight')
+    plt.savefig(f'figs/msf2fs-read-throughput.png', bbox_inches='tight')
     plt.clf()
 
 if __name__ == '__main__':
     file_path = '/'.join(os.path.abspath(__file__).split('/')[:-1])
 
-    parse_fio_data(f'{file_path}/data-spf/', msf2fs_spf_data)
-    parse_fio_data(f'{file_path}/data-srr/', msf2fs_srr_data)
+    parse_fio_data(f'{file_path}/data-spf/', msf2fs_data)
     parse_fio_data(f'{file_path}/data-f2fs/', f2fs_data)
 
     plot_throughput()
+    # TODO plot tail latency for one of them probably 100 files as line (equal distance and points for 95, 99, 99.9, 99.99)
