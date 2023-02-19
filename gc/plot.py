@@ -20,6 +20,9 @@ plt.rc('legend', fontsize=12)    # legend fontsize
 msf2fs_iops_data = []
 f2fs_iops_data = []
 
+f2fs_global_data = dict()
+msf2fs_global_data = dict()
+
 def parse_fio_log(data_path, data):
 
     with open(data_path, 'r') as f:
@@ -38,7 +41,7 @@ def parse_fio_data(data_path, data):
         print(f'No data in {data_path}')
         return 0 
 
-    for file in glob.glob(f'{data_path}/*'): 
+    for file in glob.glob(f'{data_path}/*.json'): 
         with open(file, 'r') as f:
             for index, line in enumerate(f, 1):
                 # Removing all fio logs in json file by finding first {
@@ -116,16 +119,60 @@ def plot_iops():
     plt.savefig(f'figs/gc-throughput.png', bbox_inches='tight')
     plt.clf()
 
+def plot_tail_latency():
+    
+    f2fs_lats = []
+    msf2fs_lats = []
+
+    for key, item in f2fs_global_data.items():
+        # f2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['95.000000'])/1000)
+        f2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['99.000000'])/1000)
+        f2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['99.900000'])/1000)
+        f2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['99.990000'])/1000)
+        f2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['99.999000'])/1000)
+        f2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['100.000000'])/1000)
+
+    for key, item in msf2fs_global_data.items():
+        # msf2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['95.000000'])/1000)
+        msf2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['99.000000'])/1000)
+        msf2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['99.900000'])/1000)
+        msf2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['99.990000'])/1000)
+        msf2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['99.999000'])/1000)
+        msf2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['100.000000'])/1000)
+
+    fig, ax = plt.subplots()
+    
+    ax.errorbar([1,2,3,4,5], f2fs_lats, label="F2FS", fmt="-", linewidth=1)
+    ax.errorbar([1,2,3,4,5], msf2fs_lats, label="msF2FS", fmt="-", linewidth=1)
+
+    fig.tight_layout()
+    ax.grid(which='major', linestyle='dashed', linewidth='1')
+    ax.set_axisbelow(True)
+    plt.yscale("log")
+    ax.xaxis.set_ticks([1,2,3,4,5])
+    ax.xaxis.set_ticklabels(["99", "99.9", "99.99", "99.999", "100"])
+    ax.legend(loc='best')
+    ax.set_xlabel("Percentile")
+    ax.set_ylabel("Latency (usec)")
+    # ax.set_ylim(1, 100000)
+    plt.savefig(f'figs/gc-tail_lat.pdf', bbox_inches='tight')
+    plt.savefig(f'figs/gc-tail_lat.png', bbox_inches='tight')
+    plt.clf()
+
 if __name__ == '__main__':
     file_path = '/'.join(os.path.abspath(__file__).split('/')[:-1])
 
-    # TODO dummy msf2fs for now
     parse_fio_log(f'{file_path}/data-f2fs/overwrite_iops_log_iops.8.log', f2fs_iops_data)
-    parse_fio_log(f'{file_path}/data-f2fs/overwrite_iops_log_iops.8.log', msf2fs_iops_data)
-    # parse_fio_log(f'{file_path}/data-f2fs/', f2fs_iops_data)
+    parse_fio_log(f'{file_path}/data-spf/overwrite_iops_log_iops.8.log', msf2fs_iops_data)
+
+    parse_fio_data(f'{file_path}/data-f2fs/', f2fs_global_data)
+    parse_fio_data(f'{file_path}/data-spf/', msf2fs_global_data)
 
     # throughput over time plot
     plot_iops()
 
     # tail latency plot
+    plot_tail_latency()
+
     # latency over time plot
+
