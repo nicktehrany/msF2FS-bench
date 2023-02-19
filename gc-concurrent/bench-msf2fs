@@ -1,0 +1,48 @@
+#! /bin/bash
+
+set -e
+
+if [ $# != 1 ]; then
+    echo "Usage: $0 <ZNS device (e.g., nvme0n2)>"
+    exit 1
+fi
+
+setup_msf2fs() {
+    ZNS=$1
+    MOUNT="/mnt/f2fs"
+
+    DEV=$(sudo ../nullblk_create 512 19456)
+    export DEV
+    export ZNS
+
+    sudo nvme zns reset-zone /dev/${ZNS} -a
+    echo mq-deadline | sudo tee /sys/block/${ZNS}/queue/scheduler > /dev/null
+    sudo env "PATH=${PATH}" mkfs.f2fs -f -m -c /dev/${ZNS} /dev/${DEV}
+    sudo mkdir -p /mnt/f2fs
+    sudo mount -t f2fs -o hot_data_streams=$2 -o warm_data_streams=$3 -o cold_data_streams=$4 -o stream_policy=$5 /dev/${DEV} ${MOUNT}
+    sudo chown -R ${USER} /mnt/f2fs
+}
+
+cleanup() {
+    sudo sync # avoid errors on busy unmount
+    sudo umount /dev/${DEV}
+    DEV_ID=$(echo "${DEV: -1}")
+    sudo ../nullblk_delete $DEV_ID
+}
+
+ZNS=$1
+export ZNS
+
+policy="spf"
+
+DIR=data-${policy}
+
+mkdir -p ${DIR}
+
+setup_msf2fs ${ZNS} 7 1 1 ${policy}
+sudo env "DIR=${DIR}" ${FIO_HOME}/fio --output-format=json --output=${DIR}/gc.json job-fill.fio
+# Deleting four files so we have space to write four new files
+sudo rm ${MOUNT}/gc.1.0 ${MOUNT}/gc.3.0 ${MOUNT}/gc.5.0 ${MOUNT}/gc.6.0
+sudo sync
+sudo env "DIR=${DIR}" ${FIO_HOME}/fio --output-format=json --output=${DIR}/write.json job-write.fio
+cleanup
