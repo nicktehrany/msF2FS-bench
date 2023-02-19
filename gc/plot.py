@@ -23,6 +23,9 @@ f2fs_iops_data = []
 f2fs_global_data = dict()
 msf2fs_global_data = dict()
 
+msf2fs_lat_data = []
+f2fs_lat_data = []
+
 def parse_fio_log(data_path, data):
 
     with open(data_path, 'r') as f:
@@ -159,20 +162,98 @@ def plot_tail_latency():
     plt.savefig(f'figs/gc-tail_lat.png', bbox_inches='tight')
     plt.clf()
 
+def plot_latency():
+    f2fs_lat = [] 
+    f2fs_lat_x = []
+    msf2fs_lat = [] 
+    msf2fs_lat_x = []
+
+    total_bw = 0
+    bw_iter_tracker = 0
+
+    min = 0
+    if len(f2fs_lat_data) > len(f2fs_iops_data):
+        min = len(f2fs_iops_data) - 1
+    else:
+        min = len(f2fs_lat_data) - 1
+    
+    for iter in range(min):
+        total_bw += f2fs_iops_data[iter]*4096
+        f2fs_lat.append(f2fs_lat_data[iter]/1000)
+        bw_iter_tracker += total_bw/1024/1024/1024
+        f2fs_lat_x.append(bw_iter_tracker)
+        total_bw = 0
+
+    total_bw = 0
+    bw_iter_tracker = 0
+
+    min = 0
+    if len(msf2fs_lat_data) > len(msf2fs_iops_data):
+        min = len(msf2fs_iops_data) - 1
+    else:
+        min = len(msf2fs_lat_data) - 1
+
+    for iter in range(min):
+        total_bw += msf2fs_iops_data[iter]*4096
+        msf2fs_lat.append(msf2fs_lat_data[iter]/1000)
+        bw_iter_tracker += total_bw/1024/1024/1024
+        msf2fs_lat_x.append(bw_iter_tracker)
+        total_bw = 0
+
+    # With 3 down-sampling
+    f2fs_lat_np = np.asarray(f2fs_lat)
+    f2fs_lat_fmt = np.nanmean(np.pad(f2fs_lat_np.astype(float), (0, 3 - f2fs_lat_np.size%3), mode='constant', constant_values=np.NaN).reshape(-1, 3), axis=1)
+    f2fs_x_np = np.asarray(f2fs_lat_x)
+    f2fs_x_fmt = np.nanmean(np.pad(f2fs_x_np.astype(float), (0, 3 - f2fs_x_np.size%3), mode='constant', constant_values=np.NaN).reshape(-1, 3), axis=1)
+    msf2fs_lat_np = np.asarray(msf2fs_lat)
+    msf2fs_lat_fmt = np.nanmean(np.pad(msf2fs_lat_np.astype(float), (0, 3 - msf2fs_lat_np.size%3), mode='constant', constant_values=np.NaN).reshape(-1, 3), axis=1)
+    msf2fs_x_np = np.asarray(msf2fs_lat_x)
+    msf2fs_x_fmt = np.nanmean(np.pad(msf2fs_x_np.astype(float), (0, 3 - msf2fs_x_np.size%3), mode='constant', constant_values=np.NaN).reshape(-1, 3), axis=1)
+
+    print(f"F2FS Avg. lat: {np.mean(f2fs_lat_np)}")
+    print(f"msF2FS  Avg. lat: {np.mean(msf2fs_lat_np)}")
+
+    fig, ax = plt.subplots()
+    
+    # With downsampling
+    # ax.errorbar(f2fs_x_fmt, f2fs_lat_fmt, label="F2FS", fmt="-", linewidth=1)
+    # ax.errorbar(msf2fs_x_fmt, msf2fs_lat_fmt, label="msF2FS", fmt="-", linewidth=1)
+
+    # Without down-sampling
+    ax.errorbar(f2fs_lat_x, f2fs_lat, label="F2FS", fmt="-", linewidth=0.5)
+    ax.errorbar(msf2fs_lat_x, msf2fs_lat, label="msF2FS", fmt="-", linewidth=0.5)
+    
+    fig.tight_layout()
+    ax.grid(which='major', linestyle='dashed', linewidth='1')
+    ax.set_axisbelow(True)
+    ax.legend(loc='upper right')
+    ax.set_xlabel("Data Written (GiB)")
+    ax.set_ylabel("Average Latency (usec)")
+    ax.set_ylim(0, 15)
+    ax.set_xlim(0, 500)
+    plt.savefig(f'figs/gc-latency.pdf', bbox_inches='tight')
+    plt.savefig(f'figs/gc-latency.png', bbox_inches='tight')
+    plt.clf()
+
+
 if __name__ == '__main__':
     file_path = '/'.join(os.path.abspath(__file__).split('/')[:-1])
 
     parse_fio_log(f'{file_path}/data-f2fs/overwrite_iops_log_iops.8.log', f2fs_iops_data)
     parse_fio_log(f'{file_path}/data-spf/overwrite_iops_log_iops.8.log', msf2fs_iops_data)
 
-    parse_fio_data(f'{file_path}/data-f2fs/', f2fs_global_data)
-    parse_fio_data(f'{file_path}/data-spf/', msf2fs_global_data)
-
     # throughput over time plot
     plot_iops()
+
+    parse_fio_data(f'{file_path}/data-f2fs/', f2fs_global_data)
+    parse_fio_data(f'{file_path}/data-spf/', msf2fs_global_data)
 
     # tail latency plot
     plot_tail_latency()
 
+    parse_fio_log(f'{file_path}/data-f2fs/overwrite_lat_log_clat.8.log', f2fs_lat_data)
+    parse_fio_log(f'{file_path}/data-spf/overwrite_lat_log_clat.8.log', msf2fs_lat_data)
+
     # latency over time plot
+    plot_latency()
 
