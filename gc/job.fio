@@ -19,6 +19,10 @@ filename_format=gc.$jobnum.$filenum
 fsync=8
 write_hint=short
 rw=write
+write_bw_log=${DATA}/fill_bw_log
+write_lat_log=${DATA}/fill_lat_log
+write_iops_log=${DATA}/fill_iops_log
+log_avg_msec=1000
 
 [overwrite]
 stonewall
@@ -30,3 +34,7 @@ rw=write
 fsync=32
 filename_format=gc.1.0
 percentile_list=50:75:90:95:99:99.9:99.99:99.999:100
+write_bw_log=${DATA}/overwrite_bw_log
+write_lat_log=${DATA}/overwrite_lat_log
+write_iops_log=${DATA}/overwrite_iops_log
+log_avg_msec=1000

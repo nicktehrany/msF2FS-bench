@@ -38,5 +38,5 @@ DIR=data-f2fs
 mkdir -p ${DIR}
 
 setup_f2fs ${ZNS}
-sudo env ${FIO_HOME}/fio --output-format=json --output=${DIR}/gc.json job.fio
+sudo env "DIR=${DIR}" ${FIO_HOME}/fio --output-format=json --output=${DIR}/gc.json job.fio
 cleanup
