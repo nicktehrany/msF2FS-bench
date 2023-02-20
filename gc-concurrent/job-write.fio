@@ -9,6 +9,7 @@ thread=1
 
 [write]
 stonewall
+ramp_time=30s
 numjobs=4
 ioengine=psync
 iodepth=1
