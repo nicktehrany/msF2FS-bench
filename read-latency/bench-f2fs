@@ -37,22 +37,7 @@ DIR=data-f2fs
 
 mkdir -p ${DIR}
 
-echo "Running benchmark with 9 streams (${policy}) and 1 hot files"
 setup_f2fs ${ZNS}
-sudo env "NUMJOBS=1" "NRFILES=1" "SIZE=30G" ${FIO_HOME}/fio --output-format=json --output=${DIR}/read-latency-1.json job.fio
-cleanup
-
-echo "Running benchmark with 9 streams (${policy}) and 10 hot files"
-setup_f2fs ${ZNS}
-sudo env "NUMJOBS=10" "NRFILES=1" "SIZE=10G" ${FIO_HOME}/fio --output-format=json --output=${DIR}/read-latency-10.json job.fio
-cleanup
-
-echo "Running benchmark with 9 streams (${policy}) and 50 hot files"
-setup_f2fs ${ZNS}
-sudo env "NUMJOBS=10" "NRFILES=5" "SIZE=3G" ${FIO_HOME}/fio --output-format=json --output=${DIR}/read-latency-50.json job.fio
-cleanup
-
-echo "Running benchmark with 9 streams (${policy}) and 100 hot files"
-setup_f2fs ${ZNS}
-sudo env "NUMJOBS=10" "NRFILES=10" "SIZE=2G" ${FIO_HOME}/fio --output-format=json --output=${DIR}/read-latency-100.json job.fio
+sudo env "DIR=${DIR}" ${FIO_HOME}/fio --output-format=json --output=${DIR}/gc.json job-fill.fio
+sudo env "DIR=${DIR}" ${FIO_HOME}/fio --output-format=json --output=${DIR}/read.json job-read.fio
 cleanup
