@@ -25,6 +25,7 @@ f2fs_lat_data = []
 
 def parse_fio_log(data_path, data, type):
     inited = False
+    shortest = 0
 
     if not os.path.exists(f'{data_path}') or \
             os.listdir(f'{data_path}') == []: 
@@ -47,6 +48,10 @@ def parse_fio_log(data_path, data, type):
                                 data[iter] = data[iter] + int(newline[1][:-1])
                         iter += 1
                 inited = True
+                if shortest == 0:
+                    shortest = iter
+                elif shortest > iter:
+                    shortest = iter
 
         elif "overwrite_lat_log_clat" in file and type == "lat":
             with open(file, 'r') as f:
@@ -61,6 +66,10 @@ def parse_fio_log(data_path, data, type):
                         else:
                             data[iter] = data[iter] + int(newline[1][:-1])
                 inited = True
+                if shortest == 0:
+                    shortest = iter
+                elif shortest > iter:
+                    shortest = iter
 
     return 1
 
@@ -143,7 +152,7 @@ def plot_iops():
     ax.set_xlabel("Data Written (TiB)")
     ax.set_ylabel("KIOPS")
     ax.set_ylim(0, 300)
-    ax.set_xlim(0, 2)
+    ax.set_xlim(0, 1.9)
     plt.savefig(f'figs/gc-throughput.pdf', bbox_inches='tight')
     plt.savefig(f'figs/gc-throughput.png', bbox_inches='tight')
     plt.clf()
@@ -245,8 +254,8 @@ def plot_latency_f2fs():
     # ax.errorbar(msf2fs_x_fmt, msf2fs_lat_fmt, label="msF2FS", fmt="-", linewidth=1)
 
     # Without down-sampling
-    # ax.errorbar(f2fs_lat_x, f2fs_lat, label="F2FS", fmt="-", linewidth=0.5)
-    ax.errorbar(msf2fs_lat_x, msf2fs_lat, label="msF2FS", fmt="-", linewidth=0.5)
+    ax.errorbar(f2fs_lat_x, f2fs_lat, label="F2FS", fmt="-", linewidth=0.5)
+    # ax.errorbar(msf2fs_lat_x, msf2fs_lat, label="msF2FS", fmt="-", linewidth=0.5)
     
     fig.tight_layout()
     ax.grid(which='major', linestyle='dashed', linewidth='1')
@@ -255,7 +264,7 @@ def plot_latency_f2fs():
     ax.set_xlabel("Data Written (TiB)")
     ax.set_ylabel("Average Latency (usec)")
     ax.set_ylim(0, 1000)
-    ax.set_xlim(0, 2)
+    ax.set_xlim(0, 1.9)
     plt.savefig(f'figs/gc-latency-f2fs.pdf', bbox_inches='tight')
     plt.savefig(f'figs/gc-latency-f2fs.png', bbox_inches='tight')
     plt.clf()
@@ -327,7 +336,7 @@ def plot_latency_msf2fs():
     ax.set_xlabel("Data Written (TiB)")
     ax.set_ylabel("Average Latency (usec)")
     ax.set_ylim(0, 1000)
-    ax.set_xlim(0, 2)
+    ax.set_xlim(0, 1.9)
     plt.savefig(f'figs/gc-latency-msf2fs.pdf', bbox_inches='tight')
     plt.savefig(f'figs/gc-latency-msf2fs.png', bbox_inches='tight')
     plt.clf()
@@ -336,7 +345,7 @@ if __name__ == '__main__':
     file_path = '/'.join(os.path.abspath(__file__).split('/')[:-1])
 
     parse_fio_log(f'{file_path}/data-f2fs/', f2fs_iops_data, "overwrite")
-    parse_fio_log(f'{file_path}/data-f2fs/', msf2fs_iops_data, "overwrite") # TODO DUMMY PATH
+    parse_fio_log(f'{file_path}/data-spf/', msf2fs_iops_data, "overwrite")
 
     # throughput over time plot
     plot_iops()
@@ -348,7 +357,7 @@ if __name__ == '__main__':
     plot_tail_latency()
 
     parse_fio_log(f'{file_path}/data-f2fs/', f2fs_lat_data, "lat")
-    parse_fio_log(f'{file_path}/data-f2fs/', msf2fs_lat_data, "lat") # TODO DUMMY PATH
+    parse_fio_log(f'{file_path}/data-spf/', msf2fs_lat_data, "lat")
 
     # latency over time plot
     plot_latency_f2fs()
