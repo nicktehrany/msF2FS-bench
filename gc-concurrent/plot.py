@@ -1,14 +1,11 @@
 #!/usr/bin/env python3
 
 import matplotlib.pyplot as plt
-import math
 import numpy as np
 import matplotlib.patches as mpatches
 import os
 import glob
 import json
-import sys
-import getopt
 
 plt.rc('font', size=12)          # controls default text sizes
 plt.rc('axes', titlesize=12)     # fontsize of the axes title
@@ -26,15 +23,44 @@ msf2fs_global_data = dict()
 msf2fs_lat_data = []
 f2fs_lat_data = []
 
-def parse_fio_log(data_path, data):
+def parse_fio_log(data_path, data, type):
+    inited = False
 
-    with open(data_path, 'r') as f:
-        for index, line in enumerate(f, 1):
-            newline = line.split()
-            if len(newline) < 1:
-                break
-            else:
-                data.append(int(newline[1][:-1]))
+    if not os.path.exists(f'{data_path}') or \
+            os.listdir(f'{data_path}') == []: 
+        print(f'No data in {data_path}')
+        return 0 
+
+    for file in glob.glob(f'{data_path}/*'): 
+        if "overwrite_iops_log" in file and type == "overwrite":
+            with open(file, 'r') as f:
+                iter = 0
+                for index, line in enumerate(f, 1):
+                    newline = line.split()
+                    if len(newline) < 1:
+                        break
+                    else:
+                        if not inited:
+                            data.append(int(newline[1][:-1]))
+                        else:
+                            if (len(data) > iter):
+                                data[iter] = data[iter] + int(newline[1][:-1])
+                        iter += 1
+                inited = True
+
+        elif "overwrite_lat_log_clat" in file and type == "lat":
+            with open(file, 'r') as f:
+                iter = 0
+                for index, line in enumerate(f, 1):
+                    newline = line.split()
+                    if len(newline) < 1:
+                        break
+                    else:
+                        if not inited:
+                            data.append(int(newline[1][:-1]))
+                        else:
+                            data[iter] = data[iter] + int(newline[1][:-1])
+                inited = True
 
     return 1
 
@@ -44,7 +70,7 @@ def parse_fio_data(data_path, data):
         print(f'No data in {data_path}')
         return 0 
 
-    for file in glob.glob(f'{data_path}/*.json'): 
+    for file in glob.glob(f'{data_path}/write.json'): 
         with open(file, 'r') as f:
             for index, line in enumerate(f, 1):
                 # Removing all fio logs in json file by finding first {
@@ -73,7 +99,7 @@ def plot_iops():
     for iter in range(len(f2fs_iops_data)):
         total_bw += f2fs_iops_data[iter]*4096
         f2fs_iops.append(f2fs_iops_data[iter]/1000)
-        bw_iter_tracker += total_bw/1024/1024/1024
+        bw_iter_tracker += total_bw/1024/1024/1024/1024
         f2fs_iops_x.append(bw_iter_tracker)
         total_bw = 0
 
@@ -83,7 +109,7 @@ def plot_iops():
     for iter in range(len(msf2fs_iops_data)):
         total_bw += msf2fs_iops_data[iter]*4096
         msf2fs_iops.append(msf2fs_iops_data[iter]/1000)
-        bw_iter_tracker += total_bw/1024/1024/1024
+        bw_iter_tracker += total_bw/1024/1024/1024/1024
         msf2fs_iops_x.append(bw_iter_tracker)
         total_bw = 0
 
@@ -114,10 +140,10 @@ def plot_iops():
     ax.grid(which='major', linestyle='dashed', linewidth='1')
     ax.set_axisbelow(True)
     ax.legend(loc='upper right')
-    ax.set_xlabel("Data Written (GiB)")
+    ax.set_xlabel("Data Written (TiB)")
     ax.set_ylabel("KIOPS")
-    ax.set_ylim(0, 200)
-    ax.set_xlim(0, 500)
+    ax.set_ylim(0, 300)
+    ax.set_xlim(0, 2)
     plt.savefig(f'figs/gc-throughput.pdf', bbox_inches='tight')
     plt.savefig(f'figs/gc-throughput.png', bbox_inches='tight')
     plt.clf()
@@ -128,20 +154,20 @@ def plot_tail_latency():
     msf2fs_lats = []
 
     for key, item in f2fs_global_data.items():
-        # f2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['95.000000'])/1000)
-        f2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['99.000000'])/1000)
-        f2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['99.900000'])/1000)
-        f2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['99.990000'])/1000)
-        f2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['99.999000'])/1000)
-        f2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['100.000000'])/1000)
+        # f2fs_lats.append(int(item['jobs'][0]['write']['clat_ns']['percentile']['95.000000'])/1000)
+        f2fs_lats.append(int(item['jobs'][0]['write']['clat_ns']['percentile']['99.000000'])/1000)
+        f2fs_lats.append(int(item['jobs'][0]['write']['clat_ns']['percentile']['99.900000'])/1000)
+        f2fs_lats.append(int(item['jobs'][0]['write']['clat_ns']['percentile']['99.990000'])/1000)
+        f2fs_lats.append(int(item['jobs'][0]['write']['clat_ns']['percentile']['99.999000'])/1000)
+        f2fs_lats.append(int(item['jobs'][0]['write']['clat_ns']['percentile']['100.000000'])/1000)
 
     for key, item in msf2fs_global_data.items():
-        # msf2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['95.000000'])/1000)
-        msf2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['99.000000'])/1000)
-        msf2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['99.900000'])/1000)
-        msf2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['99.990000'])/1000)
-        msf2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['99.999000'])/1000)
-        msf2fs_lats.append(int(item['jobs'][1]['write']['clat_ns']['percentile']['100.000000'])/1000)
+        # msf2fs_lats.append(int(item['jobs'][0]['write']['clat_ns']['percentile']['95.000000'])/1000)
+        msf2fs_lats.append(int(item['jobs'][0]['write']['clat_ns']['percentile']['99.000000'])/1000)
+        msf2fs_lats.append(int(item['jobs'][0]['write']['clat_ns']['percentile']['99.900000'])/1000)
+        msf2fs_lats.append(int(item['jobs'][0]['write']['clat_ns']['percentile']['99.990000'])/1000)
+        msf2fs_lats.append(int(item['jobs'][0]['write']['clat_ns']['percentile']['99.999000'])/1000)
+        msf2fs_lats.append(int(item['jobs'][0]['write']['clat_ns']['percentile']['100.000000'])/1000)
 
     fig, ax = plt.subplots()
     
@@ -162,7 +188,7 @@ def plot_tail_latency():
     plt.savefig(f'figs/gc-tail_lat.png', bbox_inches='tight')
     plt.clf()
 
-def plot_latency():
+def plot_latency_f2fs():
     f2fs_lat = [] 
     f2fs_lat_x = []
     msf2fs_lat = [] 
@@ -180,7 +206,7 @@ def plot_latency():
     for iter in range(min):
         total_bw += f2fs_iops_data[iter]*4096
         f2fs_lat.append(f2fs_lat_data[iter]/1000)
-        bw_iter_tracker += total_bw/1024/1024/1024
+        bw_iter_tracker += total_bw/1024/1024/1024/1024
         f2fs_lat_x.append(bw_iter_tracker)
         total_bw = 0
 
@@ -196,7 +222,7 @@ def plot_latency():
     for iter in range(min):
         total_bw += msf2fs_iops_data[iter]*4096
         msf2fs_lat.append(msf2fs_lat_data[iter]/1000)
-        bw_iter_tracker += total_bw/1024/1024/1024
+        bw_iter_tracker += total_bw/1024/1024/1024/1024
         msf2fs_lat_x.append(bw_iter_tracker)
         total_bw = 0
 
@@ -211,7 +237,6 @@ def plot_latency():
     msf2fs_x_fmt = np.nanmean(np.pad(msf2fs_x_np.astype(float), (0, 3 - msf2fs_x_np.size%3), mode='constant', constant_values=np.NaN).reshape(-1, 3), axis=1)
 
     print(f"F2FS Avg. lat: {np.mean(f2fs_lat_np)}")
-    print(f"msF2FS  Avg. lat: {np.mean(msf2fs_lat_np)}")
 
     fig, ax = plt.subplots()
     
@@ -220,27 +245,98 @@ def plot_latency():
     # ax.errorbar(msf2fs_x_fmt, msf2fs_lat_fmt, label="msF2FS", fmt="-", linewidth=1)
 
     # Without down-sampling
-    ax.errorbar(f2fs_lat_x, f2fs_lat, label="F2FS", fmt="-", linewidth=0.5)
+    # ax.errorbar(f2fs_lat_x, f2fs_lat, label="F2FS", fmt="-", linewidth=0.5)
     ax.errorbar(msf2fs_lat_x, msf2fs_lat, label="msF2FS", fmt="-", linewidth=0.5)
     
     fig.tight_layout()
     ax.grid(which='major', linestyle='dashed', linewidth='1')
     ax.set_axisbelow(True)
     ax.legend(loc='upper right')
-    ax.set_xlabel("Data Written (GiB)")
+    ax.set_xlabel("Data Written (TiB)")
     ax.set_ylabel("Average Latency (usec)")
-    ax.set_ylim(0, 15)
-    ax.set_xlim(0, 500)
-    plt.savefig(f'figs/gc-latency.pdf', bbox_inches='tight')
-    plt.savefig(f'figs/gc-latency.png', bbox_inches='tight')
+    ax.set_ylim(0, 1000)
+    ax.set_xlim(0, 2)
+    plt.savefig(f'figs/gc-latency-f2fs.pdf', bbox_inches='tight')
+    plt.savefig(f'figs/gc-latency-f2fs.png', bbox_inches='tight')
     plt.clf()
 
+def plot_latency_msf2fs():
+    f2fs_lat = [] 
+    f2fs_lat_x = []
+    msf2fs_lat = [] 
+    msf2fs_lat_x = []
+
+    total_bw = 0
+    bw_iter_tracker = 0
+
+    min = 0
+    if len(f2fs_lat_data) > len(f2fs_iops_data):
+        min = len(f2fs_iops_data) - 1
+    else:
+        min = len(f2fs_lat_data) - 1
+    
+    for iter in range(min):
+        total_bw += f2fs_iops_data[iter]*4096
+        f2fs_lat.append(f2fs_lat_data[iter]/1000)
+        bw_iter_tracker += total_bw/1024/1024/1024/1024
+        f2fs_lat_x.append(bw_iter_tracker)
+        total_bw = 0
+
+    total_bw = 0
+    bw_iter_tracker = 0
+
+    min = 0
+    if len(msf2fs_lat_data) > len(msf2fs_iops_data):
+        min = len(msf2fs_iops_data) - 1
+    else:
+        min = len(msf2fs_lat_data) - 1
+
+    for iter in range(min):
+        total_bw += msf2fs_iops_data[iter]*4096
+        msf2fs_lat.append(msf2fs_lat_data[iter]/1000)
+        bw_iter_tracker += total_bw/1024/1024/1024/1024
+        msf2fs_lat_x.append(bw_iter_tracker)
+        total_bw = 0
+
+    # With 3 down-sampling
+    f2fs_lat_np = np.asarray(f2fs_lat)
+    f2fs_lat_fmt = np.nanmean(np.pad(f2fs_lat_np.astype(float), (0, 3 - f2fs_lat_np.size%3), mode='constant', constant_values=np.NaN).reshape(-1, 3), axis=1)
+    f2fs_x_np = np.asarray(f2fs_lat_x)
+    f2fs_x_fmt = np.nanmean(np.pad(f2fs_x_np.astype(float), (0, 3 - f2fs_x_np.size%3), mode='constant', constant_values=np.NaN).reshape(-1, 3), axis=1)
+    msf2fs_lat_np = np.asarray(msf2fs_lat)
+    msf2fs_lat_fmt = np.nanmean(np.pad(msf2fs_lat_np.astype(float), (0, 3 - msf2fs_lat_np.size%3), mode='constant', constant_values=np.NaN).reshape(-1, 3), axis=1)
+    msf2fs_x_np = np.asarray(msf2fs_lat_x)
+    msf2fs_x_fmt = np.nanmean(np.pad(msf2fs_x_np.astype(float), (0, 3 - msf2fs_x_np.size%3), mode='constant', constant_values=np.NaN).reshape(-1, 3), axis=1)
+
+    print(f"msF2FS  Avg. lat: {np.mean(msf2fs_lat_np)}")
+
+    fig, ax = plt.subplots()
+    
+    # With downsampling
+    # ax.errorbar(f2fs_x_fmt, f2fs_lat_fmt, label="F2FS", fmt="-", linewidth=1)
+    ax.errorbar(msf2fs_x_fmt, msf2fs_lat_fmt, label="msF2FS", fmt="-", linewidth=1)
+
+    # Without down-sampling
+    # ax.errorbar(f2fs_lat_x, f2fs_lat, label="F2FS", fmt="-", linewidth=0.5)
+    # ax.errorbar(msf2fs_lat_x, msf2fs_lat, label="msF2FS", fmt="-", linewidth=0.5)
+    
+    fig.tight_layout()
+    ax.grid(which='major', linestyle='dashed', linewidth='1')
+    ax.set_axisbelow(True)
+    ax.legend(loc='upper right')
+    ax.set_xlabel("Data Written (TiB)")
+    ax.set_ylabel("Average Latency (usec)")
+    ax.set_ylim(0, 1000)
+    ax.set_xlim(0, 2)
+    plt.savefig(f'figs/gc-latency-msf2fs.pdf', bbox_inches='tight')
+    plt.savefig(f'figs/gc-latency-msf2fs.png', bbox_inches='tight')
+    plt.clf()
 
 if __name__ == '__main__':
     file_path = '/'.join(os.path.abspath(__file__).split('/')[:-1])
 
-    parse_fio_log(f'{file_path}/data-f2fs/overwrite_iops_log_iops.8.log', f2fs_iops_data)
-    parse_fio_log(f'{file_path}/data-spf/overwrite_iops_log_iops.8.log', msf2fs_iops_data)
+    parse_fio_log(f'{file_path}/data-f2fs/', f2fs_iops_data, "overwrite")
+    parse_fio_log(f'{file_path}/data-f2fs/', msf2fs_iops_data, "overwrite") # TODO DUMMY PATH
 
     # throughput over time plot
     plot_iops()
@@ -248,12 +344,13 @@ if __name__ == '__main__':
     parse_fio_data(f'{file_path}/data-f2fs/', f2fs_global_data)
     parse_fio_data(f'{file_path}/data-spf/', msf2fs_global_data)
 
-    # tail latency plot
+    # # tail latency plot
     plot_tail_latency()
 
-    parse_fio_log(f'{file_path}/data-f2fs/overwrite_lat_log_clat.8.log', f2fs_lat_data)
-    parse_fio_log(f'{file_path}/data-spf/overwrite_lat_log_clat.8.log', msf2fs_lat_data)
+    parse_fio_log(f'{file_path}/data-f2fs/', f2fs_lat_data, "lat")
+    parse_fio_log(f'{file_path}/data-f2fs/', msf2fs_lat_data, "lat") # TODO DUMMY PATH
 
     # latency over time plot
-    plot_latency()
+    plot_latency_f2fs()
+    plot_latency_msf2fs()
 
