@@ -1,0 +1,3 @@
+[submodule "submodules/zbdbench"]
+	path = submodules/zbdbench
+	url = https://github.com/westerndigitalcorporation/zbdbench
