@@ -165,7 +165,7 @@ def plot_throughput():
     ax.legend(loc='best',ncol=2)
     ax.xaxis.set_ticks(x)
     ax.xaxis.set_ticklabels(np.arange(1,10))
-    ax.set_ylim(bottom=0,top=350)
+    ax.set_ylim(bottom=0,top=400)
     ax.set_ylabel('KIOPS')
     ax.set_xlabel('Concurrent Files')
     plt.savefig(f'figs/msf2fs-throughput.pdf', bbox_inches='tight')
