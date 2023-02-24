@@ -2,6 +2,7 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.ticker as ticker
 import matplotlib.patches as mpatches
 import os
 import glob
@@ -341,6 +342,42 @@ def plot_latency_msf2fs():
     plt.savefig(f'figs/gc-latency-msf2fs.png', bbox_inches='tight')
     plt.clf()
 
+def plot_reverse_cdf():
+    rcdf_f2fs = []
+    rcdf_msf2fs = []
+
+    sorted_f2fs_data = np.sort(f2fs_lat_data)
+    x_f2fs = [val / 1000 for val in sorted_f2fs_data]
+
+    for item in sorted_f2fs_data:
+        rcdf_f2fs.append(sum(x > item for x in f2fs_lat_data)/len(sorted_f2fs_data))
+
+    sorted_msf2fs_data = np.sort(msf2fs_lat_data)
+    x_msf2fs = [val / 1000 for val in sorted_msf2fs_data]
+
+    for item in sorted_msf2fs_data:
+        rcdf_msf2fs.append(sum(x > item for x in msf2fs_lat_data)/len(sorted_msf2fs_data))
+    fig, ax = plt.subplots()
+    
+    ax.errorbar(x_f2fs, rcdf_f2fs, label="F2FS", fmt="-", linewidth=1)
+    ax.errorbar(x_msf2fs, rcdf_msf2fs, label="msF2FS", fmt="-", linewidth=1)
+    
+    fig.tight_layout()
+    ax.grid(which='major', linestyle='dashed', linewidth='1')
+    ax.set_axisbelow(True)
+    plt.yscale("log")
+    plt.xscale("log")
+    ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda y,pos: ('{{:.{:1d}f}}'.format(int(np.maximum(-np.log10(y),0)))).format(y)))
+    ax.xaxis.set_major_formatter(ticker.FuncFormatter(lambda x,pos: ('{{:.{:1d}f}}'.format(int(np.maximum(-np.log10(x),0)))).format(x)))
+    # ax.set_ylim(0.000001, 1)
+    # ax.set_xlim(0.000001)
+    ax.legend(loc='upper right')
+    ax.set_ylabel("Fraction of Writes")
+    ax.set_xlabel("Average Latency (usec)")
+    plt.savefig(f'figs/gc-latency-rcdf.pdf', bbox_inches='tight')
+    plt.savefig(f'figs/gc-latency-rcdf.png', bbox_inches='tight')
+    plt.clf()
+
 if __name__ == '__main__':
     file_path = '/'.join(os.path.abspath(__file__).split('/')[:-1])
 
@@ -363,3 +400,5 @@ if __name__ == '__main__':
     plot_latency_f2fs()
     plot_latency_msf2fs()
 
+    # plotting the average latency as a reverse cumulative distribution function
+    plot_reverse_cdf()
