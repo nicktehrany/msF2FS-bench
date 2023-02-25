@@ -9,20 +9,20 @@
  *
  * Data Maps:
  * cp_counter: number of CP write I/Os
- * cp_tsmp: timespamps (in nsecs) of each CP write I/O with the data len (in 512B Blocks)
  * cp_data: total data written to CP area (in 512B Blocks)
+ * cp_data_hist: distribution of the data size for write I/O to CP
  *
  * nat_counter: number of NAT write I/Os
- * nat_tsmp: timespamps (in nsecs) of each NAT write I/O with the data len (in 512B Blocks)
  * nat_data: total data written to NAT area (in 512B Blocks)
+ * nat_data_hist: distribution of the data size for write I/O to NAT
  *
  * sit_counter: number of SIT write I/Os
- * sit_tsmp: timespamps (in nsecs) of each SIT write I/O with the data len (in 512B Blocks)
  * sit_data: total data written to SIT area (in 512B Blocks)
+ * sit_data_hist: distribution of the data size for write I/O to SIT
  *
  * ssa_counter: number of SSA write I/Os
- * ssa_tsmp: timespamps (in nsecs) of each CP write I/O with the data len (in 512B Blocks)
  * ssa_data: total data written to SSA area (in 512B Blocks)
+ * ssa_data_hist: distribution of the data size for write I/O to SSA
  *
  *
  */
@@ -38,24 +38,24 @@ kfunc:__blk_account_io_start / args->rq->q->disk->disk_name == "nullb1" / {
 
     if ($cmd == REQ_OP_WRITE) {
         if ($secnum >= 0x600000 && $secnum < 0x602000) {
-            @cp_tsmp[@cp_counter] = (nsecs, $data_len);
             @cp_counter++;
             @cp_data = @cp_data + $data_len; 
+            @cp_data_hist = hist($data_len)
         } else if ($secnum >= 0x602000 && $secnum < 0x710000) {
             /* SIT I/O */
-            @sit_tsmp[@sit_counter] = (nsecs, $data_len);
             @sit_counter++;
             @sit_data = @sit_data + $data_len; 
+            @sit_data_hist = hist($data_len)
         } else if ($secnum >= 0x710000 && $secnum < 0x788000) {
             /* NAT I/O */
-            @nat_tsmp[@nat_counter] = (nsecs, $data_len);
             @nat_counter++;
             @nat_data = @nat_data + $data_len; 
+            @nat_data_hist = hist($data_len)
         } else if ($secnum >= 0x788000) {
             /* SSA I/O */
-            @ssa_tsmp[@ssa_counter] = (nsecs, $data_len);
             @ssa_counter++;
             @ssa_data = @ssa_data + $data_len; 
+            @ssa_data_hist = hist($data_len)
         } 
     }
 }
