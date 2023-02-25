@@ -1,7 +1,11 @@
 /*
  *
  * Trace I/O activity for (ms)F2FS metadata on SIT, NAT, and SSA
- * with the 19G nullblk device (nullb0)
+ * with the 19G nullblk device (nullb1)
+ *
+ * 
+ *          CHANGE DEVICE NAME IF NEEDED (Hardcoded in kfunc filter)!
+ *
  *
  * Data Maps:
  * cp_counter: number of CP write I/Os
