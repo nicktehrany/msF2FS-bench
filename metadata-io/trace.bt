@@ -5,23 +5,24 @@
  *
  * 
  *          CHANGE DEVICE NAME IF NEEDED (Hardcoded in kfunc filter)!
+ *          CHANGE METADATA (CP,SIT,NAT,SSA) ADDRESSES (Hardcoded)
  *
  *
  * Data Maps:
  * cp_counter: number of CP write I/Os
- * cp_data: total data written to CP area (in 512B Blocks)
+ * cp_data: total data written to CP area (in 4KiB Blocks)
  * cp_data_hist: distribution of the data size for write I/O to CP
  *
  * nat_counter: number of NAT write I/Os
- * nat_data: total data written to NAT area (in 512B Blocks)
+ * nat_data: total data written to NAT area (in 4KiB Blocks)
  * nat_data_hist: distribution of the data size for write I/O to NAT
  *
  * sit_counter: number of SIT write I/Os
- * sit_data: total data written to SIT area (in 512B Blocks)
+ * sit_data: total data written to SIT area (in 4KiB Blocks)
  * sit_data_hist: distribution of the data size for write I/O to SIT
  *
  * ssa_counter: number of SSA write I/Os
- * ssa_data: total data written to SSA area (in 512B Blocks)
+ * ssa_data: total data written to SSA area (in 4KiB Blocks)
  * ssa_data_hist: distribution of the data size for write I/O to SSA
  *
  *
@@ -33,7 +34,7 @@
 kfunc:__blk_account_io_start / args->rq->q->disk->disk_name == "nullb1" / {
     $cmd = (args->rq->cmd_flags & 0xFF);
     $secnum = args->rq->__sector;
-    $data_len = args->rq->__data_len >> 9; // in 512B Blocks
+    $data_len = args->rq->__data_len >> 12; // in 4KiB Blocks
     $dev_name = args->rq->q->disk->disk_name;
 
     if ($cmd == REQ_OP_WRITE) {
