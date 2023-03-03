@@ -87,12 +87,12 @@ def plot_throughput():
 
     fig, ax = plt.subplots()
 
-    ax.errorbar(queue_depths, zns_szd, yerr=zns_szd_stdev, markersize=4, capsize=3, marker='x', label='ZNS 1 Zone')
-    ax.errorbar(queue_depths, zns_dzd, yerr=zns_dzd_stdev, markersize=4, capsize=3, marker='o', label='ZNS 2 Zones')
-    ax.errorbar(queue_depths, zns_tzd, yerr=zns_tzd_stdev, markersize=4, capsize=3, marker=',', label='ZNS 3 Zones')
-    ax.errorbar(queue_depths, zns_fourzd, yerr=zns_fourzd_stdev, markersize=4, capsize=3, marker='.', label='ZNS 4 Zone')
-    ax.errorbar(queue_depths, zns_fivezd, yerr=zns_fivezd_stdev, markersize=4, capsize=3, marker='v', label='ZNS 5 Zones')
-    ax.errorbar(queue_depths, zns_sixzd, yerr=zns_sixzd_stdev, markersize=4, capsize=3, marker='<', label='ZNS 6 Zones')
+    ax.errorbar(queue_depths, zns_szd, yerr=zns_szd_stdev, markersize=4, capsize=3, marker='x', label='1 Zone')
+    ax.errorbar(queue_depths, zns_dzd, yerr=zns_dzd_stdev, markersize=4, capsize=3, marker='o', label='2 Zones')
+    ax.errorbar(queue_depths, zns_tzd, yerr=zns_tzd_stdev, markersize=4, capsize=3, marker=',', label='3 Zones')
+    ax.errorbar(queue_depths, zns_fourzd, yerr=zns_fourzd_stdev, markersize=4, capsize=3, marker='.', label='4 Zones')
+    ax.errorbar(queue_depths, zns_fivezd, yerr=zns_fivezd_stdev, markersize=4, capsize=3, marker='v', label='5 Zones')
+    ax.errorbar(queue_depths, zns_sixzd, yerr=zns_sixzd_stdev, markersize=4, capsize=3, marker='<', label='6 Zones')
 
     fig.tight_layout()
     ax.grid(which='major', linestyle='dashed', linewidth='1')
