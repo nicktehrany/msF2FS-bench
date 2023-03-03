@@ -51,8 +51,8 @@ def plot_throughput(f2fs_iops, msf2fs_spf_iops, msf2fs_spf_e_iops, msf2fs_amfs_i
     ax.xaxis.set_ticklabels(x_labs)
     ax.set_ylim(bottom=0,top=150)
     ax.set_ylabel('1000 Ops/sec')
-    plt.savefig(f'figs/throughput-{name}.pdf', bbox_inches='tight')
-    plt.savefig(f'figs/throughput-{name}.png', bbox_inches='tight')
+    plt.savefig(f'figs/rocksdb-throughput-{name}.pdf', bbox_inches='tight')
+    plt.savefig(f'figs/rocksdb-throughput-{name}.png', bbox_inches='tight')
     plt.clf()
 
 def plot_latency(f2fs_iops, msf2fs_spf_iops, msf2fs_spf_e_iops, msf2fs_amfs_iops, zenfs_iops, x_labs, name):
@@ -91,8 +91,8 @@ def plot_latency(f2fs_iops, msf2fs_spf_iops, msf2fs_spf_e_iops, msf2fs_amfs_iops
     ax.xaxis.set_ticklabels(x_labs)
     ax.set_ylim(bottom=0,top=150)
     ax.set_ylabel('Latency (msec)')
-    plt.savefig(f'figs/latency-{name}.pdf', bbox_inches='tight')
-    plt.savefig(f'figs/latency-{name}.png', bbox_inches='tight')
+    plt.savefig(f'figs/rocksdb-latency-{name}.pdf', bbox_inches='tight')
+    plt.savefig(f'figs/rocksdb-latency-{name}.png', bbox_inches='tight')
     plt.clf()
 if __name__ == '__main__':
     file_path = '/'.join(os.path.abspath(__file__).split('/')[:-1])
