@@ -43,4 +43,6 @@ sudo env "DIR=${DIR}" ${FIO_HOME}/fio --output-format=json --output=${DIR}/gc.js
 sudo rm ${MOUNT}/gc.1.0 ${MOUNT}/gc.3.0 ${MOUNT}/gc.5.0 ${MOUNT}/gc.6.0
 sudo sync
 sudo env "DIR=${DIR}" ${FIO_HOME}/fio --output-format=json --output=${DIR}/write.json job-write.fio
+sudo env "DIR=${DIR}" ${FIO_HOME}/fio --output-format=json --output=${DIR}/read.json job-read.fio
+sudo env "DIR=${DIR}" ${FIO_HOME}/fio --output-format=json --output=${DIR}/read-concurrent.json job-read-concurrent.fio
 cleanup
