@@ -19,3 +19,8 @@ percentile_list=50:75:90:95:99:99.9:99.99:99.999:100
 rw=read
 filename=gc.2.0
 percentile_list=50:75:90:95:99:99.9:99.99:99.999:100
+
+[read-3]
+rw=read
+filename=gc.4.0
+percentile_list=50:75:90:95:99:99.9:99.99:99.999:100

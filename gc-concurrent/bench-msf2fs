@@ -47,4 +47,5 @@ sudo sync
 sudo env "DIR=${DIR}" ${FIO_HOME}/fio --output-format=json --output=${DIR}/write.json job-write.fio
 sudo env "DIR=${DIR}" ${FIO_HOME}/fio --output-format=json --output=${DIR}/read.json job-read.fio
 sudo env "DIR=${DIR}" ${FIO_HOME}/fio --output-format=json --output=${DIR}/read-concurrent.json job-read-concurrent.fio
+sudo env "DIR=${DIR}" ${FIO_HOME}/fio --output-format=json --output=${DIR}/read-concurrent-3.json job-read-concurrent-3.fio
 cleanup
