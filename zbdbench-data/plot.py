@@ -103,7 +103,7 @@ if __name__ == '__main__':
     msf2fs_spf_write = [70.616, 60.922]
     msf2fs_spf_e_write = [0, 0]
     msf2fs_amfs_write = [0 , 0]
-    zenfs_write = [0, 0]
+    zenfs_write = [76.853, 69.010]
 
     plot_throughput(f2fs_write, msf2fs_spf_write, msf2fs_spf_e_write, msf2fs_amfs_write, zenfs_write, ["fillrandom", "overwrite"], "write", 130, "1000 Ops/sec")
 
@@ -112,7 +112,7 @@ if __name__ == '__main__':
     msf2fs_spf_read = [1222, 998, 959]
     msf2fs_spf_e_read = [0, 0, 0]
     msf2fs_amfs_read = [0 , 0, 0]
-    zenfs_read = [0, 0, 0]
+    zenfs_read = [660, 633, 649]
 
     plot_throughput(f2fs_read, msf2fs_spf_read, msf2fs_spf_e_read, msf2fs_amfs_read, zenfs_read, ["randread", "readwhilewrite", "readwhilewriting (20MiB)"], "read", 1500, "Ops/sec")
 
@@ -121,7 +121,7 @@ if __name__ == '__main__':
     msf2fs_spf_lats = [16.053960, 29.752540]
     msf2fs_spf_e_lats = [0, 0]
     msf2fs_amfs_lats = [0, 0]
-    zenfs_lats = [0, 0]
+    zenfs_lats = [11.810868, 21.038380]
 
     plot_latency(f2fs_lats, msf2fs_spf_lats, msf2fs_spf_e_lats, msf2fs_amfs_lats, zenfs_lats, ["P95", "P99"], "write", 50)
 
@@ -130,7 +130,7 @@ if __name__ == '__main__':
     msf2fs_spf_lats = [18.232131, 32.566096]
     msf2fs_spf_e_lats = [0, 0]
     msf2fs_amfs_lats = [0, 0]
-    zenfs_lats = [0, 0]
+    zenfs_lats = [12.380804, 22.905761]
 
     plot_latency(f2fs_lats, msf2fs_spf_lats, msf2fs_spf_e_lats, msf2fs_amfs_lats, zenfs_lats, ["P95", "P99"], "overwrite", 50)
 
@@ -139,7 +139,7 @@ if __name__ == '__main__':
     msf2fs_spf_lats = [417.537183, 12845.643518]
     msf2fs_spf_e_lats = [0, 0]
     msf2fs_amfs_lats = [0, 0]
-    zenfs_lats = [0, 0]
+    zenfs_lats = [361.769158, 10961.3309450]
 
     plot_latency(f2fs_lats, msf2fs_spf_lats, msf2fs_spf_e_lats, msf2fs_amfs_lats, zenfs_lats, ["P95", "P99"], "read", 20000)
 
@@ -148,7 +148,7 @@ if __name__ == '__main__':
     msf2fs_spf_lats = [284.704503, 1141.125387]
     msf2fs_spf_e_lats = [0, 0]
     msf2fs_amfs_lats = [0, 0]
-    zenfs_lats = [0, 0]
+    zenfs_lats = [301.114651, 1127.022575]
 
     plot_latency(f2fs_lats, msf2fs_spf_lats, msf2fs_spf_e_lats, msf2fs_amfs_lats, zenfs_lats, ["P95", "P99"], "readwhilewriting", 5000)
 
@@ -157,6 +157,6 @@ if __name__ == '__main__':
     msf2fs_spf_lats = [328.609658, 6111.381415]
     msf2fs_spf_e_lats = [0, 0]
     msf2fs_amfs_lats = [0, 0]
-    zenfs_lats = [0, 0]
+    zenfs_lats = [346.995140, 2725.069089]
 
     plot_latency(f2fs_lats, msf2fs_spf_lats, msf2fs_spf_e_lats, msf2fs_amfs_lats, zenfs_lats, ["P95", "P99"], "readwhilewriting-limited", 30000)
