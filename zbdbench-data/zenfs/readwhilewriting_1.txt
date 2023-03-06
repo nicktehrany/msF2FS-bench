@@ -1,0 +1,626 @@
+RocksDB:    version 7.3
+Date:       Sun Mar  5 22:59:04 2023
+CPU:        34 * Intel(R) Xeon(R) Silver 4210R CPU @ 2.40GHz
+CPUCache:   16384 KB
+... finished 100 ops                              ... finished 200 ops                              ... finished 300 ops                              ... finished 400 ops                              ... finished 500 ops                              ... finished 600 ops                              ... finished 700 ops                              ... finished 800 ops                              ... finished 900 ops                              ... finished 1000 ops                              ... finished 1500 ops                              ... finished 2000 ops                              ... finished 2500 ops                              ... finished 3000 ops                              ... finished 3500 ops                              ... finished 4000 ops                              ... finished 4500 ops                              ... finished 5000 ops                              ... finished 6000 ops                              ... finished 7000 ops                              ... finished 8000 ops                              ... finished 9000 ops                              ... finished 10000 ops                              ... finished 15000 ops                              ... finished 20000 ops                              ... finished 25000 ops                              ... finished 30000 ops                              ... finished 35000 ops                              ... finished 40000 ops                              ... finished 45000 ops                              ... finished 50000 ops                              ... finished 60000 ops                              ... finished 70000 ops                              ... finished 100 ops                              ... finished 80000 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 90000 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100000 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 100 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 150000 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 200 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 200000 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 300 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 300 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 300 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 250000 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 500 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 400 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 600 ops                              ... finished 500 ops                              ... finished 300000 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 400 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 600 ops                              ... finished 500 ops                              ... finished 500 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 700 ops                              ... finished 600 ops                              ... finished 350000 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 500 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 700 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 600 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 600 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 400000 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 800 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 800 ops                              ... finished 700 ops                              ... finished 700 ops                              ... finished 800 ops                              ... finished 700 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 700 ops                              ... finished 800 ops                              ... finished 700 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 450000 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 900 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 900 ops                              ... finished 800 ops                              ... finished 900 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 500000 ops                              ... finished 900 ops                              ... finished 800 ops                              ... finished 800 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 1000 ops                              ... finished 900 ops                              ... finished 1000 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 900 ops                              ... finished 1000 ops                              ... finished 900 ops                              ... finished 1000 ops                              ... finished 900 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 900 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 900 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 600000 ops                              ... finished 1000 ops                              ... finished 1000 ops                              ... finished 700000 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 800000 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 1500 ops                              ... finished 900000 ops                              ... finished 1000000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 1100000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 2000 ops                              ... finished 1200000 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 1300000 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 2500 ops                              ... finished 1400000 ops                              ... finished 3000 ops                              ... finished 1500000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 1600000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 3000 ops                              ... finished 1700000 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 1800000 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 3500 ops                              ... finished 1900000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 2000000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 4000 ops                              ... finished 2100000 ops                              ... finished 4000 ops                              ... finished 2200000 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 2300000 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 4500 ops                              ... finished 2400000 ops                              ... finished 4500 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 2500000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 5000 ops                              ... finished 2600000 ops                              ... finished 5000 ops                              ... finished 2700000 ops                              ... finished 2800000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 2900000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 6000 ops                              ... finished 3000000 ops                              ... finished 3100000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 3200000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 3300000 ops                              ... finished 7000 ops                              ... finished 7000 ops                              ... finished 3400000 ops                              ... finished 3500000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 3600000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 3700000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 8000 ops                              ... finished 3800000 ops                              ... finished 3900000 ops                              ... finished 4000000 ops                              ... finished 4100000 ops                              ... finished 4200000 ops                              ... finished 4300000 ops                              ... finished 9000 ops                              ... finished 4400000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 4500000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 4600000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 4700000 ops                              ... finished 9000 ops                              ... finished 9000 ops                              ... finished 4800000 ops                              ... finished 4900000 ops                              ... finished 5000000 ops                              ... finished 5100000 ops                              ... finished 10000 ops                              ... finished 5200000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 5300000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 5400000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 5500000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 5600000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 10000 ops                              ... finished 5700000 ops                              ... finished 5800000 ops                              ... finished 5900000 ops                              ... finished 6000000 ops                              ... finished 6100000 ops                              ... finished 6200000 ops                              ... finished 6300000 ops                              ... finished 6400000 ops                              ... finished 6500000 ops                              ... finished 6600000 ops                              ... finished 6700000 ops                              long op: 1228498 micros                              long op: 1451380 micros                              long op: 1406897 micros                              ... finished 6800000 ops                              ... finished 6900000 ops                              ... finished 7000000 ops                              ... finished 7100000 ops                              ... finished 7200000 ops                              ... finished 7300000 ops                              ... finished 7400000 ops                              ... finished 7500000 ops                              ... finished 7600000 ops                              ... finished 7700000 ops                              ... finished 7800000 ops                              ... finished 7900000 ops                              ... finished 8000000 ops                              ... finished 8100000 ops                              ... finished 8200000 ops                              ... finished 8300000 ops                              ... finished 8400000 ops                              ... finished 8500000 ops                              ... finished 8600000 ops                              ... finished 8700000 ops                              ... finished 8800000 ops                              ... finished 8900000 ops                              ... finished 9000000 ops                              ... finished 9100000 ops                              ... finished 9200000 ops                              ... finished 9300000 ops                              ... finished 9400000 ops                              ... finished 9500000 ops                              ... finished 9600000 ops                              ... finished 9700000 ops                              ... finished 15000 ops                              ... finished 9800000 ops                              ... finished 9900000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 10000000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 10100000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 10200000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 10300000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 15000 ops                              ... finished 10400000 ops                              ... finished 10500000 ops                              ... finished 15000 ops                              ... finished 10600000 ops                              ... finished 10700000 ops                              ... finished 10800000 ops                              ... finished 10900000 ops                              ... finished 11000000 ops                              ... finished 11100000 ops                              ... finished 11200000 ops                              ... finished 11300000 ops                              ... finished 11400000 ops                              ... finished 11500000 ops                              ... finished 11600000 ops                              ... finished 11700000 ops                              ... finished 11800000 ops                              ... finished 11900000 ops                              ... finished 12000000 ops                              ... finished 12100000 ops                              ... finished 12200000 ops                              ... finished 12300000 ops                              ... finished 12400000 ops                              ... finished 12500000 ops                              ... finished 12600000 ops                              ... finished 12700000 ops                              ... finished 12800000 ops                              ... finished 12900000 ops                              ... finished 13000000 ops                              ... finished 13100000 ops                              ... finished 13200000 ops                              ... finished 13300000 ops                              ... finished 13400000 ops                              ... finished 20000 ops                              ... finished 13500000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 13600000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 13700000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 13800000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 20000 ops                              ... finished 13900000 ops                              ... finished 20000 ops                              ... finished 14000000 ops                              ... finished 14100000 ops                              ... finished 14200000 ops                              ... finished 20000 ops                              ... finished 14300000 ops                              ... finished 14400000 ops                              ... finished 14500000 ops                              ... finished 14600000 ops                              ... finished 14700000 ops                              ... finished 14800000 ops                              ... finished 14900000 ops                              ... finished 15000000 ops                              ... finished 15100000 ops                              ... finished 15200000 ops                              ... finished 15300000 ops                              ... finished 15400000 ops                              ... finished 15500000 ops                              ... finished 15600000 ops                              ... finished 15700000 ops                              ... finished 15800000 ops                              ... finished 15900000 ops                              ... finished 16000000 ops                              ... finished 16100000 ops                              ... finished 16200000 ops                              ... finished 16300000 ops                              ... finished 16400000 ops                              ... finished 16500000 ops                              ... finished 16600000 ops                              ... finished 16700000 ops                              ... finished 16800000 ops                              ... finished 16900000 ops                              ... finished 17000000 ops                              ... finished 17100000 ops                              ... finished 17200000 ops                              ... finished 17300000 ops                              ... finished 17400000 ops                              ... finished 17500000 ops                              ... finished 17600000 ops                              ... finished 17700000 ops                              ... finished 25000 ops                              ... finished 17800000 ops                              ... finished 25000 ops                              ... finished 17900000 ops                              ... finished 25000 ops                              ... finished 18000000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 18100000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 18200000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 18300000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 18400000 ops                              ... finished 25000 ops                              ... finished 18500000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 18600000 ops                              ... finished 25000 ops                              ... finished 18700000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 18800000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 25000 ops                              ... finished 18900000 ops                              ... finished 19000000 ops                              ... finished 19100000 ops                              ... finished 19200000 ops                              ... finished 19300000 ops                              ... finished 19400000 ops                              ... finished 19500000 ops                              ... finished 19600000 ops                              ... finished 19700000 ops                              ... finished 19800000 ops                              ... finished 19900000 ops                              ... finished 20000000 ops                              ... finished 20100000 ops                              ... finished 20200000 ops                              ... finished 20300000 ops                              ... finished 20400000 ops                              ... finished 20500000 ops                              ... finished 20600000 ops                              ... finished 20700000 ops                              ... finished 20800000 ops                              ... finished 20900000 ops                              ... finished 21000000 ops                              ... finished 21100000 ops                              ... finished 21200000 ops                              ... finished 21300000 ops                              ... finished 21400000 ops                              ... finished 21500000 ops                              ... finished 21600000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 21700000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 21800000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 21900000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 22000000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 22100000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 22200000 ops                              ... finished 30000 ops                              ... finished 30000 ops                              ... finished 22300000 ops                              ... finished 22400000 ops                              ... finished 22500000 ops                              ... finished 22600000 ops                              ... finished 22700000 ops                              ... finished 22800000 ops                              ... finished 22900000 ops                              ... finished 23000000 ops                              ... finished 23100000 ops                              ... finished 23200000 ops                              ... finished 23300000 ops                              ... finished 23400000 ops                              ... finished 23500000 ops                              ... finished 23600000 ops                              ... finished 23700000 ops                              ... finished 23800000 ops                              ... finished 23900000 ops                              ... finished 24000000 ops                              ... finished 24100000 ops                              ... finished 24200000 ops                              ... finished 24300000 ops                              ... finished 35000 ops                              ... finished 24400000 ops                              ... finished 35000 ops                              ... finished 24500000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 24600000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 24700000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 24800000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 24900000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 25000000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 25100000 ops                              ... finished 25200000 ops                              ... finished 35000 ops                              ... finished 35000 ops                              ... finished 25300000 ops                              ... finished 25400000 ops                              ... finished 25500000 ops                              ... finished 25600000 ops                              ... finished 25700000 ops                              ... finished 25800000 ops                              ... finished 25900000 ops                              ... finished 26000000 ops                              ... finished 26100000 ops                              ... finished 26200000 ops                              ... finished 26300000 ops                              ... finished 26400000 ops                              Set seed to 1678057136221232 because --seed was 0
+Initializing RocksDB Options from the specified file
+Initializing RocksDB Options from command-line flags
+Keys:       20 bytes each (+ 0 bytes user-defined timestamp)
+Values:     800 bytes each (400 bytes after compression)
+Entries:    6000000000
+Prefix:    0 bytes
+Keys per prefix:    0
+RawSize:    4692077.6 MB (estimated)
+FileSize:   2403259.3 MB (estimated)
+Write rate: 0 bytes/second
+Read rate: 0 ops/second
+Compression: Snappy
+Compression sampling rate: 0
+Memtablerep: SkipListFactory
+Perf Level: 1
+------------------------------------------------
+DB path: [rocksdbtest/dbbench]
+readwhilewriting :   50185.243 micros/op 633 ops/sec;    0.4 MB/s (31159 of 35999 found)
+
+Microseconds per read:
+Count: 1154968 Average: 50185.4492  StdDev: 3424.21
+Min: 40  Median: 5188.3425  Max: 1451380
+Percentiles: P50: 5188.34 P75: 92949.20 P99: 316718.36 P99.9: 470719.41 P99.99: 667567.46
+------------------------------------------------------
+(      34,      51 ]       11   0.001%   0.001% 
+(      51,      76 ]       42   0.004%   0.005% 
+(      76,     110 ]       76   0.007%   0.011% 
+(     110,     170 ]      131   0.011%   0.023% 
+(     170,     250 ]      187   0.016%   0.039% 
+(     250,     380 ]      361   0.031%   0.070% 
+(     380,     580 ]     1480   0.128%   0.198% 
+(     580,     870 ]     8384   0.726%   0.924% 
+(     870,    1300 ]    51568   4.465%   5.389% #
+(    1300,    1900 ]   141434  12.246%  17.635% ##
+(    1900,    2900 ]   195788  16.952%  34.586% ###
+(    2900,    4400 ]   150019  12.989%  47.575% ###
+(    4400,    6600 ]    78147   6.766%  54.342% #
+(    6600,    9900 ]    37562   3.252%  57.594% #
+(    9900,   14000 ]    17108   1.481%  59.075% 
+(   14000,   22000 ]    13544   1.173%  60.248% 
+(   22000,   33000 ]    10638   0.921%  61.169% 
+(   33000,   50000 ]    23125   2.002%  63.171% 
+(   50000,   75000 ]    71649   6.204%  69.375% #
+(   75000,  110000 ]   126692  10.969%  80.344% ##
+(  110000,  170000 ]   146205  12.659%  93.003% ###
+(  170000,  250000 ]    59257   5.131%  98.133% #
+(  250000,  380000 ]    19505   1.689%  99.822% 
+(  380000,  570000 ]     1885   0.163%  99.985% 
+(  570000,  860000 ]      162   0.014%  99.999% 
+(  860000, 1200000 ]        5   0.000% 100.000% 
+( 1200000, 1900000 ]        3   0.000% 100.000% 
+
+
+
+** Compaction Stats [default] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop Rblob(GB) Wblob(GB)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      2/0    2.17 GB   0.5      0.0     0.0      0.0      11.4     11.4       0.0   1.0      0.0     46.9    249.75            225.85        11   22.705       0      0       0.0       0.0
+  L1      4/2    6.35 GB   0.6     21.2    13.6      7.6      21.1     13.6       0.0   1.6     31.5     31.5    687.96            630.89         3  229.319     49M    51K       0.0       0.0
+  L2      8/4   15.99 GB   0.5     30.0     9.6     20.5      30.0      9.5       0.0   3.1     31.4     31.4    977.99            880.27         5  195.598     69M   116K       0.0       0.0
+  L3     34/1   64.83 GB   1.0     42.4    14.0     28.4      42.1     13.7       0.0   3.0     32.0     31.8   1357.48           1221.09         7  193.926     32M      0       0.0       0.0
+  L4    140/2   255.81 GB   1.0     40.4    11.7     28.7      39.4     10.6       0.0   3.4     31.8     31.0   1300.85           1178.77         6  216.809     24M      0       0.0       0.0
+  L5    592/0   1022.54 GB   1.0     33.9    10.7     23.2      30.8      7.6       0.0   2.9     32.2     29.3   1076.56            961.15         5  215.312   4680K      0       0.0       0.0
+  L6   1075/0    1.71 TB   0.0     20.2     7.8     12.3      15.7      3.4       0.0   2.0     35.1     27.3    588.97            529.31         4  147.243     12M      0       0.0       0.0
+ Sum   1855/9    3.04 TB   0.0    188.1    67.4    120.7     190.5     69.8       0.0  16.7     30.9     31.3   6239.56           5627.33        41  152.184    193M   168K       0.0       0.0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0      0.00              0.00         0    0.000       0      0       0.0       0.0
+
+** Compaction Stats [default] **
+Priority    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop Rblob(GB) Wblob(GB)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Low      0/0    0.00 KB   0.0    188.1    67.4    120.7     179.1     58.4       0.0   0.0     32.2     30.6   5989.81           5401.48        30  199.660    193M   168K       0.0       0.0
+High      0/0    0.00 KB   0.0      0.0     0.0      0.0      10.9     10.9       0.0   0.0      0.0     45.0    247.22            225.85        10   24.722       0      0       0.0       0.0
+User      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.6      0.6       0.0   0.0      0.0    227.7      2.53              0.00         1    2.532       0      0       0.0       0.0
+
+Blob file count: 0, total size: 0.0 GB, garbage size: 0.0 GB, space amp: 0.0
+
+Uptime(secs): 1830.1 total, 4.4 interval
+Flush(GB): cumulative 11.428, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 190.49 GB write, 106.58 MB/s write, 188.13 GB read, 105.26 MB/s read, 6239.6 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 22 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+Block cache LRUCache@0x56199459a030#61622 capacity: 8.00 MB collections: 11 last_copies: 1 last_secs: 0.006139 secs_since: 19
+Block cache entry stats(count,size,portion): DataBlock(1847,7.44 MB,93.0132%) Misc(6,20.62 KB,0.25177%)
+
+** File Read Latency Histogram By Level [default] **
+** Level 0 read latency histogram (micros):
+Count: 9749874 Average: 103.0706  StdDev: 344.68
+Min: 1  Median: 14.8660  Max: 738487
+Percentiles: P50: 14.87 P75: 38.93 P99: 959.45 P99.9: 3712.71 P99.99: 5809.70
+------------------------------------------------------
+[       0,       1 ]      692   0.007%   0.007% 
+(       1,       2 ]    22441   0.230%   0.237% 
+(       2,       3 ]    98976   1.015%   1.252% 
+(       3,       4 ]   216021   2.216%   3.468% 
+(       4,       6 ]   824308   8.455%  11.923% ##
+(       6,      10 ]  2060770  21.136%  33.059% ####
+(      10,      15 ]  1697218  17.408%  50.467% ###
+(      15,      22 ]  1320891  13.548%  64.014% ###
+(      22,      34 ]   947961   9.723%  73.737% ##
+(      34,      51 ]   424637   4.355%  78.092% #
+(      51,      76 ]   179271   1.839%  79.931% 
+(      76,     110 ]    73410   0.753%  80.684% 
+(     110,     170 ]   394885   4.050%  84.734% #
+(     170,     250 ]   495769   5.085%  89.819% #
+(     250,     380 ]   460959   4.728%  94.547% #
+(     380,     580 ]   289502   2.969%  97.516% #
+(     580,     870 ]   132691   1.361%  98.877% 
+(     870,    1300 ]    57557   0.590%  99.468% 
+(    1300,    1900 ]    22652   0.232%  99.700% 
+(    1900,    2900 ]    14062   0.144%  99.844% 
+(    2900,    4400 ]    10061   0.103%  99.947% 
+(    4400,    6600 ]     6500   0.067% 100.014% 
+(    6600,    9900 ]     3701   0.038% 100.052% 
+(    9900,   14000 ]     1838   0.019% 100.071% 
+(   14000,   22000 ]      590   0.006% 100.077% 
+(   22000,   33000 ]       91   0.001% 100.078% 
+(   33000,   50000 ]      133   0.001% 100.079% 
+(   50000,   75000 ]      374   0.004% 100.083% 
+(   75000,  110000 ]       86   0.001% 100.084% 
+(  110000,  170000 ]      205   0.002% 100.086% 
+(  170000,  250000 ]       61   0.001% 100.087% 
+(  250000,  380000 ]       14   0.000% 100.087% 
+(  380000,  570000 ]        8   0.000% 100.087% 
+(  570000,  860000 ]        3   0.000% 100.087% 
+
+** Level 1 read latency histogram (micros):
+Count: 10125862 Average: 47.0942  StdDev: 322.30
+Min: 0  Median: 9.7505  Max: 604273
+Percentiles: P50: 9.75 P75: 16.44 P99: 653.32 P99.9: 1767.46 P99.99: 3956.77
+------------------------------------------------------
+[       0,       1 ]    16213   0.160%   0.160% 
+(       1,       2 ]   131608   1.300%   1.460% 
+(       2,       3 ]   227287   2.245%   3.704% 
+(       3,       4 ]   367919   3.633%   7.338% #
+(       4,       6 ]  1316241  12.999%  20.337% ###
+(       6,      10 ]  3203480  31.637%  51.973% ######
+(      10,      15 ]  2112905  20.866%  72.840% ####
+(      15,      22 ]  1060990  10.478%  83.318% ##
+(      22,      34 ]   638924   6.310%  89.628% #
+(      34,      51 ]   227166   2.243%  91.871% 
+(      51,      76 ]    82994   0.820%  92.691% 
+(      76,     110 ]    34246   0.338%  93.029% 
+(     110,     170 ]   132025   1.304%  94.333% 
+(     170,     250 ]   166308   1.642%  95.975% 
+(     250,     380 ]   164614   1.626%  97.601% 
+(     380,     580 ]   123485   1.220%  98.820% 
+(     580,     870 ]    71975   0.711%  99.531% 
+(     870,    1300 ]    30433   0.301%  99.832% 
+(    1300,    1900 ]     8886   0.088%  99.919% 
+(    1900,    2900 ]     4760   0.047%  99.966% 
+(    2900,    4400 ]     3393   0.034% 100.000% 
+(    4400,    6600 ]     2194   0.022% 100.022% 
+(    6600,    9900 ]     1237   0.012% 100.034% 
+(    9900,   14000 ]      687   0.007% 100.041% 
+(   14000,   22000 ]      235   0.002% 100.043% 
+(   22000,   33000 ]       61   0.001% 100.043% 
+(   33000,   50000 ]       65   0.001% 100.044% 
+(   50000,   75000 ]      165   0.002% 100.046% 
+(   75000,  110000 ]       68   0.001% 100.046% 
+(  110000,  170000 ]       93   0.001% 100.047% 
+(  170000,  250000 ]       45   0.000% 100.048% 
+(  250000,  380000 ]        8   0.000% 100.048% 
+(  380000,  570000 ]        1   0.000% 100.048% 
+(  570000,  860000 ]        1   0.000% 100.048% 
+
+** Level 2 read latency histogram (micros):
+Count: 19788313 Average: 43.6308  StdDev: 140.38
+Min: 0  Median: 9.4174  Max: 692123
+Percentiles: P50: 9.42 P75: 14.94 P99: 614.21 P99.9: 1255.83 P99.99: 1737.39
+------------------------------------------------------
+[       0,       1 ]    28081   0.142%   0.142% 
+(       1,       2 ]   218989   1.107%   1.249% 
+(       2,       3 ]   458076   2.315%   3.563% 
+(       3,       4 ]   808825   4.087%   7.651% #
+(       4,       6 ]  2831443  14.309%  21.959% ###
+(       6,      10 ]  6494691  32.821%  54.780% #######
+(      10,      15 ]  4046802  20.450%  75.231% ####
+(      15,      22 ]  1964079   9.925%  85.156% ##
+(      22,      34 ]  1147411   5.798%  90.955% #
+(      34,      51 ]   379879   1.920%  92.874% 
+(      51,      76 ]   133997   0.677%  93.552% 
+(      76,     110 ]    54490   0.275%  93.827% 
+(     110,     170 ]   204204   1.032%  94.859% 
+(     170,     250 ]   278453   1.407%  96.266% 
+(     250,     380 ]   290823   1.470%  97.736% 
+(     380,     580 ]   233392   1.179%  98.915% 
+(     580,     870 ]   142373   0.719%  99.635% 
+(     870,    1300 ]    58530   0.296%  99.930% 
+(    1300,    1900 ]    16183   0.082% 100.012% 
+(    1900,    2900 ]     8452   0.043% 100.055% 
+(    2900,    4400 ]     5710   0.029% 100.084% 
+(    4400,    6600 ]     3660   0.018% 100.102% 
+(    6600,    9900 ]     2042   0.010% 100.113% 
+(    9900,   14000 ]     1024   0.005% 100.118% 
+(   14000,   22000 ]      368   0.002% 100.120% 
+(   22000,   33000 ]       75   0.000% 100.120% 
+(   33000,   50000 ]      132   0.001% 100.121% 
+(   50000,   75000 ]      356   0.002% 100.122% 
+(   75000,  110000 ]      102   0.001% 100.123% 
+(  110000,  170000 ]      154   0.001% 100.124% 
+(  170000,  250000 ]       49   0.000% 100.124% 
+(  250000,  380000 ]       11   0.000% 100.124% 
+(  380000,  570000 ]        7   0.000% 100.124% 
+(  570000,  860000 ]        2   0.000% 100.124% 
+
+** Level 3 read latency histogram (micros):
+Count: 17610641 Average: 48.3496  StdDev: 71.81
+Min: 0  Median: 9.8432  Max: 741558
+Percentiles: P50: 9.84 P75: 16.11 P99: 625.43 P99.9: 1220.25 P99.99: 1566.74
+------------------------------------------------------
+[       0,       1 ]     5340   0.030%   0.030% 
+(       1,       2 ]    64106   0.364%   0.394% 
+(       2,       3 ]   236130   1.341%   1.735% 
+(       3,       4 ]   560643   3.184%   4.919% #
+(       4,       6 ]  2305870  13.094%  18.012% ###
+(       6,      10 ]  5863085  33.293%  51.305% #######
+(      10,      15 ]  3877755  22.019%  73.325% ####
+(      15,      22 ]  1861986  10.573%  83.898% ##
+(      22,      34 ]  1065730   6.052%  89.949% #
+(      34,      51 ]   348932   1.981%  91.931% 
+(      51,      76 ]   121525   0.690%  92.621% 
+(      76,     110 ]    47539   0.270%  92.891% 
+(     110,     170 ]   219558   1.247%  94.137% 
+(     170,     250 ]   304337   1.728%  95.866% 
+(     250,     380 ]   299750   1.702%  97.568% 
+(     380,     580 ]   230619   1.310%  98.877% 
+(     580,     870 ]   138062   0.784%  99.661% 
+(     870,    1300 ]    51641   0.293%  99.954% 
+(    1300,    1900 ]    14108   0.080% 100.034% 
+(    1900,    2900 ]     7730   0.044% 100.078% 
+(    2900,    4400 ]     5543   0.031% 100.110% 
+(    4400,    6600 ]     3615   0.021% 100.130% 
+(    6600,    9900 ]     1993   0.011% 100.142% 
+(    9900,   14000 ]     1008   0.006% 100.147% 
+(   14000,   22000 ]      381   0.002% 100.150% 
+(   22000,   33000 ]       82   0.000% 100.150% 
+(   33000,   50000 ]      116   0.001% 100.151% 
+(   50000,   75000 ]      384   0.002% 100.153% 
+(   75000,  110000 ]      106   0.001% 100.154% 
+(  110000,  170000 ]      210   0.001% 100.155% 
+(  170000,  250000 ]       76   0.000% 100.155% 
+(  250000,  380000 ]        9   0.000% 100.155% 
+(  380000,  570000 ]        7   0.000% 100.155% 
+(  570000,  860000 ]        2   0.000% 100.155% 
+
+** Level 4 read latency histogram (micros):
+Count: 20226857 Average: 51.3487  StdDev: 104.53
+Min: 0  Median: 9.6970  Max: 749479
+Percentiles: P50: 9.70 P75: 15.35 P99: 583.28 P99.9: 1127.54 P99.99: 1265.74
+------------------------------------------------------
+[       0,       1 ]    15006   0.074%   0.074% 
+(       1,       2 ]   133741   0.661%   0.735% 
+(       2,       3 ]   328094   1.622%   2.357% 
+(       3,       4 ]   678735   3.356%   5.713% #
+(       4,       6 ]  2681797  13.259%  18.972% ###
+(       6,      10 ]  6790467  33.572%  52.543% #######
+(      10,      15 ]  4437785  21.940%  74.483% ####
+(      15,      22 ]  2101876  10.392%  84.875% ##
+(      22,      34 ]  1195114   5.909%  90.783% #
+(      34,      51 ]   386523   1.911%  92.694% 
+(      51,      76 ]   133997   0.662%  93.357% 
+(      76,     110 ]    53258   0.263%  93.620% 
+(     110,     170 ]   228757   1.131%  94.751% 
+(     170,     250 ]   309269   1.529%  96.280% 
+(     250,     380 ]   307299   1.519%  97.799% 
+(     380,     580 ]   241176   1.192%  98.992% 
+(     580,     870 ]   149811   0.741%  99.732% 
+(     870,    1300 ]    56642   0.280% 100.012% 
+(    1300,    1900 ]    14754   0.073% 100.085% 
+(    1900,    2900 ]     8058   0.040% 100.125% 
+(    2900,    4400 ]     6024   0.030% 100.155% 
+(    4400,    6600 ]     4206   0.021% 100.176% 
+(    6600,    9900 ]     3135   0.015% 100.191% 
+(    9900,   14000 ]     1981   0.010% 100.201% 
+(   14000,   22000 ]     1170   0.006% 100.207% 
+(   22000,   33000 ]      943   0.005% 100.211% 
+(   33000,   50000 ]      803   0.004% 100.215% 
+(   50000,   75000 ]      590   0.003% 100.218% 
+(   75000,  110000 ]      322   0.002% 100.220% 
+(  110000,  170000 ]      277   0.001% 100.221% 
+(  170000,  250000 ]       74   0.000% 100.222% 
+(  250000,  380000 ]        9   0.000% 100.222% 
+(  380000,  570000 ]       14   0.000% 100.222% 
+(  570000,  860000 ]        4   0.000% 100.222% 
+
+** Level 5 read latency histogram (micros):
+Count: 11199903 Average: 485.7210  StdDev: 271.05
+Min: 0  Median: 10.3403  Max: 1346058
+Percentiles: P50: 10.34 P75: 18.73 P99: 21301.76 P99.9: 42693.01 P99.99: 46529.96
+------------------------------------------------------
+[       0,       1 ]     4186   0.037%   0.037% 
+(       1,       2 ]    34925   0.312%   0.349% 
+(       2,       3 ]   137227   1.225%   1.574% 
+(       3,       4 ]   330128   2.948%   4.522% #
+(       4,       6 ]  1375721  12.283%  16.805% ##
+(       6,      10 ]  3557531  31.764%  48.569% ######
+(      10,      15 ]  2354541  21.023%  69.592% ####
+(      15,      22 ]  1136185  10.145%  79.737% ##
+(      22,      34 ]   663807   5.927%  85.664% #
+(      34,      51 ]   227449   2.031%  87.695% 
+(      51,      76 ]    82427   0.736%  88.430% 
+(      76,     110 ]    31701   0.283%  88.714% 
+(     110,     170 ]   177402   1.584%  90.297% 
+(     170,     250 ]   235858   2.106%  92.403% 
+(     250,     380 ]   251109   2.242%  94.645% 
+(     380,     580 ]   220859   1.972%  96.617% 
+(     580,     870 ]   123413   1.102%  97.719% 
+(     870,    1300 ]    47548   0.425%  98.144% 
+(    1300,    1900 ]    16178   0.144%  98.288% 
+(    1900,    2900 ]    10252   0.092%  98.380% 
+(    2900,    4400 ]     8560   0.076%  98.456% 
+(    4400,    6600 ]     8366   0.075%  98.531% 
+(    6600,    9900 ]     9073   0.081%  98.612% 
+(    9900,   14000 ]    11688   0.104%  98.716% 
+(   14000,   22000 ]    34808   0.311%  99.027% 
+(   22000,   33000 ]    72297   0.646%  99.673% 
+(   33000,   50000 ]    44660   0.399% 100.071% 
+(   50000,   75000 ]     1960   0.018% 100.089% 
+(   75000,  110000 ]      537   0.005% 100.094% 
+(  110000,  170000 ]      358   0.003% 100.097% 
+(  170000,  250000 ]       72   0.001% 100.098% 
+(  250000,  380000 ]       43   0.000% 100.098% 
+(  380000,  570000 ]       23   0.000% 100.098% 
+(  570000,  860000 ]       10   0.000% 100.098% 
+( 1200000, 1900000 ]        1   0.000% 100.098% 
+
+** Level 6 read latency histogram (micros):
+Count: 4788298 Average: 2064.4018  StdDev: 589.99
+Min: 0  Median: 12.1773  Max: 1330868
+Percentiles: P50: 12.18 P75: 33.91 P99: 41389.07 P99.9: 49437.60 P99.99: 59670.52
+------------------------------------------------------
+[       0,       1 ]     6824   0.143%   0.143% 
+(       1,       2 ]    34848   0.728%   0.870% 
+(       2,       3 ]    86429   1.805%   2.675% 
+(       3,       4 ]   155603   3.250%   5.925% #
+(       4,       6 ]   530304  11.075%  17.000% ##
+(       6,      10 ]  1229820  25.684%  42.684% #####
+(      10,      15 ]   804471  16.801%  59.485% ###
+(      15,      22 ]   447196   9.339%  68.824% ##
+(      22,      34 ]   297863   6.221%  75.045% #
+(      34,      51 ]   125560   2.622%  77.667% #
+(      51,      76 ]    53637   1.120%  78.787% 
+(      76,     110 ]    19490   0.407%  79.194% 
+(     110,     170 ]    64585   1.349%  80.543% 
+(     170,     250 ]    87708   1.832%  82.375% 
+(     250,     380 ]   149919   3.131%  85.505% #
+(     380,     580 ]   180679   3.773%  89.279% #
+(     580,     870 ]    96017   2.005%  91.284% 
+(     870,    1300 ]    38152   0.797%  92.081% 
+(    1300,    1900 ]    15468   0.323%  92.404% 
+(    1900,    2900 ]     9934   0.207%  92.611% 
+(    2900,    4400 ]     8037   0.168%  92.779% 
+(    4400,    6600 ]     7929   0.166%  92.945% 
+(    6600,    9900 ]    11060   0.231%  93.176% 
+(    9900,   14000 ]    19555   0.408%  93.584% 
+(   14000,   22000 ]    68812   1.437%  95.021% 
+(   22000,   33000 ]   145597   3.041%  98.062% #
+(   33000,   50000 ]    91024   1.901%  99.963% 
+(   50000,   75000 ]     3356   0.070% 100.033% 
+(   75000,  110000 ]      654   0.014% 100.047% 
+(  110000,  170000 ]      503   0.011% 100.057% 
+(  170000,  250000 ]       99   0.002% 100.059% 
+(  250000,  380000 ]       55   0.001% 100.060% 
+(  380000,  570000 ]       47   0.001% 100.061% 
+(  570000,  860000 ]        4   0.000% 100.061% 
+(  860000, 1200000 ]        1   0.000% 100.061% 
+( 1200000, 1900000 ]        1   0.000% 100.061% 
+
+
+** DB Stats **
+Uptime(secs): 1830.1 total, 4.4 interval
+Cumulative writes: 26M writes, 26M keys, 26M commit groups, 1.0 writes per commit group, ingest: 20.62 GB, 11.54 MB/s
+Cumulative WAL: 26M writes, 0 syncs, 26483839.00 writes per sync, written: 20.62 GB, 11.54 MB/s
+Cumulative stall: 00:03:55.614 H:M:S, 12.9 percent
+Interval writes: 447K writes, 447K keys, 447K commit groups, 1.0 writes per commit group, ingest: 356.91 MB, 81.97 MB/s
+Interval WAL: 447K writes, 0 syncs, 447666.00 writes per sync, written: 0.35 GB, 81.97 MB/s
+Interval stall: 00:00:0.000 H:M:S, 0.0 percent
+
+STATISTICS:
+rocksdb.block.cache.miss COUNT : 102678189
+rocksdb.block.cache.hit COUNT : 6229
+rocksdb.block.cache.add COUNT : 8696522
+rocksdb.block.cache.add.failures COUNT : 0
+rocksdb.block.cache.index.miss COUNT : 0
+rocksdb.block.cache.index.hit COUNT : 0
+rocksdb.block.cache.index.add COUNT : 0
+rocksdb.block.cache.index.bytes.insert COUNT : 0
+rocksdb.block.cache.index.bytes.evict COUNT : 0
+rocksdb.block.cache.filter.miss COUNT : 0
+rocksdb.block.cache.filter.hit COUNT : 0
+rocksdb.block.cache.filter.add COUNT : 0
+rocksdb.block.cache.filter.bytes.insert COUNT : 0
+rocksdb.block.cache.filter.bytes.evict COUNT : 0
+rocksdb.block.cache.data.miss COUNT : 102678190
+rocksdb.block.cache.data.hit COUNT : 6229
+rocksdb.block.cache.data.add COUNT : 8696522
+rocksdb.block.cache.data.bytes.insert COUNT : 36737589968
+rocksdb.block.cache.bytes.read COUNT : 26314480
+rocksdb.block.cache.bytes.write COUNT : 36737589968
+rocksdb.bloom.filter.useful COUNT : 0
+rocksdb.bloom.filter.full.positive COUNT : 0
+rocksdb.bloom.filter.full.true.positive COUNT : 0
+rocksdb.bloom.filter.micros COUNT : 0
+rocksdb.persistent.cache.hit COUNT : 0
+rocksdb.persistent.cache.miss COUNT : 0
+rocksdb.sim.block.cache.hit COUNT : 0
+rocksdb.sim.block.cache.miss COUNT : 0
+rocksdb.memtable.hit COUNT : 313
+rocksdb.memtable.miss COUNT : 1154655
+rocksdb.l0.hit COUNT : 1417
+rocksdb.l1.hit COUNT : 1855
+rocksdb.l2andup.hit COUNT : 995284
+rocksdb.compaction.key.drop.new COUNT : 21341641
+rocksdb.compaction.key.drop.obsolete COUNT : 0
+rocksdb.compaction.key.drop.range_del COUNT : 0
+rocksdb.compaction.key.drop.user COUNT : 0
+rocksdb.compaction.range_del.drop.obsolete COUNT : 0
+rocksdb.compaction.optimized.del.drop.obsolete COUNT : 0
+rocksdb.compaction.cancelled COUNT : 0
+rocksdb.number.keys.written COUNT : 26483839
+rocksdb.number.keys.read COUNT : 1154968
+rocksdb.number.keys.updated COUNT : 0
+rocksdb.bytes.written COUNT : 22140489404
+rocksdb.bytes.read COUNT : 799095200
+rocksdb.number.db.seek COUNT : 0
+rocksdb.number.db.next COUNT : 0
+rocksdb.number.db.prev COUNT : 0
+rocksdb.number.db.seek.found COUNT : 0
+rocksdb.number.db.next.found COUNT : 0
+rocksdb.number.db.prev.found COUNT : 0
+rocksdb.db.iter.bytes.read COUNT : 0
+rocksdb.no.file.closes COUNT : 0
+rocksdb.no.file.opens COUNT : 520602
+rocksdb.no.file.errors COUNT : 0
+rocksdb.l0.slowdown.micros COUNT : 0
+rocksdb.memtable.compaction.micros COUNT : 0
+rocksdb.l0.num.files.stall.micros COUNT : 0
+rocksdb.stall.micros COUNT : 235613767
+rocksdb.db.mutex.wait.micros COUNT : 0
+rocksdb.rate.limit.delay.millis COUNT : 0
+rocksdb.num.iterators COUNT : 0
+rocksdb.number.multiget.get COUNT : 0
+rocksdb.number.multiget.keys.read COUNT : 0
+rocksdb.number.multiget.bytes.read COUNT : 0
+rocksdb.number.deletes.filtered COUNT : 0
+rocksdb.number.merge.failures COUNT : 0
+rocksdb.bloom.filter.prefix.checked COUNT : 0
+rocksdb.bloom.filter.prefix.useful COUNT : 0
+rocksdb.number.reseeks.iteration COUNT : 0
+rocksdb.getupdatessince.calls COUNT : 0
+rocksdb.block.cachecompressed.miss COUNT : 0
+rocksdb.block.cachecompressed.hit COUNT : 0
+rocksdb.block.cachecompressed.add COUNT : 0
+rocksdb.block.cachecompressed.add.failures COUNT : 0
+rocksdb.wal.synced COUNT : 0
+rocksdb.wal.bytes COUNT : 22140489404
+rocksdb.write.self COUNT : 26483839
+rocksdb.write.other COUNT : 0
+rocksdb.write.timeout COUNT : 0
+rocksdb.write.wal COUNT : 26483839
+rocksdb.compact.read.bytes COUNT : 216553043632
+rocksdb.compact.write.bytes COUNT : 207250788027
+rocksdb.flush.write.bytes COUNT : 11665811420
+rocksdb.compact.read.marked.bytes COUNT : 0
+rocksdb.compact.read.periodic.bytes COUNT : 0
+rocksdb.compact.read.ttl.bytes COUNT : 0
+rocksdb.compact.write.marked.bytes COUNT : 0
+rocksdb.compact.write.periodic.bytes COUNT : 0
+rocksdb.compact.write.ttl.bytes COUNT : 0
+rocksdb.number.direct.load.table.properties COUNT : 31
+rocksdb.number.superversion_acquires COUNT : 1587
+rocksdb.number.superversion_releases COUNT : 1549
+rocksdb.number.superversion_cleanups COUNT : 50
+rocksdb.number.block.compressed COUNT : 95034157
+rocksdb.number.block.decompressed COUNT : 103198801
+rocksdb.number.block.not_compressed COUNT : 0
+rocksdb.merge.operation.time.nanos COUNT : 0
+rocksdb.filter.operation.time.nanos COUNT : 0
+rocksdb.row.cache.hit COUNT : 0
+rocksdb.row.cache.miss COUNT : 0
+rocksdb.read.amp.estimate.useful.bytes COUNT : 0
+rocksdb.read.amp.total.read.bytes COUNT : 0
+rocksdb.number.rate_limiter.drains COUNT : 0
+rocksdb.number.iter.skip COUNT : 0
+rocksdb.blobdb.num.put COUNT : 0
+rocksdb.blobdb.num.write COUNT : 0
+rocksdb.blobdb.num.get COUNT : 0
+rocksdb.blobdb.num.multiget COUNT : 0
+rocksdb.blobdb.num.seek COUNT : 0
+rocksdb.blobdb.num.next COUNT : 0
+rocksdb.blobdb.num.prev COUNT : 0
+rocksdb.blobdb.num.keys.written COUNT : 0
+rocksdb.blobdb.num.keys.read COUNT : 0
+rocksdb.blobdb.bytes.written COUNT : 0
+rocksdb.blobdb.bytes.read COUNT : 0
+rocksdb.blobdb.write.inlined COUNT : 0
+rocksdb.blobdb.write.inlined.ttl COUNT : 0
+rocksdb.blobdb.write.blob COUNT : 0
+rocksdb.blobdb.write.blob.ttl COUNT : 0
+rocksdb.blobdb.blob.file.bytes.written COUNT : 0
+rocksdb.blobdb.blob.file.bytes.read COUNT : 0
+rocksdb.blobdb.blob.file.synced COUNT : 0
+rocksdb.blobdb.blob.index.expired.count COUNT : 0
+rocksdb.blobdb.blob.index.expired.size COUNT : 0
+rocksdb.blobdb.blob.index.evicted.count COUNT : 0
+rocksdb.blobdb.blob.index.evicted.size COUNT : 0
+rocksdb.blobdb.gc.num.files COUNT : 0
+rocksdb.blobdb.gc.num.new.files COUNT : 0
+rocksdb.blobdb.gc.failures COUNT : 0
+rocksdb.blobdb.gc.num.keys.overwritten COUNT : 0
+rocksdb.blobdb.gc.num.keys.expired COUNT : 0
+rocksdb.blobdb.gc.num.keys.relocated COUNT : 0
+rocksdb.blobdb.gc.bytes.overwritten COUNT : 0
+rocksdb.blobdb.gc.bytes.expired COUNT : 0
+rocksdb.blobdb.gc.bytes.relocated COUNT : 0
+rocksdb.blobdb.fifo.num.files.evicted COUNT : 0
+rocksdb.blobdb.fifo.num.keys.evicted COUNT : 0
+rocksdb.blobdb.fifo.bytes.evicted COUNT : 0
+rocksdb.txn.overhead.mutex.prepare COUNT : 0
+rocksdb.txn.overhead.mutex.old.commit.map COUNT : 0
+rocksdb.txn.overhead.duplicate.key COUNT : 0
+rocksdb.txn.overhead.mutex.snapshot COUNT : 0
+rocksdb.txn.get.tryagain COUNT : 0
+rocksdb.number.multiget.keys.found COUNT : 0
+rocksdb.num.iterator.created COUNT : 0
+rocksdb.num.iterator.deleted COUNT : 0
+rocksdb.block.cache.compression.dict.miss COUNT : 0
+rocksdb.block.cache.compression.dict.hit COUNT : 0
+rocksdb.block.cache.compression.dict.add COUNT : 0
+rocksdb.block.cache.compression.dict.bytes.insert COUNT : 0
+rocksdb.block.cache.compression.dict.bytes.evict COUNT : 0
+rocksdb.block.cache.add.redundant COUNT : 2
+rocksdb.block.cache.index.add.redundant COUNT : 0
+rocksdb.block.cache.filter.add.redundant COUNT : 0
+rocksdb.block.cache.data.add.redundant COUNT : 2
+rocksdb.block.cache.compression.dict.add.redundant COUNT : 0
+rocksdb.files.marked.trash COUNT : 0
+rocksdb.files.deleted.immediately COUNT : 116
+rocksdb.error.handler.bg.errro.count COUNT : 0
+rocksdb.error.handler.bg.io.errro.count COUNT : 0
+rocksdb.error.handler.bg.retryable.io.errro.count COUNT : 0
+rocksdb.error.handler.autoresume.count COUNT : 0
+rocksdb.error.handler.autoresume.retry.total.count COUNT : 0
+rocksdb.error.handler.autoresume.success.count COUNT : 0
+rocksdb.memtable.payload.bytes.at.flush COUNT : 20930940792
+rocksdb.memtable.garbage.bytes.at.flush COUNT : 4311396
+rocksdb.secondary.cache.hits COUNT : 0
+rocksdb.verify_checksum.read.bytes COUNT : 0
+rocksdb.backup.read.bytes COUNT : 0
+rocksdb.backup.write.bytes COUNT : 0
+rocksdb.remote.compact.read.bytes COUNT : 0
+rocksdb.remote.compact.write.bytes COUNT : 0
+rocksdb.hot.file.read.bytes COUNT : 0
+rocksdb.warm.file.read.bytes COUNT : 0
+rocksdb.cold.file.read.bytes COUNT : 0
+rocksdb.hot.file.read.count COUNT : 0
+rocksdb.warm.file.read.count COUNT : 0
+rocksdb.cold.file.read.count COUNT : 0
+rocksdb.last.level.read.bytes COUNT : 3423541564443
+rocksdb.last.level.read.count COUNT : 4791718
+rocksdb.non.last.level.read.bytes COUNT : 1942259606422
+rocksdb.non.last.level.read.count COUNT : 88846801
+rocksdb.block.checksum.compute.count COUNT : 103719445
+rocksdb.db.get.micros P50 : 5148.938604 P95 : 201117.546791 P99 : 316656.316060 P100 : 1451358.000000 COUNT : 1154968 SUM : 57936274592
+rocksdb.db.write.micros P50 : 46.009891 P95 : 138.963005 P99 : 240.240675 P100 : 199801.000000 COUNT : 26483839 SUM : 1722508950
+rocksdb.compaction.times.micros P50 : 200909090.909091 P95 : 255795088.000000 P99 : 255795088.000000 P100 : 255795088.000000 COUNT : 30 SUM : 5989807614
+rocksdb.compaction.times.cpu_micros P50 : 193750000.000000 P95 : 234659976.000000 P99 : 234659976.000000 P100 : 234659976.000000 COUNT : 30 SUM : 5401479109
+rocksdb.subcompaction.setup.times.micros P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.table.sync.micros P50 : 1058.125000 P95 : 1932.000000 P99 : 1932.000000 P100 : 1932.000000 COUNT : 11 SUM : 11460
+rocksdb.compaction.outfile.sync.micros P50 : 1184.230769 P95 : 3200.000000 P99 : 6512.000000 P100 : 7660.000000 COUNT : 104 SUM : 139642
+rocksdb.wal.file.sync.micros P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.manifest.file.sync.micros P50 : 619.545455 P95 : 2375.000000 P99 : 3412.000000 P100 : 3412.000000 COUNT : 41 SUM : 33518
+rocksdb.table.open.io.micros P50 : 86317.521352 P95 : 158837.473549 P99 : 168417.048487 P100 : 695342.000000 COUNT : 520602 SUM : 44437581273
+rocksdb.db.multiget.micros P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.read.block.compaction.micros P50 : 12.427302 P95 : 47.249198 P99 : 472.804164 P100 : 741623.000000 COUNT : 93981816 SUM : 2558924084
+rocksdb.read.block.get.micros P50 : 246.579317 P95 : 47980.922940 P99 : 128228.994922 P100 : 1346143.000000 COUNT : 9217118 SUM : 48131296841
+rocksdb.write.raw.block.micros P50 : 2.693216 P95 : 8.092694 P99 : 13.835556 P100 : 292904.000000 COUNT : 95034550 SUM : 829082275
+rocksdb.l0.slowdown.count P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.memtable.compaction.count P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.num.files.stall.count P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.hard.rate.limit.delay.count P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.soft.rate.limit.delay.count P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.numfiles.in.singlecompaction P50 : 3.000000 P95 : 5.675000 P99 : 7.000000 P100 : 7.000000 COUNT : 33 SUM : 119
+rocksdb.db.seek.micros P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.db.write.stall P50 : 0.527685 P95 : 1.249048 P99 : 1162.904444 P100 : 26963.000000 COUNT : 8072426 SUM : 237500966
+rocksdb.sst.read.micros P50 : 10.086042 P95 : 301.114651 P99 : 1127.022575 P100 : 1346058.000000 COUNT : 93638780 SUM : 19585393245
+rocksdb.num.subcompactions.scheduled P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.bytes.per.read P50 : 702.340384 P95 : 800.000000 P99 : 800.000000 P100 : 800.000000 COUNT : 1154968 SUM : 799095200
+rocksdb.bytes.per.write P50 : 836.000000 P95 : 836.000000 P99 : 836.000000 P100 : 836.000000 COUNT : 26483839 SUM : 22140489404
+rocksdb.bytes.per.multiget P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.bytes.compressed P50 : 3650.000110 P95 : 4325.001645 P99 : 4385.001781 P100 : 19761041.000000 COUNT : 95034470 SUM : 395477269209
+rocksdb.bytes.decompressed P50 : 3653.802219 P95 : 4332.225412 P99 : 4392.529696 P100 : 19770039.000000 COUNT : 103199122 SUM : 9404316972629
+rocksdb.compression.times.nanos P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.decompression.times.nanos P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.read.num.merge_operands P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.blobdb.key.size P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.blobdb.value.size P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.blobdb.write.micros P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.blobdb.get.micros P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.blobdb.multiget.micros P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.blobdb.seek.micros P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.blobdb.next.micros P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.blobdb.prev.micros P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.blobdb.blob.file.write.micros P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.blobdb.blob.file.read.micros P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.blobdb.blob.file.sync.micros P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.blobdb.gc.micros P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.blobdb.compression.micros P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.blobdb.decompression.micros P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.db.flush.micros P50 : 26887102.000000 P95 : 26887102.000000 P99 : 26887102.000000 P100 : 26887102.000000 COUNT : 10 SUM : 247219855
+rocksdb.sst.batch.size P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.num.index.and.filter.blocks.read.per.level P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.num.data.blocks.read.per.level P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.num.sst.read.per.level P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.error.handler.autoresume.retry.count P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+rocksdb.async.read.bytes P50 : 0.000000 P95 : 0.000000 P99 : 0.000000 P100 : 0.000000 COUNT : 0 SUM : 0
+
