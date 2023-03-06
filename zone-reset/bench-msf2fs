@@ -41,7 +41,5 @@ mkdir -p ${DIR}
 
 setup_msf2fs ${ZNS} 7 1 1 ${policy}
 sudo env "DIR=${DIR}" ${FIO_HOME}/fio --output-format=json --output=${DIR}/gc.json job-fill.fio
-sudo rm ${MOUNT}/file.5.0 ${MOUNT}/file.6.0
-sudo sync
 sudo env "DIR=${DIR}" ${FIO_HOME}/fio --output-format=json --output=${DIR}/write.json job-write.fio
 cleanup

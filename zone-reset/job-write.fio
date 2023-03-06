@@ -9,7 +9,7 @@ thread=1
 
 [overwrite]
 stonewall
-loops=8
+loops=3
 numjobs=3
 ioengine=io_uring 
 fixedbufs=1

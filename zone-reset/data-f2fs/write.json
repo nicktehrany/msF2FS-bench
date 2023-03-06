@@ -1,12 +1,8 @@
-
-fio: terminating on signal 2
-
-fio: terminating on signal 2
 {
   "fio version" : "fio-3.32-10-g6b6f5-dirty",
-  "timestamp" : 1678049597,
-  "timestamp_ms" : 1678049597072,
-  "time" : "Sun Mar  5 20:53:17 2023",
+  "timestamp" : 1678068675,
+  "timestamp_ms" : 1678068675880,
+  "time" : "Mon Mar  6 02:11:15 2023",
   "global options" : {
     "name" : "zns-fio",
     "directory" : "/mnt/f2fs",
@@ -21,9 +17,9 @@ fio: terminating on signal 2
       "groupid" : 0,
       "error" : 0,
       "eta" : 0,
-      "elapsed" : 3137,
+      "elapsed" : 13761,
       "job options" : {
-        "loops" : "8",
+        "loops" : "3",
         "numjobs" : "3",
         "ioengine" : "io_uring",
         "direct" : "1",
@@ -81,13 +77,13 @@ fio: terminating on signal 2
         "iops_samples" : 0
       },
       "write" : {
-        "io_bytes" : 1319730610176,
-        "io_kbytes" : 1288799424,
-        "bw_bytes" : 420726880,
-        "bw" : 410866,
-        "iops" : 102716.523628,
-        "runtime" : 3136787,
-        "total_ios" : 322199856,
+        "io_bytes" : 5025111736320,
+        "io_kbytes" : 4907335680,
+        "bw_bytes" : 365199648,
+        "bw" : 356640,
+        "iops" : 89160.070387,
+        "runtime" : 13759903,
+        "total_ios" : 1226833920,
         "short_ios" : 0,
         "drop_ios" : 0,
         "slat_ns" : {
@@ -98,11 +94,11 @@ fio: terminating on signal 2
           "N" : 0
         },
         "clat_ns" : {
-          "min" : 18075526774147,
-          "max" : 21211546457315,
-          "mean" : 19237363846762.519531,
-          "stddev" : 890505543670.895752,
-          "N" : 322199856,
+          "min" : 26531097928211,
+          "max" : 40290347203534,
+          "mean" : 33266883470528.703125,
+          "stddev" : 4193827608239.612305,
+          "N" : 1226833920,
           "percentile" : {
             "1.000000" : 17112760320,
             "5.000000" : 17112760320,
@@ -124,23 +120,23 @@ fio: terminating on signal 2
           }
         },
         "lat_ns" : {
-          "min" : 42264,
-          "max" : 18668127573,
-          "mean" : 3697099.977762,
-          "stddev" : 106079899.138985,
-          "N" : 322199856
+          "min" : 38876,
+          "max" : 18282711066,
+          "mean" : 4206595.168624,
+          "stddev" : 140027257.718985,
+          "N" : 1226833920
         },
         "bw_min" : 21,
-        "bw_max" : 1991336,
+        "bw_max" : 2347056,
         "bw_agg" : 100.000000,
-        "bw_mean" : 783467.714500,
-        "bw_dev" : 130569.832358,
-        "bw_samples" : 9874,
+        "bw_mean" : 834054.011957,
+        "bw_dev" : 141706.677597,
+        "bw_samples" : 35319,
         "iops_min" : 3,
-        "iops_max" : 497834,
-        "iops_mean" : 195866.717332,
-        "iops_stddev" : 32642.480849,
-        "iops_samples" : 9874
+        "iops_max" : 586764,
+        "iops_mean" : 208513.268059,
+        "iops_stddev" : 35426.678811,
+        "iops_samples" : 35319
       },
       "trim" : {
         "io_bytes" : 0,
@@ -186,13 +182,13 @@ fio: terminating on signal 2
         "iops_samples" : 0
       },
       "sync" : {
-        "total_ios" : 20596567,
+        "total_ios" : 69411267,
         "lat_ns" : {
-          "min" : 18075526785026,
-          "max" : 21211546457315,
-          "mean" : 19133296416203.417969,
-          "stddev" : 870967494049.401611,
-          "N" : 20596567,
+          "min" : 26531097936283,
+          "max" : 40290347203534,
+          "mean" : 33078864656075.191406,
+          "stddev" : 4264458616124.069336,
+          "N" : 69411267,
           "percentile" : {
             "1.000000" : 17112760320,
             "5.000000" : 17112760320,
@@ -214,12 +210,12 @@ fio: terminating on signal 2
           }
         }
       },
-      "job_runtime" : 9401503,
-      "usr_cpu" : 99.918587,
-      "sys_cpu" : 0.056885,
-      "ctx" : 85736,
-      "majf" : 2,
-      "minf" : 7,
+      "job_runtime" : 40694206,
+      "usr_cpu" : 99.940775,
+      "sys_cpu" : 0.037715,
+      "ctx" : 320261,
+      "majf" : 9,
+      "minf" : 1,
       "iodepth_level" : {
         "1" : 0.100000,
         "2" : 0.100000,
@@ -227,7 +223,7 @@ fio: terminating on signal 2
         "8" : 0.100000,
         "16" : 0.100000,
         "32" : 0.100000,
-        ">=64" : 106.392423
+        ">=64" : 105.657710
       },
       "iodepth_submit" : {
         "0" : 0.000000,
@@ -294,14 +290,14 @@ fio: terminating on signal 2
   "disk_util" : [
     {
       "name" : "nullb0",
-      "read_ios" : 24568,
-      "write_ios" : 62444,
-      "read_merges" : 659635,
-      "write_merges" : 324,
-      "read_ticks" : 33936,
-      "write_ticks" : 48392,
-      "in_queue" : 82329,
-      "util" : 0.868940
+      "read_ios" : 99571,
+      "write_ios" : 274875,
+      "read_merges" : 2519757,
+      "write_merges" : 1338,
+      "read_ticks" : 133538,
+      "write_ticks" : 191284,
+      "in_queue" : 324821,
+      "util" : 0.855398
     }
   ]
 }
