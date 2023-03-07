@@ -1,0 +1,2 @@
+benchmark,ops/s,MB/s,readwhilewrite_write_MB/s
+readwhilewriting,640.75,0.4,12.155
