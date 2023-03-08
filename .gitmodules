@@ -2,3 +2,6 @@
 	path = submodules/zbdbench
 	url = https://github.com/westerndigitalcorporation/zbdbench
     ignore = dirty
+[submodule "submodules/zns-tools"]
+	path = submodules/zns-tools
+	url = https://github.com/nicktehrany/zns-tools
