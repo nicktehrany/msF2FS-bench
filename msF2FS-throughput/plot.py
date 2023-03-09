@@ -144,14 +144,14 @@ def plot_throughput():
 
     fig, ax = plt.subplots()
 
-    rects3 = ax.bar(x - width, f2fs_iops, yerr=f2fs_stddev, capsize=3, width=width, hatch='/', label="F2FS")
-    rects2 = ax.bar(x, msf2fs_srr_iops, yerr=msf2fs_srr_stddev, capsize=3, width=width, hatch='', label="msF2FS (SRR)")
-    rects1 = ax.bar(x + width, msf2fs_spf_iops, yerr=msf2fs_spf_stddev,capsize=3, width=width, hatch='x', label="msF2FS (SPF)")
+    rects3 = ax.bar(x - width, f2fs_iops, yerr=f2fs_stddev, capsize=3, width=0.18, color="#117733", hatch='/', label="F2FS")
+    rects2 = ax.bar(x, msf2fs_srr_iops, yerr=msf2fs_srr_stddev, capsize=3, width=0.18, hatch='', color="#AA4499", label="msF2FS (SRR)")
+    rects1 = ax.bar(x + width, msf2fs_spf_iops, yerr=msf2fs_spf_stddev, capsize=3, width=0.18, hatch='x', color="#999933", label="msF2FS (SPF)")
 
     # For whatever reason we have to force the hatch patterns
     for i in range(len(msf2fs_spf_iops)):
         rects1[i].set_edgecolor("black")
-        rects1[i].set_hatch("xx")
+        rects1[i].set_hatch("-\\")
     for i in range(len(msf2fs_srr_iops)):
         rects2[i].set_edgecolor("black")
         rects2[i].set_hatch("o")
