@@ -17,7 +17,7 @@ Benchmarking Software (other version may also work):
 - fio (version 3.32, git commit: `6b6f52b`)
 - nvme-cli tools (version 2.2.1, git commit: `b7ac8e4`)
 - f2fs-tools (version 1.15.0)
-- RocksDB and db\_bench (version 7.3, git commit: `01fdec2`) from our build with msF2FS hints (available [here](https://github.com/nicktehrany/rocksdb)) - checkout respective branch for the 
+- RocksDB and db\_bench (version 7.3, git commit: `01fdec2`) from our build with msF2FS hints (available [here](https://github.com/nicktehrany/rocksdb)) - checkout respective branch for the different hint integrations
 - ZenFS (version `on master-branch`, git commit: `b04ca0c`)
 - bpftrace (version 0.16, git commit: `ed06d87`)
 - FEMU (version 7.0.0, git commit `ad786ad`)
@@ -67,7 +67,7 @@ We detail the setup used during our evaluation.
     - number of zones: 3,688
     - Max. active zones: 14
 
-**Note,** all benchmarks are setup to match the size requirements of the ZNS device we use. For the file systems it always creates a 19GiB `nullblk` device to store metadata, as this is the minimum size required. If a smaller device is used, simply align the size of the `nullblk` device in each of the scripts inside a function call for creating the device, replace the following (the last number `19456`) to match your setup:
+**Note,** all benchmarks are setup to match the size requirements of the ZNS device we use. For the file systems it always creates a 19GiB `nullblk` device to store metadata, as this is the minimum size required. If a smaller device is used, simply align the size of the `nullblk` device in each of the scripts inside a function call for creating the device, replace the following (the last number `19456` in MiB) to match your setup:
 
 ```bash
 DEV=$(sudo ../nullblk_create 512 19456) 

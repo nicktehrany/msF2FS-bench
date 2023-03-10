@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.ticker as ticker
@@ -362,15 +363,18 @@ def plot_reverse_cdf():
     ax.errorbar(x_f2fs, rcdf_f2fs, label="F2FS", fmt="-", linewidth=1)
     ax.errorbar(x_msf2fs, rcdf_msf2fs, label="msF2FS", fmt="-", linewidth=1)
     
+    plt.rcParams["figure.autolayout"] = True
     fig.tight_layout()
     ax.grid(which='major', linestyle='dashed', linewidth='1')
     ax.set_axisbelow(True)
-    plt.yscale("log")
+    # plt.yscale("log")
+    plt.yscale('symlog', linthresh=1e-4)
     plt.xscale("log")
-    ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda y,pos: ('{{:.{:1d}f}}'.format(int(np.maximum(-np.log10(y),0)))).format(y)))
+    ax.set_yticks([1, 0.1, 0.01, 0.001, 0.0001 , 0])
+    ax.set_yticklabels([1, 0.1, 0.01, 0.001, 0.0001, 0])
+    ax.set_ylim(-0.00001, 1.3)
+    # ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda y,pos: ('{{:.{:1d}f}}'.format(int(np.maximum(-np.log10(y),0)))).format(y)))
     ax.xaxis.set_major_formatter(ticker.FuncFormatter(lambda x,pos: ('{{:.{:1d}f}}'.format(int(np.maximum(-np.log10(x),0)))).format(x)))
-    # ax.set_ylim(0.000001, 1)
-    # ax.set_xlim(0.000001)
     ax.legend(loc='upper right')
     ax.set_ylabel("Fraction of Writes")
     ax.set_xlabel("Average Latency (usec)")
