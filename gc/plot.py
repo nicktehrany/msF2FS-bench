@@ -154,7 +154,7 @@ def plot_tail_latency():
     ax.set_axisbelow(True)
     plt.yscale("log")
     ax.xaxis.set_ticks([1,2,3,4,5])
-    ax.xaxis.set_ticklabels(["99", "99.9", "99.99", "99.999", "100"])
+    ax.xaxis.set_ticklabels(["P99", "P99.9", "P99.99", "P99.999", "P100"])
     ax.legend(loc='best')
     ax.set_xlabel("Percentile")
     ax.set_ylabel("Latency (usec)")
