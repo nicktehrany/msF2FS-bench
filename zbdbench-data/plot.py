@@ -113,7 +113,7 @@ if __name__ == '__main__':
     # Write data
     f2fs_write = [73.795, 51.429]
     msf2fs_spf_write = [70.616, 60.922]
-    msf2fs_spf_e_write = [70.088, 61.304]
+    msf2fs_spf_e_write = [72.195, 63.357]
     msf2fs_amfs_write = [69.910 , 58.985]
     msf2fs_amfs_2_write = [72.624, 61.213]
     zenfs_write = [76.853, 69.010]
@@ -123,7 +123,7 @@ if __name__ == '__main__':
     # Read data
     f2fs_read = [623, 610, 616]
     msf2fs_spf_read = [1222, 998, 959]
-    msf2fs_spf_e_read = [1241, 908, 988]
+    msf2fs_spf_e_read = [1134, 863, 1029]
     msf2fs_amfs_read = [1238 , 892, 965]
     msf2fs_amfs_2_read = [607, 610, 632]
     zenfs_read = [660, 633, 649]
@@ -133,7 +133,7 @@ if __name__ == '__main__':
     # Write Lats
     f2fs_lats = [14.738049, 25.977038]
     msf2fs_spf_lats = [16.053960, 29.752540]
-    msf2fs_spf_e_lats = [16.336175, 30.093575]
+    msf2fs_spf_e_lats = [14.788194, 26.626169]
     msf2fs_amfs_lats = [16.530214, 30.273536]
     msf2fs_amfs_2_lats = [14.794708, 26.753575]
     zenfs_lats = [11.810868, 21.038380]
@@ -143,7 +143,7 @@ if __name__ == '__main__':
     # overwrite Lats
     f2fs_lats = [17.586594, 35.767433]
     msf2fs_spf_lats = [18.232131, 32.566096]
-    msf2fs_spf_e_lats = [18.295121, 32.530118]
+    msf2fs_spf_e_lats = [15.724927, 30.529997]
     msf2fs_amfs_lats = [18.506720, 33.022910]
     msf2fs_amfs_2_lats = [16.239443, 31.420705]
     zenfs_lats = [12.380804, 22.905761]
@@ -153,7 +153,7 @@ if __name__ == '__main__':
     # Read Lats
     f2fs_lats = [416.587603, 2411.761345]
     msf2fs_spf_lats = [417.537183, 12845.643518]
-    msf2fs_spf_e_lats = [509.678358, 13347.479527]
+    msf2fs_spf_e_lats = [484.398275, 16009.673558]
     msf2fs_amfs_lats = [354.073745, 10595.708534]
     msf2fs_amfs_2_lats = [369.250516, 1615.725613]
     zenfs_lats = [361.769158, 10961.3309450]
@@ -163,7 +163,7 @@ if __name__ == '__main__':
     # readwhilewriting Lats
     f2fs_lats = [487.962679, 3344.948109]
     msf2fs_spf_lats = [284.704503, 1141.125387]
-    msf2fs_spf_e_lats = [282.308784, 1236.761199]
+    msf2fs_spf_e_lats = [293.424281, 1306.767882]
     msf2fs_amfs_lats = [300.303559, 1277.891397]
     msf2fs_amfs_2_lats = [428.024368, 1736.942585]
     zenfs_lats = [301.114651, 1127.022575]
@@ -173,7 +173,7 @@ if __name__ == '__main__':
     # readwhilewriting writelimited Lats
     f2fs_lats = [600.258019, 22344.327214]
     msf2fs_spf_lats = [328.609658, 6111.381415]
-    msf2fs_spf_e_lats = [335.965599, 5993.435637]
+    msf2fs_spf_e_lats = [331.991439, 6530.699213]
     msf2fs_amfs_lats = [395.710518, 10509.244370]
     msf2fs_amfs_2_lats = [567.552920, 21702.167793]
     zenfs_lats = [346.995140, 2725.069089]
