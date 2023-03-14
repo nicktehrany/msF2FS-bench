@@ -112,6 +112,7 @@ def plot_iops():
     # ax.errorbar(msf2fs_iops_x, msf2fs_iops, label="msF2FS", fmt="-", linewidth=0.5)
     
     fig.tight_layout()
+    plt.rcParams['figure.figsize'] = [7, 5]
     ax.grid(which='major', linestyle='dashed', linewidth='1')
     ax.set_axisbelow(True)
     ax.legend(loc='upper right')
@@ -150,6 +151,7 @@ def plot_tail_latency():
     ax.errorbar([1,2,3,4,5], msf2fs_lats, label="msF2FS", fmt="-", linewidth=1)
 
     fig.tight_layout()
+    plt.rcParams['figure.figsize'] = [7, 5]
     ax.grid(which='major', linestyle='dashed', linewidth='1')
     ax.set_axisbelow(True)
     plt.yscale("log")
@@ -225,6 +227,7 @@ def plot_latency():
     ax.errorbar(msf2fs_lat_x, msf2fs_lat, label="msF2FS", fmt="-", linewidth=0.5)
     
     fig.tight_layout()
+    plt.rcParams['figure.figsize'] = [7, 5]
     ax.grid(which='major', linestyle='dashed', linewidth='1')
     ax.set_axisbelow(True)
     ax.legend(loc='upper right')
@@ -255,8 +258,12 @@ def plot_reverse_cdf():
     
     ax.errorbar(x_f2fs, rcdf_f2fs, label="F2FS", fmt="-", linewidth=1)
     ax.errorbar(x_msf2fs, rcdf_msf2fs, label="msF2FS", fmt="-", linewidth=1)
+
+    print(x_f2fs[-1])
+    print(x_msf2fs[-1])
     
     fig.tight_layout()
+    plt.rcParams['figure.figsize'] = [7, 5]
     ax.grid(which='major', linestyle='dashed', linewidth='1')
     ax.set_axisbelow(True)
     # plt.yscale("log")

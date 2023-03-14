@@ -148,6 +148,7 @@ def plot_iops():
     # ax.errorbar(msf2fs_iops_x, msf2fs_iops, label="msF2FS", fmt="-", linewidth=0.5)
     
     fig.tight_layout()
+    plt.rcParams['figure.figsize'] = [7, 5]
     ax.grid(which='major', linestyle='dashed', linewidth='1')
     ax.set_axisbelow(True)
     ax.legend(loc='upper right')
@@ -186,6 +187,7 @@ def plot_tail_latency():
     ax.errorbar([1,2,3,4,5], msf2fs_lats, label="msF2FS", fmt="-", linewidth=1)
 
     fig.tight_layout()
+    plt.rcParams['figure.figsize'] = [7, 5]
     ax.grid(which='major', linestyle='dashed', linewidth='1')
     ax.set_axisbelow(True)
     plt.yscale("log")
@@ -260,6 +262,7 @@ def plot_latency_f2fs():
     # ax.errorbar(msf2fs_lat_x, msf2fs_lat, label="msF2FS", fmt="-", linewidth=0.5)
     
     fig.tight_layout()
+    plt.rcParams['figure.figsize'] = [7, 5]
     ax.grid(which='major', linestyle='dashed', linewidth='1')
     ax.set_axisbelow(True)
     ax.legend(loc='upper right')
@@ -332,6 +335,7 @@ def plot_latency_msf2fs():
     # ax.errorbar(msf2fs_lat_x, msf2fs_lat, label="msF2FS", fmt="-", linewidth=0.5)
     
     fig.tight_layout()
+    plt.rcParams['figure.figsize'] = [7, 5]
     ax.grid(which='major', linestyle='dashed', linewidth='1')
     ax.set_axisbelow(True)
     ax.legend(loc='upper right')
@@ -359,11 +363,27 @@ def plot_reverse_cdf():
     for item in sorted_msf2fs_data:
         rcdf_msf2fs.append(sum(x > item for x in msf2fs_lat_data)/len(sorted_msf2fs_data))
     fig, ax = plt.subplots()
+
+    # Print the mean value at .5 fraction of write
+    i = 0
+    for val in rcdf_f2fs:
+        if val <= 0.5:
+            print(f"f2fs mean lat {x_f2fs[i]}")
+            break
+        i+=1
+    i = 0
+    for val in rcdf_msf2fs:
+        if val <= 0.5:
+            print(f"msf2fs mean lat {x_msf2fs[i]}")
+            break
+        i+=1
+
     
     ax.errorbar(x_f2fs, rcdf_f2fs, label="F2FS", fmt="-", linewidth=1)
     ax.errorbar(x_msf2fs, rcdf_msf2fs, label="msF2FS", fmt="-", linewidth=1)
     
     plt.rcParams["figure.autolayout"] = True
+    plt.rcParams['figure.figsize'] = [7, 5]
     fig.tight_layout()
     ax.grid(which='major', linestyle='dashed', linewidth='1')
     ax.set_axisbelow(True)
@@ -372,9 +392,11 @@ def plot_reverse_cdf():
     plt.xscale("log")
     ax.set_yticks([1, 0.1, 0.01, 0.001, 0.0001 , 0])
     ax.set_yticklabels([1, 0.1, 0.01, 0.001, 0.0001, 0])
+    ax.set_xticks([10, 100, 1000, 10000, 100000, 1000000])
+    ax.set_xticklabels(["10usec", "100usec", "1msec", "10msec", "100msec", "1sec"])
     ax.set_ylim(-0.00001, 1.3)
     # ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda y,pos: ('{{:.{:1d}f}}'.format(int(np.maximum(-np.log10(y),0)))).format(y)))
-    ax.xaxis.set_major_formatter(ticker.FuncFormatter(lambda x,pos: ('{{:.{:1d}f}}'.format(int(np.maximum(-np.log10(x),0)))).format(x)))
+    # ax.xaxis.set_major_formatter(ticker.FuncFormatter(lambda x,pos: ('{{:.{:1d}f}}'.format(int(np.maximum(-np.log10(x),0)))).format(x)))
     ax.legend(loc='upper right')
     ax.set_ylabel("Fraction of Writes")
     ax.set_xlabel("Average Latency (usec)")
