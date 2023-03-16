@@ -1,7 +1,7 @@
 # msF2FS-bench
 
 This repo contains the benchmarking scripts, collected data, and plot generation scripts on the evaluation of [msf2fs](https://github.com/nicktehrany/msF2FS). We now detail the contents of this repository and the run instructions for each of the benchmarks.
-This work is a result of my thesis at the TUDelft, the full thesis is available [here](). Consult it for further details on msF2FS and evaluation setup/results. /////TODO LINK
+This work is a result of my thesis at the TUDelft, the full thesis is available [here](https://repository.tudelft.nl/islandora/object/uuid%3A3c2b3e73-6aff-45f3-af43-31a50314b547?collection=education). Consult it for further details on msF2FS and evaluation setup/results.
 
 ## Requirements
 
